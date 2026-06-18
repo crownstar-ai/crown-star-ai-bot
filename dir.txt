@@ -1,0 +1,72 @@
+crown-star-ai-bot/
+├── app/
+│   ├── __init__.py
+│   ├── main.py                    # FastAPI 应用入口
+│   ├── api/
+│   │   ├── __init__.py
+│   │   ├── deps.py                # 依赖注入
+│   │   └── v1/
+│   │       ├── __init__.py
+│   │       ├── router.py          # 路由聚合
+│   │       ├── endpoints/
+│   │       │   ├── __init__.py
+│   │       │   ├── auth.py        # 认证端点
+│   │       │   ├── users.py       # 用户管理
+│   │       │   ├── chat.py        # 对话端点
+│   │       │   ├── admin.py       # 管理端点
+│   │       │   └── health.py      # 健康检查
+│   │       └── schemas/
+│   │           ├── __init__.py
+│   │           ├── auth.py
+│   │           ├── user.py
+│   │           ├── chat.py
+│   │           └── common.py
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── config.py              # 配置管理
+│   │   ├── security.py            # JWT 认证与密码
+│   │   ├── database.py            # 数据库连接
+│   │   ├── logging.py             # 结构化日志
+│   │   ├── exceptions.py          # 全局异常处理
+│   │   └── deeepseek.py           # DeepSeek API 客户端
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── user.py                # 用户模型
+│   │   ├── role.py                # 角色模型
+│   │   ├── permission.py          # 权限模型
+│   │   ├── conversation.py        # 对话记录
+│   │   └── audit_log.py           # 审计日志
+│   ├── services/
+│   │   ├── __init__.py
+│   │   ├── auth_service.py        # 认证服务
+│   │   ├── user_service.py        # 用户服务
+│   │   ├── chat_service.py        # 对话服务
+│   │   ├── admin_service.py       # 管理服务
+│   │   └── audit_service.py       # 审计服务
+│   ├── repositories/
+│   │   ├── __init__.py
+│   │   ├── base.py                # 基础仓储
+│   │   ├── user_repo.py
+│   │   ├── conversation_repo.py
+│   │   └── audit_log_repo.py
+│   └── middlewares/
+│       ├── __init__.py
+│       ├── auth.py                # 认证中间件
+│       ├── logging.py             # 日志中间件
+│       └── rate_limit.py          # 限流中间件
+├── alembic/                        # 数据库迁移
+│   └── versions/
+├── tests/
+│   ├── __init__.py
+│   ├── conftest.py
+│   └── test_api/
+├── scripts/
+│   ├── init_db.py                 # 初始化数据库
+│   └── seed_data.py               # 种子数据
+├── .env.example
+├── .gitignore
+├── requirements.txt
+├── Dockerfile
+├── docker-compose.yml
+├── pyproject.toml
+└── README.md

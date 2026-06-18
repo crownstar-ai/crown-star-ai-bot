@@ -1,0 +1,36 @@
+# Core
+fastapi==0.115.6
+uvicorn[standard]==0.34.1
+pydantic==2.10.4
+pydantic-settings==2.7.0
+python-dotenv==1.0.1
+
+# Database
+sqlalchemy==2.0.37
+asyncpg==0.30.0
+alembic==1.15.1
+
+# Security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.20
+
+# AI / DeepSeek
+openai==1.59.0  # OpenAI 兼容 SDK，>=1.30.0 可用[reference:7]
+
+# Logging
+structlog==25.2.0
+orjson==3.10.15  # 高性能 JSON 序列化[reference:8]
+
+# Utils
+redis==5.2.1
+httpx==0.28.1
+tenacity==9.0.0  # 重试
+
+# Testing
+pytest==8.3.4
+pytest-asyncio==0.24.0
+httpx==0.28.1
+
+# Production
+gunicorn==22.0.0
