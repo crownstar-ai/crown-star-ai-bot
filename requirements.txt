@@ -1,0 +1,15 @@
+# Core Framework
+fastapi==0.115.6
+uvicorn[standard]==0.34.1
+pydantic==2.10.4
+python-dotenv==1.0.1
+
+# AI / DeepSeek (OpenAI-compatible)
+openai>=1.30.0
+
+# Utilities
+requests==2.32.3
+python-multipart==0.0.20
+
+# Production
+gunicorn==22.0.0
