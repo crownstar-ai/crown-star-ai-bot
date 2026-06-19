@@ -1,0 +1,12 @@
+技术社区的朋友们
+
+👑 技术伙伴们，推荐一个开源企业级 AI 平台 – CrownStar
+
+⭐ 深度集成 DeepSeek，可私有化部署
+⭐ 数据完全自主掌控，满足信创要求
+⭐ 基于 FastAPI + SQLAlchemy，架构清晰
+
+项目已在 Gitee 开源评估版，欢迎 Star 和 Fork：
+🔗 https://gitee.com/st3vensben/crown-star-ai-bot
+
+期待您的技术交流与反馈！🙏

@@ -1,0 +1,26 @@
+To: [EMAIL_PLACEHOLDER]
+Subject: 信创合规AI平台推荐：CrownStar
+
+尊敬的[AI负责人]：
+
+尊敬的企业负责人：
+
+我是CrownStar中国区业务团队。在数字化转型浪潮中，贵公司是否在寻找安全、可控、高效的AI解决方案？
+
+CrownStar 企业级主权AI平台提供：
+✅ 100% 私有化部署，数据不出域
+✅ 深度集成国产DeepSeek大模型
+✅ 满足信创合规要求
+✅ 5分钟快速部署，开箱即用
+
+我们的客户包括政府机构、金融、制造等行业头部企业。
+
+欢迎免费体验：https://gitee.com/st3vensben/crown-star-ai-bot
+
+如有兴趣，可随时回复邮件安排产品演示。
+
+祝商祺！
+CrownStar团队
+st3vens.ben@yandex.com
+---
+此邮件发送给[金融科技有限公司]
