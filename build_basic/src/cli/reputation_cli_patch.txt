@@ -1,0 +1,13 @@
+# Add to crownstar_ultra_cli.py:
+# def cmd_trust(self, args):
+#     parts = args.split()
+#     if not parts or parts[0]=="help":
+#         print("Usage: /trust score <entity_id>")
+#         print("       /trust endorse <entity_id> <entity_type> <did> [rating]")
+#         print("       /trust complain <entity_id> <entity_type> <did> [rating]")
+#         print("       /trust attest <entity_id> <type> <did> <rating> [comment]")
+#         print("       /trust attestations <entity_id>")
+#         print("       /trust mint <entity_id> [chain] [uri]")
+#         print("       /trust revoke <token_id>")
+#         print("       /trust aggregate <entity_id>")
+#         return

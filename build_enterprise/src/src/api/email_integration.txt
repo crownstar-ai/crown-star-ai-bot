@@ -1,0 +1,3 @@
+﻿# In crownstar_enterprise_api.py, add:
+# from email.api import router as email_router
+# app.include_router(email_router)

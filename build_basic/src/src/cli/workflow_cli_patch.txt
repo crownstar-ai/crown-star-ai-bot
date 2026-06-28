@@ -1,0 +1,10 @@
+# Add to crownstar_ultra_cli.py:
+# def cmd_workflow(self, args):
+#     parts = args.split()
+#     if not parts or parts[0]=="help":
+#         print("Usage: /workflow create <def_file>")
+#         print("       /workflow trigger <workflow_id> [metadata_json]")
+#         print("       /workflow list")
+#         print("       /workflow instances [workflow_id]")
+#         print("       /workflow status <instance_id>")
+#         return

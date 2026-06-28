@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CrownStar v7.0.1 – Module Control Panel</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: radial-gradient(circle at 10% 20%, #0a0f2a, #03050a); font-family: 'Segoe UI', system-ui; color: #f0e6ff; min-height: 100vh; padding: 20px; }
+        .app-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 340px 1fr; gap: 24px; background: rgba(10,8,20,0.6); backdrop-filter: blur(12px); border-radius: 32px; padding: 20px; border: 1px solid rgba(255,200,100,0.3); }
+        .sidebar { background: rgba(0,0,0,0.4); border-radius: 24px; padding: 20px; }
+        .chat-area { background: rgba(0,0,0,0.3); border-radius: 24px; padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+        h2 { font-size: 1.8rem; margin-bottom: 20px; background: linear-gradient(135deg, #ffcc4d, #ffaa00); -webkit-background-clip: text; color: transparent; }
+        .module-grid { display: flex; flex-direction: column; gap: 8px; max-height: 60vh; overflow-y: auto; margin: 20px 0; }
+        .module-card { background: rgba(255,255,255,0.05); border-radius: 16px; padding: 10px 15px; cursor: pointer; transition: 0.2s; border-left: 3px solid #ffcc4d; }
+        .module-card.active { background: linear-gradient(90deg, #ffcc4d, #ffaa00); color: #0a0c1a; font-weight: bold; border-left-color: #fff; }
+        .module-name { font-size: 0.9rem; font-weight: 500; }
+        .module-desc { font-size: 0.7rem; opacity: 0.8; margin-top: 4px; }
+        .chat-log { background: rgba(0,0,0,0.3); border-radius: 24px; padding: 20px; height: 55vh; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+        .message { max-width: 80%; padding: 12px 18px; border-radius: 24px; word-wrap: break-word; }
+        .user { align-self: flex-end; background: #3b82f6; border-bottom-right-radius: 4px; }
+        .assistant { align-self: flex-start; background: #1e293b; border-bottom-left-radius: 4px; border-left: 3px solid #ffcc4d; }
+        .input-area { display: flex; gap: 12px; }
+        textarea { flex: 1; background: #0f1222; border: 1px solid #ffcc4d; border-radius: 30px; padding: 12px 20px; color: white; font-family: inherit; resize: none; }
+        button { background: #ffcc4d; color: #0a0c1a; border: none; padding: 12px 28px; border-radius: 40px; font-weight: bold; cursor: pointer; transition: 0.2s; }
+        button:hover { background: #ffaa00; transform: scale(1.02); }
+        .settings-panel { margin-top: 20px; border-top: 1px solid rgba(255,200,100,0.3); padding-top: 15px; }
+        select, .settings-panel button { background: #1e293b; border: 1px solid #ffcc4d; border-radius: 20px; padding: 6px 12px; color: white; margin: 5px 0; }
+        .status { font-size: 0.7rem; text-align: center; margin-top: 10px; color: #aaa; }
+    </style>
+</head>
+<body>
+<div class="app-container">
+    <div class="sidebar">
+        <h2>⭐ CrownStar</h2>
+        <div class="module-grid" id="moduleGrid"></div>
+        <div class="settings-panel">
+            <label>Tier: <select id="tierSelect">
+                <option value="free_pay_per_use">Free/Pay‑Per‑Use</option>
+                <option value="basic">Basic ($39)</option>
+                <option value="pro">Professional ($499)</option>
+                <option value="enterprise">Enterprise ($39,999/yr)</option>
+            </select></label><br>
+            <label>Model: <select id="modelSelect"></select></label><br>
+            <button id="saveSettings">Save Settings</button>
+        </div>
+    </div>
+    <div class="chat-area">
+        <div class="chat-log" id="chatLog">
+            <div class="assistant">CrownStar v7.0.1 ready. Toggle any of the 9 mathematical modules below.</div>
+        </div>
+        <div class="input-area">
+            <textarea id="userInput" rows="2" placeholder="Ask or use /commands..."></textarea>
+            <button id="sendBtn">Send</button>
+        </div>
+        <div class="status">Unlimited memory – Semantic search – 9 togglable modules</div>
+    </div>
+</div>
+<script>
+    let modules = {};
+    let models = [];
+    async function loadModules() {
+        const res = await pywebview.api.get_modules();
+        modules = res;
+        renderModules();
+    }
+    function renderModules() {
+        const container = document.getElementById('moduleGrid');
+        container.innerHTML = '';
+        const descriptions = {
+            "base_3layer_jacobian": "Base 3‑Layer & Jacobian sensitivity",
+            "hessian_backprop": "Hessian & Second‑order backprop",
+            "universal_approx": "Universal Approximation Theorem",
+            "gurney_3stage": "Gurney Three‑Stage Neuron",
+            "yegnanarayana_tensor": "Yegnanarayana Tensor Composition",
+            "haykin_recursive": "Haykin Recursive Layers",
+            "bishop_probabilistic": "Bishop Probabilistic View",
+            "zurada_indexed": "Zurada Indexed Notation",
+            "ultra_super_model": "CrownStar Ultra‑Super‑Model"
+        };
+        for (let [name, active] of Object.entries(modules)) {
+            const card = document.createElement('div');
+            card.className = `module-card ${active ? 'active' : ''}`;
+            card.innerHTML = `<div class="module-name">${descriptions[name] || name.replace(/_/g, ' ')}</div>
+                             <div class="module-desc">${active ? '✔ Active' : 'Click to enable'}</div>`;
+            card.onclick = () => toggleModule(name);
+            container.appendChild(card);
+        }
+    }
+    async function toggleModule(name) {
+        const newState = !modules[name];
+        await pywebview.api.toggle_module(name, newState);
+        modules[name] = newState;
+        renderModules();
+        addSystemMessage(`Module ${name.replace(/_/g, ' ')} turned ${newState ? 'ON' : 'OFF'}`);
+    }
+    async function loadModels() {
+        const res = await pywebview.api.list_models();
+        models = res;
+        const select = document.getElementById('modelSelect');
+        select.innerHTML = '';
+        for (let m of models) {
+            const opt = document.createElement('option');
+            opt.value = m;
+            opt.innerText = m;
+            select.appendChild(opt);
+        }
+    }
+    async function sendMessage() {
+        const input = document.getElementById('userInput');
+        const text = input.value.trim();
+        if (!text) return;
+        addMessage('user', text);
+        input.value = '';
+        const tier = document.getElementById('tierSelect').value;
+        const model = document.getElementById('modelSelect').value;
+        await pywebview.api.set_tier(tier);
+        await pywebview.api.set_model(model);
+        const answer = await pywebview.api.chat(text);
+        addMessage('assistant', answer);
+    }
+    function addMessage(role, text) {
+        const log = document.getElementById('chatLog');
+        const div = document.createElement('div');
+        div.className = `message ${role}`;
+        div.innerHTML = `<strong>${role === 'user' ? 'You' : 'CrownStar'}:</strong><br>${text.replace(/\n/g, '<br>')}`;
+        log.appendChild(div);
+        log.scrollTop = log.scrollHeight;
+    }
+    function addSystemMessage(text) {
+        const log = document.getElementById('chatLog');
+        const div = document.createElement('div');
+        div.style.textAlign = 'center';
+        div.style.fontSize = '0.7rem';
+        div.style.color = '#aaa';
+        div.innerText = text;
+        log.appendChild(div);
+        log.scrollTop = log.scrollHeight;
+    }
+    document.getElementById('sendBtn').onclick = sendMessage;
+    document.getElementById('userInput').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+    });
+    document.getElementById('saveSettings').onclick = async () => {
+        const tier = document.getElementById('tierSelect').value;
+        const model = document.getElementById('modelSelect').value;
+        await pywebview.api.set_tier(tier);
+        await pywebview.api.set_model(model);
+        addSystemMessage(`Settings saved: tier = ${tier}, model = ${model}`);
+    };
+    loadModules();
+    loadModels();
+</script>
+</body>
+</html>

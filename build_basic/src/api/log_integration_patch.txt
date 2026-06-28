@@ -1,0 +1,8 @@
+# In crownstar_enterprise_api.py, after creating app:
+# from logging.log_middleware import RequestLogMiddleware
+# from logging.structured_logger import setup_json_logging
+# from logging.log_query_api import router as log_router
+#
+# setup_json_logging()
+# app.add_middleware(RequestLogMiddleware)
+# app.include_router(log_router)

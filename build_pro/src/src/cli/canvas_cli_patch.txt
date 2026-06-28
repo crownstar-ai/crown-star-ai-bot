@@ -1,0 +1,61 @@
+# Add to crownstar_ultra_cli.py:
+# import requests, json, base64
+# def cmd_canvas(self, args):
+#     parts = args.split()
+#     if not parts or parts[0] == "help":
+#         print("Usage: /canvas new [width] [height] [bg]")
+#         print("       /canvas draw <canvas_id> <points_json> <color> <width>")
+#         print("       /canvas undo <canvas_id>")
+#         print("       /canvas generate <prompt> [width] [height]")
+#         print("       /canvas show <canvas_id> [format]")
+#         print("       /canvas embed <canvas_id>")
+#         return
+#     if parts[0] == "new":
+#         w = int(parts[1]) if len(parts)>1 else 800
+#         h = int(parts[2]) if len(parts)>2 else 600
+#         bg = parts[3] if len(parts)>3 else "#ffffff"
+#         resp = requests.post("http://localhost:8080/v1/canvas/create", json={"width":w,"height":h,"background":bg})
+#         print(resp.json())
+#     elif parts[0] == "draw" and len(parts)>=5:
+#         cid = parts[1]
+#         points = json.loads(parts[2])
+#         color = parts[3]
+#         width = int(parts[4])
+#         resp = requests.post("http://localhost:8080/v1/canvas/stroke", json={"canvas_id":cid,"points":points,"color":color,"width":width})
+#         print(resp.json())
+#     elif parts[0] == "undo" and len(parts)>=2:
+#         cid = parts[1]
+#         resp = requests.post(f"http://localhost:8080/v1/canvas/undo/{cid}")
+#         print(resp.json())
+#     elif parts[0] == "generate" and len(parts)>=2:
+#         prompt = parts[1]
+#         w = int(parts[2]) if len(parts)>2 else 800
+#         h = int(parts[3]) if len(parts)>3 else 600
+#         resp = requests.post("http://localhost:8080/v1/canvas/generate", json={"prompt":prompt,"width":w,"height":h})
+#         data = resp.json()
+#         print(f"Canvas ID: {data['canvas_id']}")
+#         if "preview_base64" in data:
+#             with open("canvas_preview.png","wb") as f:
+#                 f.write(base64.b64decode(data["preview_base64"]))
+#             print("Preview saved to canvas_preview.png")
+#     elif parts[0] == "show" and len(parts)>=2:
+#         cid = parts[1]
+#         fmt = parts[2] if len(parts)>2 else "json"
+#         resp = requests.get(f"http://localhost:8080/v1/canvas/{cid}?format={fmt}")
+#         if fmt == "png":
+#             with open(f"canvas_{cid}.png","wb") as f: f.write(resp.content)
+#             print(f"Saved to canvas_{cid}.png")
+#         elif fmt == "svg":
+#             with open(f"canvas_{cid}.svg","w") as f: f.write(resp.text)
+#             print(f"Saved to canvas_{cid}.svg")
+#         else:
+#             print(json.dumps(resp.json(),indent=2))
+#     elif parts[0] == "embed" and len(parts)>=2:
+#         cid = parts[1]
+#         resp = requests.get(f"http://localhost:8080/v1/canvas/embedding/{cid}")
+#         data = resp.json()
+#         print(f"Embedding dimension: {data['dimension']}")
+#         print(f"First 10 values: {data['embedding'][:10]}")
+#     else:
+#         print("Unknown canvas command")
+# Then register: "/canvas": self.cmd_canvas

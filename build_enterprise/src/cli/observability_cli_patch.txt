@@ -1,0 +1,38 @@
+# Add to crownstar_ultra_cli.py:
+# def cmd_trace(self, args):
+#     from observability.tracing import get_current_trace_id, get_tracer
+#     parts = args.split()
+#     if parts and parts[0] == "id":
+#         trace_id = get_current_trace_id()
+#         print(f"Current trace ID: {trace_id or 'None'}")
+#     elif parts and parts[0] == "test":
+#         tracer = get_tracer()
+#         if tracer:
+#             with tracer.start_as_current_span("cli_test_span"):
+#                 print("Test trace span created – check Jaeger UI")
+#         else:
+#             print("Tracing not enabled")
+#     else:
+#         print("Usage: /trace [id|test]")
+#
+# def cmd_profile(self, args):
+#     import subprocess
+#     import os
+#     parts = args.split()
+#     if parts and parts[0] == "start":
+#         from observability.profiling import start_py_spy
+#         proc = start_py_spy()
+#         if proc:
+#             print("Profiling started (60 seconds). Results in data/profiles/flamegraph.svg")
+#     elif parts and parts[0] == "heap":
+#         import tracemalloc
+#         tracemalloc.start()
+#         snapshot = tracemalloc.take_snapshot()
+#         top = snapshot.statistics('lineno')[:10]
+#         for stat in top:
+#             print(f"{stat.traceback.format()[-1]}: {stat.size/1024:.1f} KiB")
+#         tracemalloc.stop()
+#     else:
+#         print("Usage: /profile [start|heap]")
+#
+# Then add "/trace": self.cmd_trace, "/profile": self.cmd_profile to commands dict.

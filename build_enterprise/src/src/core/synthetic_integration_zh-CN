@@ -1,0 +1,13 @@
+[翻译占位] # In crownstar_core.py, add method:
+# from synthetic.service import get_synth
+# def seed_synthetic_conversations(self, count: int = 10, user_id: str = "seed_user"):
+#     synth = get_synth()
+#     with open("src/synthetic/schemas/conversation.json", "r") as f:
+#         schema = json.load(f)
+#     for _ in range(count):
+#         conv = synth.generate_object(schema)
+#         conv["user_id"] = user_id
+#         self.answer(conv["query"])
+#         # The answer method already stores conversation in memory
+#     log.info(f"Seeded {count} synthetic conversations for user {user_id}")
+

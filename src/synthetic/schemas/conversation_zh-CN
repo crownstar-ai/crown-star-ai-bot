@@ -1,0 +1,11 @@
+[翻译占位] {
+    "conversation_id": "uuid",
+    "user_id": "uuid",
+    "timestamp": "datetime",
+    "query": {"type": "text", "params": {"sentences": 2}},
+    "response": {"type": "text", "params": {"sentences": 4}},
+    "modules_active": {"type": "array", "params": {"count": 3, "item_type": "choice", "item_params": {"choices": ["base_3layer_jacobian", "ultra_super_model", "gurney_3stage"]}}},
+    "latency_ms": {"type": "int", "params": {"min": 50, "max": 2000}},
+    "tier": "choice"
+}
+

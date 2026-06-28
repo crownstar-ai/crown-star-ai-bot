@@ -1,0 +1,4 @@
+[翻译占位] # In crownstar_enterprise_api.py, add:
+# from serverless.api import router as sls_router
+# app.include_router(sls_router)
+

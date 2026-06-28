@@ -1,0 +1,4 @@
+[翻译占位] # In crownstar_enterprise_api.py, add:
+# from collaboration.room_api import router as room_router
+# app.include_router(room_router)
+

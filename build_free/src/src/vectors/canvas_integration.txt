@@ -1,0 +1,1 @@
+# Store canvas embeddings in vector DB for similarity search

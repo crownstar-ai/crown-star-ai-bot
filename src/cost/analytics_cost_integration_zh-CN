@@ -1,0 +1,8 @@
+[翻译占位] # Extend cost optimizer to use anomaly detection for cost spikes
+# In cost/optimizer/optimizer.py:
+# from analytics.core import get_monitor, MetricPoint
+# def check_cost_anomaly(self, daily_cost):
+#     monitor = get_monitor()
+#     monitor.collector.record(MetricPoint("cost.daily", daily_cost, int(time.time()), {}))
+#     # Anomaly detection will automatically flag if cost spikes
+

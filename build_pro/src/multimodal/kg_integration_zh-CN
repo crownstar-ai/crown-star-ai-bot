@@ -1,0 +1,4 @@
+[翻译占位] # Extend multi‑modal pipeline to add extracted entities to knowledge graph
+# In multimodal/core.py MultiModalSearch, after indexing an image, run entity extraction (e.g., using CLIP + object detection)
+# Then call kg_manager.add_entity() and kg_manager.add_relation() to populate graph
+

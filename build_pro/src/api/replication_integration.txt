@@ -1,0 +1,7 @@
+# In crownstar_enterprise_api.py, add:
+# from replication.api import router as rep_router
+# from replication.service import get_replication_service
+# app.include_router(rep_router)
+# # Start replication service on startup
+# rep_service = get_replication_service()
+# rep_service.start()

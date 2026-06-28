@@ -1,0 +1,53 @@
+[翻译占位] # Add to crownstar_ultra_cli.py:
+# import requests
+# import json
+# def cmd_lineage(self, args):
+#     parts = args.split()
+#     if not parts or parts[0] == "help":
+#         print("Usage: /lineage graph <dataset|job> <name>")
+#         print("       /lineage search <query>")
+#         print("       /lineage event <job_name>")
+#         return
+#     if parts[0] == "graph" and len(parts) >= 3:
+#         typ = parts[1]  # dataset or job
+#         name = parts[2]
+#         if typ == "dataset":
+#             url = f"http://localhost:8080/v1/lineage/graph/dataset/{name}"
+#         else:
+#             url = f"http://localhost:8080/v1/lineage/graph/job/{name}"
+#         resp = requests.get(url)
+#         print(json.dumps(resp.json(), indent=2))
+#     elif parts[0] == "search" and len(parts) >= 2:
+#         q = " ".join(parts[1:])
+#         resp = requests.get(f"http://localhost:8080/v1/lineage/search?q={q}")
+#         print(json.dumps(resp.json(), indent=2))
+#     elif parts[0] == "event" and len(parts) >= 2:
+#         job = parts[1]
+#         payload = {"event_type": "START", "job_name": job}
+#         resp = requests.post("http://localhost:8080/v1/lineage/events", json=payload)
+#         print(resp.json())
+#     else:
+#         print("Unknown lineage command")
+#
+# def cmd_governance(self, args):
+#     parts = args.split()
+#     if not parts or parts[0] == "help":
+#         print("Usage: /governance policies")
+#         print("       /governance retention apply")
+#         print("       /governance anonymize <text>")
+#         return
+#     if parts[0] == "policies":
+#         resp = requests.get("http://localhost:8080/v1/lineage/governance/policies")
+#         print(json.dumps(resp.json(), indent=2))
+#     elif parts[0] == "retention" and len(parts) >= 2 and parts[1] == "apply":
+#         resp = requests.post("http://localhost:8080/v1/lineage/governance/retention/apply")
+#         print(resp.json())
+#     elif parts[0] == "anonymize" and len(parts) >= 2:
+#         text = " ".join(parts[1:])
+#         resp = requests.post(f"http://localhost:8080/v1/lineage/governance/anonymize?text={text}")
+#         print(resp.json())
+#     else:
+#         print("Unknown governance command")
+#
+# Then add "/lineage": self.cmd_lineage, "/governance": self.cmd_governance to commands dict.
+

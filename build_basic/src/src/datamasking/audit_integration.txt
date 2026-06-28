@@ -1,0 +1,11 @@
+﻿# In datamasking/masking/mask_service.py, after masking, log to audit:
+# from audit.audit_service import get_audit_service, AuditEvent
+# audit = get_audit_service()
+# audit.log(AuditEvent(
+#     event_type="data_masking",
+#     user_id=current_user,
+#     tenant_id=tenant,
+#     resource="pii",
+#     action="mask",
+#     details={"field_type": field_type, "role": role}
+# ))

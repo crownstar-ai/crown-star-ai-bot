@@ -1,0 +1,4 @@
+# In analytics/core.py MetricsCollector add:
+# from security_model.core import get_sec_manager
+# mgr = get_sec_manager()
+# # Record robustness score if available

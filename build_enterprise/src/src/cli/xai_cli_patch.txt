@@ -1,0 +1,46 @@
+# Add to crownstar_ultra_cli.py:
+# import requests, json
+# def cmd_xai(self, args):
+#     parts = args.split()
+#     if not parts or parts[0] == "help":
+#         print("Usage: /xai shap <model_id> <version> <input_json> [feature_names]")
+#         print("       /xai lime <model_id> <version> <instance_json> [feature_names]")
+#         print("       /xai ig <model_id> <version> <input_json> [target]")
+#         print("       /xai get <exp_id>")
+#         return
+#     if parts[0] == "shap" and len(parts) >= 4:
+#         model_id = parts[1]
+#         version = parts[2]
+#         input_data = json.loads(parts[3])
+#         feat_names = parts[4].split(",") if len(parts) > 4 else None
+#         resp = requests.post("http://localhost:8080/v1/xai/shap", json={"model_id": model_id, "version_id": version, "input_data": input_data, "feature_names": feat_names})
+#         data = resp.json()
+#         print(f"Explanation {data['explanation_id']}")
+#         for imp in data.get("importances", [])[:10]:
+#             print(f"  {imp['feature_name']}: {imp['importance']:.3f} ({imp['direction']})")
+#     elif parts[0] == "lime" and len(parts) >= 4:
+#         model_id = parts[1]
+#         version = parts[2]
+#         instance = json.loads(parts[3])
+#         feat_names = parts[4].split(",") if len(parts) > 4 else None
+#         resp = requests.post("http://localhost:8080/v1/xai/lime", json={"model_id": model_id, "version_id": version, "input_instance": instance, "feature_names": feat_names})
+#         data = resp.json()
+#         print(f"Explanation {data['explanation_id']}")
+#         for imp in data.get("importances", []):
+#             print(f"  {imp['feature_name']}: {imp['importance']:.3f} ({imp['direction']})")
+#     elif parts[0] == "ig" and len(parts) >= 4:
+#         model_id = parts[1]
+#         version = parts[2]
+#         input_tensor = json.loads(parts[3])
+#         target = int(parts[4]) if len(parts) > 4 else None
+#         resp = requests.post("http://localhost:8080/v1/xai/integrated_gradients", json={"model_id": model_id, "version_id": version, "input_tensor": input_tensor, "target_class": target})
+#         data = resp.json()
+#         print(f"Explanation {data['explanation_id']}")
+#         for a in data.get("attributions", [])[:20]:
+#             print(f"  {a['feature_name']}: {a['importance']:.3f} ({a['direction']})")
+#     elif parts[0] == "get" and len(parts) >= 2:
+#         exp_id = parts[1]
+#         resp = requests.get(f"http://localhost:8080/v1/xai/explanation/{exp_id}")
+#         print(json.dumps(resp.json(), indent=2))
+#     else:
+#         print("Unknown xai command")

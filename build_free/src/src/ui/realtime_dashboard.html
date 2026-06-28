@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CrownStar Real-Time Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: monospace; background: #0a0a14; color: #f0f0f5; margin: 0; padding: 20px; }
+        .metric-card { background: #1e1e2e; border-radius: 12px; padding: 15px; margin: 10px; display: inline-block; min-width: 200px; }
+        .anomaly { background: #8b0000; color: white; }
+        .healthy { background: #006400; }
+        canvas { max-height: 300px; }
+    </style>
+</head>
+<body>
+    <h1>CrownStar Real-Time Analytics Dashboard</h1>
+    <div id="metrics"></div>
+    <div id="anomalies"></div>
+    <canvas id="cpuChart" width="400" height="200"></canvas>
+    <script>
+        let ws;
+        let cpuData = [];
+        function connect() {
+            ws = new WebSocket("ws://localhost:8080/v1/analytics/stream");
+            ws.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                updateMetrics(data.metrics);
+                updateAnomalies(data.anomalies);
+                updateChart(data.metrics);
+            };
+            ws.onclose = () => setTimeout(connect, 3000);
+        }
+        function updateMetrics(metrics) {
+            const container = document.getElementById('metrics');
+            container.innerHTML = '';
+            for (const [name, points] of Object.entries(metrics)) {
+                if (points.length === 0) continue;
+                const latest = points[points.length-1].value;
+                const div = document.createElement('div');
+                div.className = 'metric-card';
+                div.innerHTML = `<strong>${name}</strong><br>${latest.toFixed(2)}`;
+                container.appendChild(div);
+            }
+        }
+        function updateAnomalies(anomalies) {
+            const container = document.getElementById('anomalies');
+            container.innerHTML = '<h2>Recent Anomalies</h2>';
+            anomalies.forEach(a => {
+                const div = document.createElement('div');
+                div.className = 'metric-card anomaly';
+                div.innerHTML = `<strong>${a.metric_name}</strong><br>Value: ${a.value.toFixed(2)}<br>Expected: [${a.expected_range[0].toFixed(2)}, ${a.expected_range[1].toFixed(2)}]<br>Severity: ${a.severity}`;
+                container.appendChild(div);
+            });
+        }
+        function updateChart(metrics) {
+            const cpuPoints = metrics['system.cpu.percent'] || [];
+            cpuData = cpuPoints.map(p => p.value);
+            const ctx = document.getElementById('cpuChart').getContext('2d');
+            if (window.cpuChart) window.cpuChart.destroy();
+            window.cpuChart = new Chart(ctx, {
+                type: 'line',
+                data: { datasets: [{ label: 'CPU %', data: cpuData, borderColor: 'gold' }] }
+            });
+        }
+        connect();
+    </script>
+</body>
+</html>

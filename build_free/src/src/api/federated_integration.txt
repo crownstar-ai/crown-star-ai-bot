@@ -1,0 +1,3 @@
+# In crownstar_enterprise_api.py, add:
+# from federated.api import router as fed_router
+# app.include_router(fed_router)

@@ -1,0 +1,9 @@
+# Extend chaos platform to inject synthetic anomalies for testing
+# Add to chaos/orchestrator/orchestrator.py:
+# from analytics.core import get_monitor
+# def inject_anomaly(self, metric_name, value, duration=60):
+#     monitor = get_monitor()
+#     # Temporarily inject fake metric point
+#     import time
+#     monitor.collector.record(MetricPoint(metric_name, value, int(time.time()), {"source": "chaos"}))
+#     return {"injected": True, "metric": metric_name, "value": value}

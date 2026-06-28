@@ -1,0 +1,18 @@
+[翻译占位] # Extend cost optimizer to account for federated training rounds
+# In cost/optimizer/optimizer.py:
+# from federated.server import get_fed_server
+# def record_federated_round_cost(self, round_id, num_clients, total_samples):
+#     # Assume each client consumes compute equal to samples * model size
+#     estimated_hours = total_samples / 10000.0
+#     self.metrics_queue.put(ResourceMetrics(
+#         resource_id=f"federated_round_{round_id}",
+#         resource_type="compute",
+#         provider="federated",
+#         region="distributed",
+#         hourly_cost=estimated_hours * 0.05,
+#         utilization_cpu=0.8,
+#         utilization_memory=0.5,
+#         utilization_disk=0,
+#         timestamp=int(time.time())
+#     ))
+

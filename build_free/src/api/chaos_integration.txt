@@ -1,0 +1,5 @@
+# In crownstar_enterprise_api.py, add:
+# from chaos.middleware import ChaosMiddleware
+# from chaos.api import router as chaos_router
+# app.add_middleware(ChaosMiddleware)  # add before other middlewares
+# app.include_router(chaos_router)

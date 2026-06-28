@@ -1,0 +1,1 @@
+# AutoML chaos integration – simulate trial failures

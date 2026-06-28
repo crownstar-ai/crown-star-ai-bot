@@ -1,0 +1,12 @@
+﻿# In crownstar_enterprise_api.py, add:
+# from apiversioning.middleware.version_middleware import VersionMiddleware
+# from apiversioning.handlers.versioned_handlers import include_versioned_routers
+# from apiversioning.management_api import router as version_mgmt_router
+# import json
+# with open("config/apiversioning/versions.json") as f:
+#     vconfig = json.load(f)
+# app.add_middleware(VersionMiddleware, strategy=vconfig["versioning"]["strategy"])
+# include_versioned_routers(app)
+# app.include_router(version_mgmt_router)
+#
+# Also, modify existing endpoints to be version‑agnostic or move them to versioned handlers.

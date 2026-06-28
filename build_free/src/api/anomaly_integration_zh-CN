@@ -1,0 +1,9 @@
+[翻译占位] # In crownstar_enterprise_api.py, add:
+# from anomaly.api import router as anomaly_router
+# from anomaly.monitoring_daemon import get_monitoring_daemon
+# app.include_router(anomaly_router)
+# # Optionally start daemon on startup (if enabled)
+# import os
+# if os.environ.get("ANOMALY_DAEMON_ENABLED", "false").lower() == "true":
+#     get_monitoring_daemon().start()
+

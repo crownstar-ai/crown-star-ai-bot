@@ -1,0 +1,10 @@
+[翻译占位] # Add to crownstar_core.py (near top): from nlp.service import nlp
+# In answer() method, after receiving user input:
+#   sentiment = await nlp.analyze_sentiment(user_input)
+#   self.last_sentiment = sentiment
+#   # Optionally adapt response based on sentiment (store in context)
+# Also add method: async def summarize_conversation(self, conversation_id: int) -> str:
+#   history = self.memory.get_full_history(limit=50)
+#   text = "\n".join([f"User: {h['user']}\nAssistant: {h['assistant']}" for h in history[-10:]])
+#   return await nlp.summarize(text, max_length=200)
+

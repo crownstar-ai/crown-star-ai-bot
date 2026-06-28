@@ -1,0 +1,8 @@
+[翻译占位] # In analytics/core.py MetricsCollector add:
+# from knowledge.core import get_kg_manager
+# mgr = get_kg_manager()
+# stats = mgr.get_graph_stats()
+# self.record(MetricPoint("knowledge.entities", stats["entities"], now, {}))
+# self.record(MetricPoint("knowledge.relations", stats["relations"], now, {}))
+# self.record(MetricPoint("knowledge.embedded", stats["embedded_entities"], now, {}))
+

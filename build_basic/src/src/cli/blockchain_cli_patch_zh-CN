@@ -1,0 +1,14 @@
+[翻译占位] # Add to crownstar_ultra_cli.py:
+# def cmd_chain(self, args):
+#     parts = args.split()
+#     if not parts or parts[0]=="help":
+#         print("Usage: /chain balance <address> [chain]")
+#         print("       /chain send <to> <value> [chain] [data]")
+#         print("       /chain call <contract> <function> <args_json> [chain]")
+#         print("       /chain deploy <bytecode_file> <abi_file> [args_json] [chain]")
+#         print("       /chain erc20 transfer <contract> <to> <amount> [chain]")
+#         print("       /chain erc20 balance <contract> <address> [chain]")
+#         print("       /chain nft mint <contract> <to> <uri> [chain]")
+#         print("       /chain oracle price <pair> [chain]")
+#         return
+

@@ -1,0 +1,4 @@
+# Add to chaos/orchestrator/orchestrator.py:
+# def corrupt_compressed_model(self, model_path, corruption_rate=0.01):
+#     # Randomly flip bits in quantised weights
+#     return {"corrupted": model_path, "rate": corruption_rate}

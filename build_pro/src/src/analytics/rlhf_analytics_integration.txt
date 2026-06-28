@@ -1,0 +1,5 @@
+# In analytics/core.py MetricsCollector add:
+# from rlhf.core import get_rlhf_manager
+# mgr = get_rlhf_manager()
+# accuracy = mgr.evaluate_reward_model([]).get("accuracy", 0)
+# self.record(MetricPoint("rlhf.reward_accuracy", accuracy, now, {}))

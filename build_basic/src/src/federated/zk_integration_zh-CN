@@ -1,0 +1,12 @@
+[翻译占位] # Extend federated server to require ZK proofs from clients
+# In federated/server.py:
+# from zk.core import get_zk_verifier
+# def verify_client_update(self, update, proof):
+#     verifier = get_zk_verifier()
+#     result = verifier.verify(proof)
+#     if not result.valid:
+#         logger.warning(f"Client {update.client_id} submitted invalid proof")
+#         return False
+#     return True
+# Then call before accepting update.
+

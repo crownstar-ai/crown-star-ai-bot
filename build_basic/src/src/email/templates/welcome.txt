@@ -1,0 +1,3 @@
+﻿Welcome, {{ name }}!
+Thank you for joining CrownStar. Your tier is {{ tier }}.
+Get started: {{ dashboard_url }}

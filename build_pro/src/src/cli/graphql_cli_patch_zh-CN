@@ -1,0 +1,11 @@
+[翻译占位] # Add to crownstar_ultra_cli.py:
+# def cmd_graphql(self, args):
+#     parts = args.split()
+#     if not parts or parts[0]=="help":
+#         print("Usage: /graphql subgraph add <name> <url> <schema_file> [--active]")
+#         print("       /graphql subgraph list")
+#         print("       /graphql supergraph")
+#         print("       /graphql query <query_file> [variables_file]")
+#         print("       /graphql gateway status")
+#         return
+

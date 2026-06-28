@@ -1,0 +1,7 @@
+[翻译占位] # In analytics/core.py MetricsCollector add:
+# from multimodal.core import get_mm_manager
+# mgr = get_mm_manager()
+# # Record index size
+# stats = mgr.vector_manager.get_stats(mgr.search_engine.index_name)
+# self.record(MetricPoint("multimodal.index_size", stats.get("total_vectors", 0), now, {}))
+

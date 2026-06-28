@@ -1,0 +1,48 @@
+# Add to crownstar_ultra_cli.py:
+# from scaling.predictive.predictive_scaler import get_predictive_scaler
+# from scaling.cost.cost_optimizer import get_cost_optimizer
+# from scaling.cost.spot_handler import get_spot_handler
+#
+# def cmd_scaling(self, args):
+#     scaler = get_predictive_scaler()
+#     parts = args.split()
+#     if not parts or parts[0] == "status":
+#         rec = scaler.get_recommendation()
+#         print(f"Current load: {rec['current_load']:.2f}")
+#         print(f"Current replicas: {rec['current_replicas']}")
+#         print(f"Predicted load (15m): {rec['predicted_load_15min']:.2f}")
+#         print(f"Recommended replicas: {rec['recommended_replicas']}")
+#         print(f"Action: {rec['scaling_action']}")
+#     elif parts[0] == "predict":
+#         pred = scaler.predictor.predict()
+#         print(f"Predicted load in 15 minutes: {pred:.2f}")
+#     else:
+#         print("Usage: /scaling status|predict")
+#
+# def cmd_cost(self, args):
+#     optimizer = get_cost_optimizer()
+#     parts = args.split()
+#     if not parts or parts[0] == "status":
+#         report = optimizer.generate_optimization_report()
+#         print(f"Is idle: {report['is_idle']}")
+#         print(f"Idle minutes: {report['idle_minutes']}")
+#         print(f"Rightsizing enabled: {report['rightsizing_enabled']}")
+#         print(f"Spot fallback enabled: {report['spot_fallback_enabled']}")
+#     elif parts[0] == "rightsize":
+#         # Simulate recommendation
+#         rec = optimizer.get_rightsizing_recommendation(0.15, 0.4)
+#         print(f"Recommendation: scale_down_cpu={rec['scale_down_cpu']}, reason={rec['reason']}")
+#     else:
+#         print("Usage: /cost status|rightsize")
+#
+# def cmd_spot(self, args):
+#     handler = get_spot_handler()
+#     if not handler._hook_installed:
+#         handler.install_handlers()
+#         print("Spot interruption handlers installed")
+#     if args == "status":
+#         print(f"Interruption notified: {handler.is_interrupted()}")
+#     else:
+#         print("Usage: /spot install|status")
+#
+# Then add to commands dict: "/scaling": self.cmd_scaling, "/cost": self.cmd_cost, "/spot": self.cmd_spot

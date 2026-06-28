@@ -1,0 +1,8 @@
+# In crownstar_enterprise_api.py, add:
+# from remediation.api import router as remediation_router
+# from remediation.engine.engine import get_remediation_engine
+# app.include_router(remediation_router)
+# # Optionally start background remediation loop (if not already running)
+# if os.environ.get("REMEDIATION_ENABLED", "true").lower() == "true":
+#     engine = get_remediation_engine()
+#     engine.start_periodic()

@@ -1,0 +1,41 @@
+﻿# Add to crownstar_ultra_cli.py:
+# import requests
+# import json
+# def cmd_api_version(self, args):
+#     parts = args.split()
+#     if not parts or parts[0] == "help":
+#         print("Usage: /api version list")
+#         print("       /api version deprecate <version> <YYYY-MM-DD>")
+#         print("       /api version sunset <version> <YYYY-MM-DD>")
+#         print("       /api version set-default <version>")
+#         return
+#     if parts[0] == "list":
+#         resp = requests.get("http://localhost:8080/v1/api-versioning/versions")
+#         data = resp.json()
+#         print("API Versions:")
+#         for v in data.get("versions", []):
+#             status_emoji = {"current": "✅", "deprecated": "⚠️", "sunset": "❌"}.get(v["status"], "❓")
+#             print(f"  {status_emoji} {v['version']} ({v['status']}) – introduced: {v['introduced_at']}")
+#             if v.get("deprecated_at"):
+#                 print(f"      deprecated: {v['deprecated_at']}")
+#             if v.get("sunset_at"):
+#                 print(f"      sunset: {v['sunset_at']}")
+#         print(f"Default version: {data['default_version']}")
+#     elif parts[0] == "deprecate" and len(parts) >= 3:
+#         version = parts[1]
+#         deprecation_date = parts[2]
+#         resp = requests.post("http://localhost:8080/v1/api-versioning/versions/deprecate", json={"version": version, "deprecation_date": deprecation_date})
+#         print(resp.json())
+#     elif parts[0] == "sunset" and len(parts) >= 3:
+#         version = parts[1]
+#         sunset_date = parts[2]
+#         resp = requests.post("http://localhost:8080/v1/api-versioning/versions/sunset", json={"version": version, "sunset_date": sunset_date})
+#         print(resp.json())
+#     elif parts[0] == "set-default" and len(parts) >= 2:
+#         version = parts[1]
+#         resp = requests.post("http://localhost:8080/v1/api-versioning/versions/default", json={"version": version})
+#         print(resp.json())
+#     else:
+#         print("Unknown api version command")
+#
+# Then add "/api": self.cmd_api_version to commands dict (or separate)

@@ -1,0 +1,39 @@
+﻿# Add to crownstar_ultra_cli.py:
+# import requests
+# import json
+# def cmd_email(self, args):
+#     parts = args.split()
+#     if not parts or parts[0] == "help":
+#         print("Usage: /email send <to> <subject> <body> [--template <name>] [--html]")
+#         print("       /email template list")
+#         print("       /email queue status")
+#         print("       /email queue retry")
+#         return
+#     if parts[0] == "send" and len(parts) >= 4:
+#         to = parts[1]
+#         subject = parts[2]
+#         body = " ".join(parts[3:]).split("--template")[0].strip()
+#         payload = {"to": [to], "subject": subject}
+#         if "--template" in args:
+#             idx = args.index("--template")
+#             template = args[idx+1]
+#             payload["template_name"] = template
+#             payload["template_data"] = {"body": body}
+#         else:
+#             payload["html_content"] = body
+#         resp = requests.post("http://localhost:8080/v1/email/send", json=payload)
+#         print(resp.json())
+#     elif parts[0] == "template" and len(parts) >= 2 and parts[1] == "list":
+#         resp = requests.get("http://localhost:8080/v1/email/templates")
+#         print("Available templates:", resp.json().get("templates", []))
+#     elif parts[0] == "queue" and len(parts) >= 2:
+#         if parts[1] == "status":
+#             resp = requests.get("http://localhost:8080/v1/email/queue/status")
+#             print(json.dumps(resp.json(), indent=2))
+#         elif parts[1] == "retry":
+#             resp = requests.post("http://localhost:8080/v1/email/queue/retry")
+#             print(resp.json())
+#     else:
+#         print("Unknown email command")
+#
+# Then add "/email": self.cmd_email to commands dict.

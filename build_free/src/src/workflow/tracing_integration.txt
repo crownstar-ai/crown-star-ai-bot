@@ -1,0 +1,1 @@
+# Workflow tracing integration: wrap task executions with spans

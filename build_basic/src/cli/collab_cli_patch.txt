@@ -1,0 +1,21 @@
+# Add to crownstar_ultra_cli.py (or separate)
+# Import WebSocket client for rooms
+# async def cmd_room(self, args):
+#     parts = args.split()
+#     if len(parts) < 1: print("Usage: /room list|create <name>|join <room_id>|leave|state")
+#     service = get_room_service()
+#     if parts[0] == "list":
+#         rooms = service.list_rooms()
+#         for r in rooms:
+#             print(f"{r['room_id']}: {r['name']} (owner: {r['owner_id']})")
+#     elif parts[0] == "create" and len(parts)>=2:
+#         room_id = service.create_room(parts[1], "cli_user")
+#         print(f"Room created: {room_id}")
+#     elif parts[0] == "join" and len(parts)>=2:
+#         service.join_room(parts[1], "cli_user")
+#         print(f"Joined room {parts[1]}")
+#     elif parts[0] == "leave":
+#         # would need current room tracking
+#         print("Use /leave within room session")
+#
+# Also add interactive room mode: /room enter <room_id> to start WebSocket session

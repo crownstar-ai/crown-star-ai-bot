@@ -1,0 +1,40 @@
+[翻译占位] # Add to crownstar_ultra_cli.py:
+# import requests, json
+# def cmd_data(self, args):
+#     parts = args.split()
+#     if not parts or parts[0] == "help":
+#         print("Usage: /data query <sql>                     – execute SQL query")
+#         print("       /data sources                         – list data sources")
+#         print("       /data schema <source>                 – show schema")
+#         print("       /data cache clear                     – clear query cache")
+#         print("       /data add <name> <type> <params>      – add source")
+#         return
+#     if parts[0] == "query":
+#         sql = " ".join(parts[1:])
+#         resp = requests.post("http://localhost:8080/v1/data/query", json={"sql": sql})
+#         data = resp.json()
+#         if "rows" in data:
+#             print(f"Query {data['query_id']} returned {data['row_count']} rows in {data['execution_time_ms']:.2f}ms")
+#             for row in data['rows'][:10]:
+#                 print(row)
+#         else:
+#             print(resp.json())
+#     elif parts[0] == "sources":
+#         resp = requests.get("http://localhost:8080/v1/data/sources")
+#         print(json.dumps(resp.json(), indent=2))
+#     elif parts[0] == "schema" and len(parts) >= 2:
+#         source = parts[1]
+#         resp = requests.get(f"http://localhost:8080/v1/data/schema/{source}")
+#         print(json.dumps(resp.json(), indent=2))
+#     elif parts[0] == "cache" and parts[1] == "clear":
+#         resp = requests.post("http://localhost:8080/v1/data/cache/clear")
+#         print(resp.json())
+#     elif parts[0] == "add" and len(parts) >= 4:
+#         name, typ = parts[1], parts[2]
+#         params = json.loads(parts[3])
+#         resp = requests.post("http://localhost:8080/v1/data/sources", json={"name": name, "type": typ, "connection_params": params})
+#         print(resp.json())
+#     else:
+#         print("Unknown data command")
+# Then register: "/data": self.cmd_data
+

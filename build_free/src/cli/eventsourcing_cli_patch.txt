@@ -1,0 +1,15 @@
+﻿# Add to crownstar_ultra_cli.py:
+# def cmd_event(self, args):
+#     parts = args.split()
+#     if not parts or parts[0] == "help":
+#         print("Usage: /event list | /event config")
+#         return
+#     if parts[0] == "list":
+#         import requests, json
+#         resp = requests.get("http://localhost:8080/v1/cqrs/conversations")
+#         print(json.dumps(resp.json(), indent=2)[:500])
+#     elif parts[0] == "config":
+#         import requests, json
+#         resp = requests.get("http://localhost:8080/v1/cqrs/config")
+#         print(json.dumps(resp.json(), indent=2))
+# Then add "/event": self.cmd_event to commands dict.

@@ -1,0 +1,7 @@
+[翻译占位] # In analytics/core.py MetricsCollector add:
+# from vectors.core import get_vector_manager
+# for name, idx in mgr.indexes.items():
+#     stats = idx.get_index_stats()
+#     self.record(MetricPoint(f"vectors.{name}.size", stats.get("total_vectors", 0), now, {}))
+# Also record query latency (would be collected from API calls)
+

@@ -1,0 +1,1 @@
+# ZK blockchain integration: on‑chain verifier for ZK proofs

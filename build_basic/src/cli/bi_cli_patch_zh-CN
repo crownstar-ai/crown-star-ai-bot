@@ -1,0 +1,50 @@
+[翻译占位] # Add to crownstar_ultra_cli.py:
+# from bi.service import get_bi_service
+# from bi.scheduler import get_bi_scheduler
+# import json
+# def cmd_bi(self, args):
+#     parts = args.split()
+#     if not parts or parts[0] == "help":
+#         print("Usage: /bi export <start> <end> [csv|json|excel] | /bi sync | /bi dashboard | /bi schedule start|stop")
+#         return
+#     svc = get_bi_service()
+#     if parts[0] == "export" and len(parts) >= 3:
+#         start = parts[1]
+#         end = parts[2]
+#         fmt = parts[3] if len(parts) > 3 else "csv"
+#         out = f"data/bi/exports/export_{start}_{end}.{fmt}"
+#         if fmt == "csv":
+#             svc.export_csv(start, end, out)
+#         elif fmt == "json":
+#             svc.export_json(start, end, out)
+#         elif fmt == "excel":
+#             svc.export_excel(start, end, out)
+#         else:
+#             print("Unsupported format")
+#             return
+#         print(f"Exported to {out}")
+#     elif parts[0] == "sync":
+#         # Trigger ETL from analytics to warehouse
+#         from bi.schema import get_warehouse
+#         get_warehouse().refresh_aggregates("20240101", "20241231")
+#         print("Data warehouse synced")
+#     elif parts[0] == "dashboard":
+#         print("BI dashboards available at:")
+#         print("  Superset: dashboards/superset/crownstar_dashboard.json")
+#         print("  Power BI: dashboards/powerbi/crownstar.pbit.json")
+#         print("  Tableau: dashboards/tableau/crownstar.twb")
+#     elif parts[0] == "schedule" and len(parts) >= 2:
+#         sched = get_bi_scheduler()
+#         if parts[1] == "start":
+#             sched.start_scheduler()
+#             print("BI report scheduler started")
+#         elif parts[1] == "stop":
+#             sched.running = False
+#             print("BI report scheduler stopped")
+#         else:
+#             print("Unknown schedule command")
+#     else:
+#         print("Unknown BI command")
+#
+# Then add "/bi": self.cmd_bi to commands dict.
+

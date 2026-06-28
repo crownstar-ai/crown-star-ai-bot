@@ -1,0 +1,6 @@
+# Extend chaos platform to record cost impact of failures
+# Add to chaos/orchestrator/orchestrator.py:
+# def record_cost_impact(self, experiment_id, cost_impact):
+#     with open(f"data/chaos/cost_impact_{experiment_id}.json", 'w') as f:
+#         json.dump({"experiment_id": experiment_id, "cost_impact": cost_impact, "timestamp": time.time()}, f)
+# Then in CrownStar cost optimizer, read these and add recommendations to avoid costly failure patterns

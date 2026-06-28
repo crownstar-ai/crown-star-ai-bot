@@ -1,0 +1,7 @@
+[翻译占位] # In crownstar_core.py, add replication awareness:
+# from replication.service import get_replication_service
+# self.rep = get_replication_service()
+# In answer() method, if self.rep.role == "standby" and write operation:
+#     raise Exception("Standby node is read‑only. Redirect to primary.")
+# Also add method to redirect writes to primary (via proxy)
+

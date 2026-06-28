@@ -1,0 +1,15 @@
+# Add to crownstar_core.py __init__: load language from config
+# from i18n.service import i18n
+# self.language = self.config.get("language", "en")
+# i18n.set_language(self.language)
+#
+# In set_language method:
+# def set_language(self, lang: str):
+#     from i18n.service import i18n
+#     if i18n.set_language(lang):
+#         self.language = lang
+#         self.config["language"] = lang
+#         with open("config/crownstar_config.json", "w") as f:
+#             json.dump(self.config, f, indent=2)
+#         return True
+#     return False

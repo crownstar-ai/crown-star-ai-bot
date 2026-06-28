@@ -1,0 +1,5 @@
+# In crownstar_core.py, optionally submit batch jobs for offline processing:
+# from batch.batch_service import get_batch_service
+# batch = get_batch_service()
+# if some_condition:
+#     batch.submit_job("offline_analytics", "analytics", {"start_date": "2026-01-01"})

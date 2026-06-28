@@ -1,0 +1,13 @@
+# Add to crownstar_ultra_cli.py:
+# def cmd_function(self, args):
+#     parts = args.split()
+#     if not parts or parts[0]=="help":
+#         print("Usage: /function deploy <name> <runtime> <code_file> <entrypoint> [--triggers]")
+#         print("       /function invoke <id> [event_file]")
+#         print("       /function list")
+#         print("       /function get <id>")
+#         print("       /function delete <id>")
+#         print("       /function logs [id] [limit]")
+#         print("       /function kv set <id> <namespace> <key> <value>")
+#         print("       /function kv get <id> <namespace> <key>")
+#         return

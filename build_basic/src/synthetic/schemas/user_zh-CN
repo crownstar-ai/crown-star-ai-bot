@@ -1,0 +1,13 @@
+[翻译占位] {
+    "user_id": "uuid",
+    "username": "name",
+    "first_name": "first_name",
+    "last_name": "last_name",
+    "email": "email",
+    "phone": "phone",
+    "age": {"type": "int", "params": {"min": 18, "max": 90}},
+    "tier": {"type": "choice", "params": {"choices": ["free_pay_per_use", "basic", "pro", "enterprise"]}},
+    "signup_date": "date",
+    "is_active": "boolean"
+}
+

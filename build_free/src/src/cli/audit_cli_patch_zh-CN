@@ -1,0 +1,71 @@
+[翻译占位] # Add to crownstar_ultra_cli.py:
+# import requests, json
+# from datetime import datetime, timedelta
+# def cmd_audit(self, args):
+#     parts = args.split()
+#     if not parts or parts[0] == "help":
+#         print("Usage: /audit search [--user <id>] [--type <type>] [--limit <n>]")
+#         print("       /audit export <start> <end> [--csv]")
+#         print("       /audit verify [event_id]")
+#         print("       /audit report gdpr <user_id> <days_back>")
+#         print("       /audit report soc2 <control> <days_back>")
+#         print("       /audit report hipaa <user_id> <days_back>")
+#         print("       /audit retention apply")
+#         return
+#     if parts[0] == "search":
+#         params = {}
+#         if "--user" in args:
+#             idx = args.index("--user")
+#             params["user_id"] = args[idx+1]
+#         if "--type" in args:
+#             idx = args.index("--type")
+#             params["event_type"] = args[idx+1]
+#         if "--limit" in args:
+#             idx = args.index("--limit")
+#             params["limit"] = int(args[idx+1])
+#         resp = requests.get("http://localhost:8080/v1/audit/search", params=params)
+#         data = resp.json()
+#         print(f"Found {data['count']} events")
+#         for ev in data['events'][:10]:
+#             print(f"{ev['timestamp']} [{ev['event_type']}] {ev['user_id']}: {ev['action']} on {ev['resource']}")
+#     elif parts[0] == "export" and len(parts) >= 3:
+#         start = parts[1]
+#         end = parts[2]
+#         resp = requests.get(f"http://localhost:8080/v1/audit/export/csv?start={start}&end={end}")
+#         if resp.status_code == 200:
+#             with open(f"audit_{start}_{end}.csv", "wb") as f:
+#                 f.write(resp.content)
+#             print(f"Exported to audit_{start}_{end}.csv")
+#     elif parts[0] == "verify":
+#         event_id = parts[1] if len(parts) > 1 else None
+#         resp = requests.get(f"http://localhost:8080/v1/audit/verify", params={"event_id": event_id} if event_id else {})
+#         print(json.dumps(resp.json(), indent=2))
+#     elif parts[0] == "report" and len(parts) >= 3:
+#         report_type = parts[1]
+#         if report_type == "gdpr" and len(parts) >= 4:
+#             user_id = parts[2]
+#             days = int(parts[3]) if len(parts) > 3 else 30
+#             end = datetime.utcnow().isoformat()
+#             start = (datetime.utcnow() - timedelta(days=days)).isoformat()
+#             resp = requests.get(f"http://localhost:8080/v1/audit/report/gdpr/sar", params={"user_id": user_id, "start": start, "end": end})
+#             print(json.dumps(resp.json(), indent=2))
+#         elif report_type == "soc2" and len(parts) >= 3:
+#             control = parts[2]
+#             days = int(parts[3]) if len(parts) > 3 else 90
+#             end = datetime.utcnow().isoformat()
+#             start = (datetime.utcnow() - timedelta(days=days)).isoformat()
+#             resp = requests.get(f"http://localhost:8080/v1/audit/report/soc2/{control}", params={"start": start, "end": end})
+#             print(json.dumps(resp.json(), indent=2))
+#         elif report_type == "hipaa" and len(parts) >= 3:
+#             user_id = parts[2]
+#             days = int(parts[3]) if len(parts) > 3 else 30
+#             end = datetime.utcnow().isoformat()
+#             start = (datetime.utcnow() - timedelta(days=days)).isoformat()
+#             resp = requests.get(f"http://localhost:8080/v1/audit/report/hipaa/access", params={"user_id": user_id, "start": start, "end": end})
+#             print(json.dumps(resp.json(), indent=2))
+#     elif parts[0] == "retention" and len(parts) >= 2 and parts[1] == "apply":
+#         resp = requests.post("http://localhost:8080/v1/audit/retention/apply")
+#         print(resp.json())
+#     else:
+#         print("Unknown audit command")
+

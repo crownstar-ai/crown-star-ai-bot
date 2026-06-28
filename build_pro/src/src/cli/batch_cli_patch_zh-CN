@@ -1,0 +1,52 @@
+[翻译占位] # Add to crownstar_ultra_cli.py:
+# import requests
+# import json
+# def cmd_batch(self, args):
+#     parts = args.split()
+#     if not parts or parts[0] == "help":
+#         print("Usage: /batch submit <name> <analytics|backup|training|report|custom> [--params key=value]")
+#         print("       /batch list")
+#         print("       /batch status <job_id>")
+#         print("       /batch logs <job_id> [lines]")
+#         print("       /batch terminate <job_id>")
+#         return
+#     if parts[0] == "submit" and len(parts) >= 3:
+#         name = parts[1]
+#         job_type = parts[2]
+#         params = {}
+#         if "--params" in args:
+#             idx = args.index("--params")
+#             for pair in args[idx+1:]:
+#                 if "=" not in pair:
+#                     break
+#                 k,v = pair.split("=",1)
+#                 params[k] = v
+#         payload = {"name": name, "job_type": job_type, "parameters": params}
+#         if job_type == "custom":
+#             payload["command"] = ["echo", "Hello", "World"]
+#         resp = requests.post("http://localhost:8080/v1/batch/submit", json=payload)
+#         print(resp.json())
+#     elif parts[0] == "list":
+#         resp = requests.get("http://localhost:8080/v1/batch/jobs")
+#         data = resp.json()
+#         for j in data.get("jobs", []):
+#             print(f"{j['job_id']}: {j['name']} – {j['status']} ({j['created_at']})")
+#     elif parts[0] == "status" and len(parts) >= 2:
+#         job_id = parts[1]
+#         resp = requests.get(f"http://localhost:8080/v1/batch/jobs/{job_id}/status")
+#         print(json.dumps(resp.json(), indent=2))
+#     elif parts[0] == "logs" and len(parts) >= 2:
+#         job_id = parts[1]
+#         lines = int(parts[2]) if len(parts) > 2 else 100
+#         resp = requests.get(f"http://localhost:8080/v1/batch/jobs/{job_id}/logs?tail_lines={lines}")
+#         data = resp.json()
+#         print(data.get("logs", "No logs"))
+#     elif parts[0] == "terminate" and len(parts) >= 2:
+#         job_id = parts[1]
+#         resp = requests.delete(f"http://localhost:8080/v1/batch/jobs/{job_id}")
+#         print(resp.json())
+#     else:
+#         print("Unknown batch command")
+#
+# Then add "/batch": self.cmd_batch to commands dict.
+

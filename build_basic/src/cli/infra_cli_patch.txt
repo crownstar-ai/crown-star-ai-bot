@@ -1,0 +1,31 @@
+# Add to crownstar_ultra_cli.py:
+# import requests
+# import json
+# def cmd_infra(self, args):
+#     parts = args.split()
+#     if not parts or parts[0] == "help":
+#         print("Usage: /infra status")
+#         print("       /infra plan [terraform|pulumi|cdk] [env]")
+#         print("       /infra apply [terraform|pulumi|cdk] [env]")
+#         print("       /infra outputs")
+#         return
+#     if parts[0] == "status":
+#         resp = requests.get("http://localhost:8080/v1/infra/status")
+#         print(json.dumps(resp.json(), indent=2))
+#     elif parts[0] == "plan":
+#         tool = parts[1] if len(parts) > 1 else "terraform"
+#         env = parts[2] if len(parts) > 2 else "dev"
+#         resp = requests.post("http://localhost:8080/v1/infra/plan", json={"tool": tool, "environment": env})
+#         print(resp.json()["stdout"])
+#     elif parts[0] == "apply":
+#         tool = parts[1] if len(parts) > 1 else "terraform"
+#         env = parts[2] if len(parts) > 2 else "dev"
+#         resp = requests.post("http://localhost:8080/v1/infra/apply", json={"tool": tool, "environment": env})
+#         print(resp.json())
+#     elif parts[0] == "outputs":
+#         resp = requests.post("http://localhost:8080/v1/infra/outputs")
+#         print(json.dumps(resp.json(), indent=2))
+#     else:
+#         print("Unknown infra command")
+#
+# Then add "/infra": self.cmd_infra to commands dict.

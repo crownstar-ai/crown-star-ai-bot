@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrownStar 下载 | 企业级主权AI平台</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, sans-serif; background: #05060a; color: #f5f7ff; padding: 2rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { font-size: 2.5rem; text-align: center; margin-bottom: 0.5rem; background: linear-gradient(135deg, #f5f7ff, #7a9eff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .subtitle { text-align: center; color: #9aa5c9; margin-bottom: 2rem; }
+        .tier-tabs { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+        .tier-tab { padding: 0.6rem 1.5rem; border-radius: 2rem; background: #11141d; border: 1px solid #2b3240; color: #f5f7ff; cursor: pointer; transition: all 0.3s; }
+        .tier-tab:hover { background: #1a2333; border-color: #4a6cf7; }
+        .tier-tab.active { background: #4a6cf7; border-color: #4a6cf7; }
+        .platform-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+        .platform-card { background: #0c0f17; border: 1px solid #1f2635; border-radius: 1rem; padding: 1.5rem; transition: all 0.3s; }
+        .platform-card:hover { border-color: #4a6cf7; transform: translateY(-4px); }
+        .platform-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .platform-name { font-size: 1.2rem; font-weight: 700; }
+        .platform-arch { color: #9aa5c9; font-size: 0.9rem; }
+        .download-link { display: inline-block; margin-top: 1rem; padding: 0.5rem 1.5rem; background: #4a6cf7; border-radius: 0.5rem; color: #fff; text-decoration: none; transition: background 0.3s; }
+        .download-link:hover { background: #3a5cd7; }
+        .checksum { font-size: 0.7rem; color: #6a7a9a; margin-top: 0.5rem; word-break: break-all; }
+        .footer { text-align: center; color: #6a7a9a; margin-top: 3rem; font-size: 0.9rem; }
+        @media (max-width: 600px) { .platform-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⬇️ CrownStar 下载</h1>
+        <p class="subtitle">企业级主权AI平台 – 选择您的版本与平台</p>
+
+        <div class="tier-tabs">
+            <span class="tier-tab active" data-tier="free">🆓 社区免费版</span>
+            <span class="tier-tab" data-tier="basic">💼 基础版</span>
+            <span class="tier-tab" data-tier="pro">🏢 专业版</span>
+            <span class="tier-tab" data-tier="enterprise">🏛️ 企业版</span>
+        </div>
+
+        <div id="download-grid" class="platform-grid">
+            <!-- Dynamically populated by JavaScript -->
+        </div>
+
+        <div class="footer">
+            <p>🔒 所有版本均包含完整的私有化部署功能 · 数据永不离开您的网络</p>
+            <p>© 2026 CrownStar. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        const platformData = {
+            free: {
+                name: '社区免费版',
+                platforms: [
+                    { icon: '🪟', name: 'Windows', arch: 'x64', file: 'CrownStar_free_windows.exe', size: '~45 MB' },
+                    { icon: '🪟', name: 'Windows', arch: 'ARM64', file: 'CrownStar_free_windows_arm64.exe', size: '~42 MB' },
+                    { icon: '🐧', name: 'Linux', arch: 'x64', file: 'CrownStar_free_linux', size: '~38 MB' },
+                    { icon: '🐧', name: 'Linux', arch: 'ARM64', file: 'CrownStar_free_linux_arm64', size: '~36 MB' },
+                    { icon: '🍎', name: 'macOS', arch: 'Intel', file: 'CrownStar_free_macos_intel', size: '~40 MB' },
+                    { icon: '🍎', name: 'macOS', arch: 'Apple Silicon', file: 'CrownStar_free_macos_arm', size: '~38 MB' },
+                    { icon: '📦', name: '源码包', arch: '所有平台', file: 'CrownStar_free_source.zip', size: '~15 MB' },
+                ]
+            },
+            basic: {
+                name: '基础版 (需授权)',
+                platforms: [
+                    { icon: '🪟', name: 'Windows', arch: 'x64', file: 'CrownStar_basic_windows.exe', size: '~48 MB' },
+                    { icon: '🐧', name: 'Linux', arch: 'x64', file: 'CrownStar_basic_linux', size: '~40 MB' },
+                    { icon: '🍎', name: 'macOS', arch: 'Intel', file: 'CrownStar_basic_macos_intel', size: '~42 MB' },
+                    { icon: '🍎', name: 'macOS', arch: 'Apple Silicon', file: 'CrownStar_basic_macos_arm', size: '~40 MB' },
+                ]
+            },
+            pro: {
+                name: '专业版 (需授权)',
+                platforms: [
+                    { icon: '🪟', name: 'Windows', arch: 'x64', file: 'CrownStar_pro_windows.exe', size: '~52 MB' },
+                    { icon: '🐧', name: 'Linux', arch: 'x64', file: 'CrownStar_pro_linux', size: '~44 MB' },
+                    { icon: '🍎', name: 'macOS', arch: 'Intel', file: 'CrownStar_pro_macos_intel', size: '~46 MB' },
+                    { icon: '🍎', name: 'macOS', arch: 'Apple Silicon', file: 'CrownStar_pro_macos_arm', size: '~44 MB' },
+                ]
+            },
+            enterprise: {
+                name: '企业版 (需授权)',
+                platforms: [
+                    { icon: '🪟', name: 'Windows', arch: 'x64', file: 'CrownStar_enterprise_windows.exe', size: '~55 MB' },
+                    { icon: '🐧', name: 'Linux', arch: 'x64', file: 'CrownStar_enterprise_linux', size: '~48 MB' },
+                    { icon: '🍎', name: 'macOS', arch: 'Intel', file: 'CrownStar_enterprise_macos_intel', size: '~50 MB' },
+                    { icon: '🍎', name: 'macOS', arch: 'Apple Silicon', file: 'CrownStar_enterprise_macos_arm', size: '~48 MB' },
+                    { icon: '📦', name: '源码包', arch: '所有平台', file: 'CrownStar_enterprise_source.zip', size: '~25 MB' },
+                ]
+            }
+        };
+
+        let currentTier = 'free';
+
+        function renderGrid(tier) {
+            const grid = document.getElementById('download-grid');
+            const data = platformData[tier];
+            if (!data) return;
+
+            grid.innerHTML = '';
+            data.platforms.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'platform-card';
+                card.innerHTML = 
+                    <div class="platform-icon"></div>
+                    <div class="platform-name"></div>
+                    <div class="platform-arch"> · </div>
+                    <a href="#" class="download-link">⬇️ 下载</a>
+                    <div class="checksum">SHA256: pending</div>
+                ;
+                grid.appendChild(card);
+            });
+        }
+
+        // Tab switching
+        document.querySelectorAll('.tier-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tier-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                currentTier = this.dataset.tier;
+                renderGrid(currentTier);
+            });
+        });
+
+        // Initial render
+        renderGrid('free');
+    </script>
+</body>
+</html>

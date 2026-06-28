@@ -1,0 +1,9 @@
+﻿# In language_models/model_router.py, add method:
+# def load_adapter(self, adapter_path: str, base_model_name: str):
+#     from peft import PeftModel
+#     base = self.adapters.get(base_model_name)
+#     if base and hasattr(base, 'model'):
+#         adapted = PeftModel.from_pretrained(base.model, adapter_path)
+#         self.adapters[f"{base_model_name}_finetuned"] = adapted
+#         return f"{base_model_name}_finetuned"
+# Also extend list_models to include adapters.

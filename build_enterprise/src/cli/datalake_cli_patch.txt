@@ -1,0 +1,71 @@
+# Add to crownstar_ultra_cli.py:
+# import requests
+# import json
+# import pandas as pd
+# def cmd_datalake(self, args):
+#     parts = args.split()
+#     if not parts or parts[0] == "help":
+#         print("Usage: /datalake write events <json_file> [--format delta|iceberg|hudi]")
+#         print("       /datalake write conversations <json_file>")
+#         print("       /datalake write metrics <json_file>")
+#         print("       /datalake query <table> [--filter expr] [--version N]")
+#         print("       /datalake tables")
+#         print("       /datalake versions <table>")
+#         print("       /datalake optimize <table>")
+#         print("       /datalake vacuum <table> [hours]")
+#         return
+#     if parts[0] == "write" and len(parts) >= 3:
+#         write_type = parts[1]
+#         file_path = parts[2]
+#         with open(file_path, 'r') as f:
+#             data = json.load(f)
+#         format_type = None
+#         if "--format" in args:
+#             idx = args.index("--format")
+#             format_type = args[idx+1]
+#         if write_type == "events":
+#             resp = requests.post("http://localhost:8080/v1/datalake/write/events", json={"events": data, "format": format_type})
+#         elif write_type == "conversations":
+#             resp = requests.post("http://localhost:8080/v1/datalake/write/conversations", json={"conversations": data, "format": format_type})
+#         elif write_type == "metrics":
+#             resp = requests.post("http://localhost:8080/v1/datalake/write/metrics", json={"metrics": data, "format": format_type})
+#         else:
+#             print("Unknown write type")
+#             return
+#         print(resp.json())
+#     elif parts[0] == "query" and len(parts) >= 2:
+#         table = parts[1]
+#         filter_expr = None
+#         version = None
+#         if "--filter" in args:
+#             idx = args.index("--filter")
+#             filter_expr = args[idx+1]
+#         if "--version" in args:
+#             idx = args.index("--version")
+#             version = int(args[idx+1])
+#         payload = {"table": table, "filter": filter_expr, "version": version}
+#         resp = requests.post("http://localhost:8080/v1/datalake/query", json=payload)
+#         data = resp.json()
+#         print(f"Rows: {data['count']}")
+#         if data['rows']:
+#             print(json.dumps(data['rows'][:5], indent=2))
+#     elif parts[0] == "tables":
+#         resp = requests.get("http://localhost:8080/v1/datalake/tables")
+#         print(json.dumps(resp.json(), indent=2))
+#     elif parts[0] == "versions" and len(parts) >= 2:
+#         table = parts[1]
+#         resp = requests.get(f"http://localhost:8080/v1/datalake/versions/{table}")
+#         print(json.dumps(resp.json(), indent=2))
+#     elif parts[0] == "optimize" and len(parts) >= 2:
+#         table = parts[1]
+#         resp = requests.post(f"http://localhost:8080/v1/datalake/optimize/{table}")
+#         print(resp.json())
+#     elif parts[0] == "vacuum" and len(parts) >= 2:
+#         table = parts[1]
+#         hours = int(parts[2]) if len(parts) > 2 else 168
+#         resp = requests.post(f"http://localhost:8080/v1/datalake/vacuum/{table}?retention_hours={hours}")
+#         print(resp.json())
+#     else:
+#         print("Unknown datalake command")
+#
+# Then add "/datalake": self.cmd_datalake to commands dict.

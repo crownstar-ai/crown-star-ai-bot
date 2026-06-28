@@ -1,0 +1,6 @@
+[翻译占位] # In analytics/core.py MetricsCollector add:
+# from agent.core import get_agent_manager
+# mgr = get_agent_manager()
+# for name, agent in mgr.agents.items():
+#     self.record(MetricPoint(f"agent.{name}.iterations", len(agent.history), now, {}))
+

@@ -1,0 +1,9 @@
+[翻译占位] # In crownstar_core.py, after database write operations, optionally publish change event:
+# from replication.cdc.event_listener import get_cdc_listener
+# cdc = get_cdc_listener()
+# # cdc subscribes to CDC topics; no need to manually publish if using Debezium.
+# However, you can also emit custom events:
+# from kafka import KafkaProducer
+# producer = KafkaProducer(bootstrap_servers='localhost:9092', value_serializer=lambda v: json.dumps(v).encode())
+# producer.send('crownstar.core.events', {'event': 'conversation_created', 'data': {...}})
+

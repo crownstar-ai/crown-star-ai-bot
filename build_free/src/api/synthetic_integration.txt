@@ -1,0 +1,3 @@
+# In crownstar_enterprise_api.py, add:
+# from synthetic.api import router as synth_router
+# app.include_router(synth_router)

@@ -1,0 +1,10 @@
+[翻译占位] <!DOCTYPE html>
+<html><body>
+<h1>Daily Digest for {{ date }}</h1>
+<ul>
+{% for item in items %}
+<li><strong>{{ item.title }}</strong>: {{ item.summary }}</li>
+{% endfor %}
+</ul>
+</body></html>
+

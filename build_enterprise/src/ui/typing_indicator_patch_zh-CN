@@ -1,0 +1,13 @@
+[翻译占位] # Add to index.html script:
+# let typingTimer;
+# const inputField = document.getElementById('userInput');
+# inputField.addEventListener('keypress', () => {
+#     clearTimeout(typingTimer);
+#     pywebview.api.send_typing(true);
+#     typingTimer = setTimeout(() => pywebview.api.send_typing(false), 1000);
+# });
+# Add to CrownStarAPI class in desktop.py:
+# def send_typing(self, is_typing: bool):
+#     if hasattr(self, 'ws') and self.ws:
+#         self.ws.send(json.dumps({"type": "typing", "typing": is_typing}))
+

@@ -1,0 +1,25 @@
+[翻译占位] # Add to crownstar_ultra_cli.py:
+# def cmd_cache(self, args):
+#     from caching.cache_service import get_cache
+#     from caching.cdn import get_cdn
+#     parts = args.split()
+#     if not parts:
+#         print("Usage: /cache stats|clear|invalidate <pattern>|warm <pattern>")
+#         return
+#     cache = get_cache()
+#     if parts[0] == "stats":
+#         stats = cache.get_stats()
+#         print(f"Cache stats: {stats['hits']} hits, {stats['misses']} misses, hit rate {stats['hit_rate']:.2%}")
+#     elif parts[0] == "clear":
+#         cache.clear()
+#         print("Cache cleared")
+#     elif parts[0] == "invalidate" and len(parts) > 1:
+#         cache.invalidate_pattern(parts[1])
+#         print(f"Invalidated pattern: {parts[1]}")
+#     elif parts[0] == "warm" and len(parts) > 1:
+#         print(f"Cache warming requested for {parts[1]} (background)")
+#     else:
+#         print("Unknown cache command")
+#
+# Then add "/cache": self.cmd_cache to commands dict.
+

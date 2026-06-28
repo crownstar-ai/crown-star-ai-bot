@@ -1,0 +1,4 @@
+# In cost/optimizer/optimizer.py:
+# def record_security_overhead(self, operation, time_seconds):
+#     cost = time_seconds * 0.001  # approximate
+#     self.metrics_queue.put(ResourceMetrics(...))

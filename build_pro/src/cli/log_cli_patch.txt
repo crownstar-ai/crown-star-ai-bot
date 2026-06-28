@@ -1,0 +1,43 @@
+# Add to crownstar_ultra_cli.py:
+# def cmd_logs(self, args):
+#     import requests
+#     import json
+#     parts = args.split()
+#     if not parts or parts[0] == "help":
+#         print("Usage: /logs search <query> [limit] | /labels | /tail <query>")
+#         return
+#     if parts[0] == "search" and len(parts) >= 2:
+#         query = parts[1]
+#         limit = int(parts[2]) if len(parts) > 2 else 50
+#         resp = requests.get(f"http://localhost:8080/v1/logs/query", params={"query": query, "limit": limit})
+#         if resp.status_code == 200:
+#             data = resp.json()
+#             for result in data.get("data", {}).get("result", []):
+#                 stream = result.get("stream", {})
+#                 values = result.get("values", [])
+#                 print(f"Stream: {stream}")
+#                 for ts, line in values[:5]:
+#                     print(f"  {line[:200]}...")
+#     elif parts[0] == "labels":
+#         resp = requests.get("http://localhost:8080/v1/logs/labels")
+#         print("Labels:", resp.json().get("data", []))
+#     elif parts[0] == "tail" and len(parts) >= 2:
+#         query = parts[1]
+#         print(f"Tailing logs for query: {query} (Ctrl+C to stop)")
+#         # Would use WebSocket or polling; placeholder
+#         import time
+#         try:
+#             while True:
+#                 resp = requests.get(f"http://localhost:8080/v1/logs/query", params={"query": query, "limit": 10})
+#                 if resp.status_code == 200:
+#                     data = resp.json()
+#                     for result in data.get("data", {}).get("result", []):
+#                         for ts, line in result.get("values", []):
+#                             print(f"{line}")
+#                 time.sleep(2)
+#         except KeyboardInterrupt:
+#             print("Stopped tailing")
+#     else:
+#         print("Unknown command. Use /logs help")
+#
+# Then add "/logs": self.cmd_logs to commands dict.

@@ -1,0 +1,34 @@
+[翻译占位] # Add to crownstar_ultra_cli.py:
+# import requests, json, base64
+# def cmd_zk(self, args):
+#     parts = args.split()
+#     if not parts or parts[0] == "help":
+#         print("Usage: /zk prove inference <input_json> <output_json> <model_hash>")
+#         print("       /zk prove federated <old_hash> <new_hash> <client_id> <round_id>")
+#         print("       /zk verify <proof_id> <proof_data_base64>")
+#         print("       /zk status")
+#         return
+#     if parts[0] == "prove":
+#         if parts[1] == "inference" and len(parts) >= 5:
+#             import json
+#             inp = json.loads(parts[2])
+#             out = json.loads(parts[3])
+#             model_hash = parts[4]
+#             resp = requests.post("http://localhost:8080/v1/zk/prove/inference", json={"model_input": inp, "model_output": out, "model_hash": model_hash})
+#             print(json.dumps(resp.json(), indent=2))
+#         elif parts[1] == "federated" and len(parts) >= 6:
+#             old_hash, new_hash, client_id, round_id = parts[2], parts[3], parts[4], int(parts[5])
+#             resp = requests.post("http://localhost:8080/v1/zk/prove/federated", json={"old_weights_hash": old_hash, "new_weights_hash": new_hash, "client_id": client_id, "round_id": round_id})
+#             print(resp.json())
+#     elif parts[0] == "verify" and len(parts) >= 3:
+#         proof_id = parts[1]
+#         proof_data_b64 = parts[2]
+#         resp = requests.post("http://localhost:8080/v1/zk/verify", json={"proof_id": proof_id, "proof_data": proof_data_b64, "verification_key_id": "inference"})
+#         print(f"Valid: {resp.json()['valid']}")
+#     elif parts[0] == "status":
+#         resp = requests.get("http://localhost:8080/v1/zk/status")
+#         print(json.dumps(resp.json(), indent=2))
+#     else:
+#         print("Unknown ZK command")
+# Then register: "/zk": self.cmd_zk
+

@@ -1,0 +1,18 @@
+[翻译占位] {
+    "version": "7.0.1",
+    "api_endpoint": "https://api.crownstar.ai/v1",
+    "websocket_endpoint": "wss://api.crownstar.ai/ws",
+    "features": {
+        "voice_input": true,
+        "push_notifications": true,
+        "offline_mode": false,
+        "watch_integration": true
+    },
+    "tiers": {
+        "free": { "max_chars_per_day": 50000 },
+        "basic": { "max_chars_per_day": 200000 },
+        "pro": { "max_chars_per_day": 1000000 },
+        "enterprise": { "max_chars_per_day": 0 }
+    }
+}
+

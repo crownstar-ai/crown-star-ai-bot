@@ -1,0 +1,31 @@
+# Add to crownstar_ultra_cli.py:
+# import requests, json
+# def cmd_cost_optimize(self, args):
+#     parts = args.split()
+#     if not parts or parts[0] == "help":
+#         print("Usage: /cost optimize run          – run optimization cycle")
+#         print("       /cost recommend              – show top recommendations")
+#         print("       /cost forecast [days]        – forecast cost")
+#         print("       /cost history                 – show recent cost metrics summary")
+#         return
+#     if parts[0] == "run":
+#         resp = requests.post("http://localhost:8080/v1/cost/optimize/run")
+#         print(json.dumps(resp.json(), indent=2))
+#     elif parts[0] == "recommend":
+#         resp = requests.get("http://localhost:8080/v1/cost/recommendations")
+#         data = resp.json()
+#         for rec in data.get("recommendations", []):
+#             print(f"{rec['action']} on {rec['resource_id']}: save ${rec['savings_monthly']:.2f}/month (confidence {rec['confidence']:.0%})")
+#     elif parts[0] == "forecast":
+#         days = int(parts[1]) if len(parts) > 1 else 30
+#         resp = requests.get(f"http://localhost:8080/v1/cost/forecast?days={days}")
+#         forecast = resp.json()
+#         print("Cost forecast (next days):")
+#         for f in forecast.get("forecast", [])[:10]:
+#             print(f"{f['date']}: ${f['cost']:.2f}")
+#     elif parts[0] == "history":
+#         # read local metrics summary
+#         print("Recent metrics summary - implement reading from disk")
+#     else:
+#         print("Unknown cost command")
+# Then register: "/cost optimize": self.cmd_cost_optimize

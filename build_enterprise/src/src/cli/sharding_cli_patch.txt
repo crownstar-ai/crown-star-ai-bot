@@ -1,0 +1,47 @@
+# Add to crownstar_ultra_cli.py:
+# import requests
+# import json
+# def cmd_shard(self, args):
+#     parts = args.split()
+#     if not parts or parts[0] == "help":
+#         print("Usage: /shard status")
+#         print("       /shard stats [shard_id]")
+#         print("       /shard key <key>")
+#         print("       /shard reshard [--strategy <name>] [--shards <count>]")
+#         print("       /shard move <source> <target> <key1,key2,...>")
+#         return
+#     if parts[0] == "status":
+#         resp = requests.get("http://localhost:8080/v1/sharding/status")
+#         print(json.dumps(resp.json(), indent=2))
+#     elif parts[0] == "stats":
+#         shard_id = parts[1] if len(parts) > 1 else None
+#         url = "http://localhost:8080/v1/sharding/stats"
+#         if shard_id:
+#             url += f"?shard_id={shard_id}"
+#         resp = requests.get(url)
+#         print(json.dumps(resp.json(), indent=2))
+#     elif parts[0] == "key" and len(parts) >= 2:
+#         key = parts[1]
+#         resp = requests.get(f"http://localhost:8080/v1/sharding/key/{key}")
+#         print(resp.json())
+#     elif parts[0] == "reshard":
+#         payload = {}
+#         if "--strategy" in args:
+#             idx = args.index("--strategy")
+#             payload["new_strategy"] = args[idx+1]
+#         if "--shards" in args:
+#             idx = args.index("--shards")
+#             payload["new_total_shards"] = int(args[idx+1])
+#         resp = requests.post("http://localhost:8080/v1/sharding/reshard", json=payload)
+#         print(resp.json())
+#     elif parts[0] == "move" and len(parts) >= 4:
+#         source = parts[1]
+#         target = parts[2]
+#         keys = parts[3].split(",")
+#         payload = {"source_shard": source, "target_shard": target, "keys": keys}
+#         resp = requests.post("http://localhost:8080/v1/sharding/move", json=payload)
+#         print(resp.json())
+#     else:
+#         print("Unknown shard command")
+#
+# Then add "/shard": self.cmd_shard to commands dict.

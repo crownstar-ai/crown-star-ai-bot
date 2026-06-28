@@ -1,0 +1,46 @@
+# Add to crownstar_ultra_cli.py:
+# import requests, json
+# def cmd_rlhf(self, args):
+#     parts = args.split()
+#     if not parts or parts[0] == "help":
+#         print("Usage: /rlhf collect <prompt> <resp_a> <resp_b> <pref>    – submit preference")
+#         print("       /rlhf list                                          – list preferences")
+#         print("       /rlhf train reward [epochs]                         – train reward model")
+#         print("       /rlhf train policy <base_path> <out_path> [method]  – fine‑tune policy")
+#         print("       /rlhf evaluate                                      – evaluate reward model")
+#         print("       /rlhf stats                                         – show stats")
+#         return
+#     if parts[0] == "collect" and len(parts) >= 6:
+#         prompt = parts[1]
+#         resp_a = parts[2]
+#         resp_b = parts[3]
+#         pref = parts[4]
+#         payload = {"prompt": prompt, "response_a": resp_a, "response_b": resp_b, "preferred": pref}
+#         resp = requests.post("http://localhost:8080/v1/rlhf/preference", json=payload)
+#         print(resp.json())
+#     elif parts[0] == "list":
+#         resp = requests.get("http://localhost:8080/v1/rlhf/preferences")
+#         data = resp.json()
+#         print(f"Total: {len(data['preferences'])} preferences")
+#         for p in data['preferences'][-5:]:
+#             print(f"  {p['id']}: preferred {p['preferred']} ({p['annotator_id']})")
+#     elif parts[0] == "train" and len(parts) >= 3:
+#         if parts[1] == "reward":
+#             epochs = int(parts[2]) if len(parts) > 2 else None
+#             resp = requests.post("http://localhost:8080/v1/rlhf/train/reward", json={"epochs": epochs})
+#             print(resp.json())
+#         elif parts[1] == "policy" and len(parts) >= 4:
+#             base_path = parts[2]
+#             out_path = parts[3]
+#             method = parts[4] if len(parts) > 4 else "dpo"
+#             resp = requests.post("http://localhost:8080/v1/rlhf/train/policy", json={"base_model_path": base_path, "output_path": out_path, "method": method})
+#             print(resp.json())
+#     elif parts[0] == "evaluate":
+#         resp = requests.get("http://localhost:8080/v1/rlhf/evaluate/reward")
+#         print(resp.json())
+#     elif parts[0] == "stats":
+#         resp = requests.get("http://localhost:8080/v1/rlhf/stats")
+#         print(json.dumps(resp.json(), indent=2))
+#     else:
+#         print("Unknown RLHF command")
+# Then register: "/rlhf": self.cmd_rlhf

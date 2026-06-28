@@ -1,0 +1,26 @@
+# Add to crownstar_ultra_cli.py:
+# import requests
+# import json
+# def cmd_serverless(self, args):
+#     parts = args.split()
+#     if not parts or parts[0] == "help":
+#         print("Usage: /serverless deploy <aws|azure|cloudflare>")
+#         print("       /serverless status")
+#         print("       /serverless config")
+#         return
+#     if parts[0] == "deploy" and len(parts) >= 2:
+#         provider = parts[1]
+#         resp = requests.post("http://localhost:8080/v1/serverless/deploy", json={"provider": provider})
+#         print(resp.json())
+#     elif parts[0] == "status":
+#         resp = requests.get("http://localhost:8080/v1/serverless/status")
+#         print(json.dumps(resp.json(), indent=2))
+#     elif parts[0] == "config":
+#         resp = requests.get("http://localhost:8080/v1/serverless/config")
+#         data = resp.json()
+#         for prov, snippet in data.get("config_snippets", {}).items():
+#             print(f"\n{prov.upper()} config preview:\n{snippet[:300]}")
+#     else:
+#         print("Unknown serverless command")
+#
+# Then add "/serverless": self.cmd_serverless to commands dict.

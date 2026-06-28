@@ -1,0 +1,58 @@
+[翻译占位] # Add to crownstar_ultra_cli.py:
+# import requests
+# import json
+# def cmd_scheduler(self, args):
+#     parts = args.split()
+#     if not parts or parts[0] == "help":
+#         print("Usage: /scheduler list")
+#         print("       /scheduler add <id> <func> <cron|interval> [params...]")
+#         print("       /scheduler run <id>")
+#         print("       /scheduler remove <id>")
+#         print("       /scheduler pause <id>")
+#         print("       /scheduler resume <id>")
+#         print("       /scheduler celery status")
+#         return
+#     if parts[0] == "list":
+#         resp = requests.get("http://localhost:8080/v1/scheduler/jobs")
+#         print(json.dumps(resp.json(), indent=2))
+#     elif parts[0] == "add" and len(parts) >= 4:
+#         job_id = parts[1]
+#         func = parts[2]
+#         trigger = parts[3]
+#         payload = {"job_id": job_id, "func_name": func, "trigger_type": trigger}
+#         if trigger == "cron" and len(parts) >= 6:
+#             hour = parts[4]
+#             minute = parts[5]
+#             payload["cron"] = {"hour": hour, "minute": minute}
+#             if len(parts) > 6:
+#                 payload["cron"]["day_of_week"] = parts[6]
+#         elif trigger == "interval" and len(parts) >= 5:
+#             unit = parts[4]
+#             value = int(parts[5]) if len(parts) > 5 else 1
+#             payload["interval"] = {f"{unit}s": value}
+#         resp = requests.post("http://localhost:8080/v1/scheduler/jobs", json=payload)
+#         print(resp.json())
+#     elif parts[0] == "run" and len(parts) >= 2:
+#         job_id = parts[1]
+#         resp = requests.post(f"http://localhost:8080/v1/scheduler/jobs/{job_id}/trigger")
+#         print(resp.json())
+#     elif parts[0] == "remove" and len(parts) >= 2:
+#         job_id = parts[1]
+#         resp = requests.delete(f"http://localhost:8080/v1/scheduler/jobs/{job_id}")
+#         print(resp.json())
+#     elif parts[0] == "pause" and len(parts) >= 2:
+#         job_id = parts[1]
+#         resp = requests.post(f"http://localhost:8080/v1/scheduler/jobs/{job_id}/pause")
+#         print(resp.json())
+#     elif parts[0] == "resume" and len(parts) >= 2:
+#         job_id = parts[1]
+#         resp = requests.post(f"http://localhost:8080/v1/scheduler/jobs/{job_id}/resume")
+#         print(resp.json())
+#     elif parts[0] == "celery" and len(parts) >= 2 and parts[1] == "status":
+#         resp = requests.get("http://localhost:8080/v1/scheduler/celery/status")
+#         print(json.dumps(resp.json(), indent=2))
+#     else:
+#         print("Unknown scheduler command")
+#
+# Then add "/scheduler": self.cmd_scheduler to commands dict.
+

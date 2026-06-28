@@ -1,0 +1,31 @@
+[翻译占位] # Add to crownstar_ultra_cli.py:
+# import requests
+# import json
+# import subprocess
+# def cmd_pact(self, args):
+#     parts = args.split()
+#     if not parts or parts[0] == "help":
+#         print("Usage: /pact verify [--broker]")
+#         print("       /pact publish [pact_file]")
+#         print("       /pact can-i-deploy [version]")
+#         return
+#     if parts[0] == "verify":
+#         broker = "--broker" in args
+#         if broker:
+#             cmd = ["pytest", "tests/pact/test_pact_verification.py", "-k", "test_pact_broker", "-v"]
+#         else:
+#             cmd = ["pytest", "tests/pact/test_pact_verification.py", "-k", "test_pact_contracts", "-v"]
+#         result = subprocess.run(cmd)
+#         print("Verification completed" if result.returncode == 0 else "Verification failed")
+#     elif parts[0] == "publish" and len(parts) > 1:
+#         pact_file = parts[1]
+#         subprocess.run(["pact-broker", "publish", pact_file, "--consumer-app-version", "7.0.1", "--broker-base-url", "http://localhost:9292"])
+#     elif parts[0] == "can-i-deploy":
+#         version = parts[1] if len(parts) > 1 else "7.0.1"
+#         resp = requests.get(f"http://localhost:8080/v1/pact/can-i-deploy?provider_version={version}")
+#         print(json.dumps(resp.json(), indent=2))
+#     else:
+#         print("Unknown pact command")
+#
+# Then add "/pact": self.cmd_pact to commands dict.
+

@@ -1,0 +1,5 @@
+# In cost/optimizer/optimizer.py:
+# def record_graph_cost(self, num_entities, num_relations, training_hours):
+#     storage_cost = (num_entities + num_relations) * 0.000001
+#     compute_cost = training_hours * 0.10
+#     self.metrics_queue.put(ResourceMetrics(...))

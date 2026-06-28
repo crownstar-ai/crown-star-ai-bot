@@ -1,0 +1,7 @@
+[翻译占位] # In crownstar_core.py, optionally trigger workflows:
+# from workflow.client.client import get_temporal_client
+# client = get_temporal_client()
+# # e.g., after conversation, start summary workflow asynchronously
+# asyncio.create_task(client.start_workflow("conversation_summary", [user_id, email, 50]))
+# Also, after anomaly detection, start health check or cleanup.
+

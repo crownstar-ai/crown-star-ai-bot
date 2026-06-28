@@ -1,0 +1,5 @@
+# In cost/optimizer/optimizer.py:
+# def record_multimodal_cost(self, operation, model_name, count):
+#     cost_per_embedding = {"clip": 0.00001, "blip": 0.00002}.get(model_name, 0.00001)
+#     total = count * cost_per_embedding
+#     self.metrics_queue.put(ResourceMetrics(...))

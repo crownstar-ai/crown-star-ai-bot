@@ -1,0 +1,6 @@
+[翻译占位] # In crownstar_enterprise_api.py, add:
+# from backup.api import router as backup_router
+# from backup.backup_service import get_backup_service
+# app.include_router(backup_router)
+# On startup: get_backup_service().start_scheduler()
+

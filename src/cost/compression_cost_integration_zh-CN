@@ -1,0 +1,15 @@
+[翻译占位] # In cost/optimizer/optimizer.py:
+# def record_compression_savings(self, original_size_mb, compressed_size_mb, method):
+#     savings = original_size_mb - compressed_size_mb
+#     self.metrics_queue.put(ResourceMetrics(
+#         resource_id=f"compression_{method}",
+#         resource_type="storage",
+#         provider="local",
+#         region="local",
+#         hourly_cost=0.0,
+#         utilization_cpu=0,
+#         utilization_memory=0,
+#         utilization_disk=savings / 1024,  # savings in GB
+#         timestamp=int(time.time())
+#     ))
+

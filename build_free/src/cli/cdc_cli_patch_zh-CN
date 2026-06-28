@@ -1,0 +1,60 @@
+[翻译占位] # Add to crownstar_ultra_cli.py:
+# import requests
+# import json
+# def cmd_cdc(self, args):
+#     parts = args.split()
+#     if not parts or parts[0] == "help":
+#         print("Usage: /cdc status")
+#         print("       /cdc connectors")
+#         print("       /cdc create <name> <postgresql|mysql|sqlserver> <host> <port> <db> <user> <pass> [tables]")
+#         print("       /cdc delete <name>")
+#         print("       /cdc pause <name>")
+#         print("       /cdc resume <name>")
+#         print("       /cdc start")
+#         print("       /cdc stop")
+#         return
+#     if parts[0] == "status":
+#         resp = requests.get("http://localhost:8080/v1/replication/cdc/status")
+#         print(json.dumps(resp.json(), indent=2))
+#     elif parts[0] == "connectors":
+#         resp = requests.get("http://localhost:8080/v1/replication/connectors")
+#         data = resp.json()
+#         print("Connectors:", data.get("connectors", []))
+#     elif parts[0] == "create" and len(parts) >= 9:
+#         name = parts[1]
+#         db_type = parts[2]
+#         host = parts[3]
+#         port = int(parts[4])
+#         database = parts[5]
+#         user = parts[6]
+#         password = parts[7]
+#         tables = parts[8] if len(parts) > 8 else None
+#         payload = {
+#             "name": name, "database_type": db_type, "host": host, "port": port,
+#             "database": database, "user": user, "password": password, "tables": tables
+#         }
+#         resp = requests.post("http://localhost:8080/v1/replication/connectors", json=payload)
+#         print(resp.json())
+#     elif parts[0] == "delete" and len(parts) >= 2:
+#         name = parts[1]
+#         resp = requests.delete(f"http://localhost:8080/v1/replication/connectors/{name}")
+#         print(resp.json())
+#     elif parts[0] == "pause" and len(parts) >= 2:
+#         name = parts[1]
+#         resp = requests.post(f"http://localhost:8080/v1/replication/connectors/{name}/pause")
+#         print(resp.json())
+#     elif parts[0] == "resume" and len(parts) >= 2:
+#         name = parts[1]
+#         resp = requests.post(f"http://localhost:8080/v1/replication/connectors/{name}/resume")
+#         print(resp.json())
+#     elif parts[0] == "start":
+#         resp = requests.post("http://localhost:8080/v1/replication/cdc/start")
+#         print(resp.json())
+#     elif parts[0] == "stop":
+#         resp = requests.post("http://localhost:8080/v1/replication/cdc/stop")
+#         print(resp.json())
+#     else:
+#         print("Unknown CDC command")
+#
+# Then add "/cdc": self.cmd_cdc to commands dict.
+

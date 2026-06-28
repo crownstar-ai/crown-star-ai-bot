@@ -1,0 +1,4 @@
+﻿# In crownstar_enterprise_api.py, add:
+# from gateway.api import router as gateway_router
+# app.include_router(gateway_router)
+# # Optionally start WebSocket gateway in background (already separate)

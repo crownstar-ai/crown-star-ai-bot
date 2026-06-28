@@ -1,0 +1,18 @@
+# Add to crownstar_core.py answer() method:
+# from analytics.analytics_service import AnalyticsService
+# self.analytics = AnalyticsService()
+# Then in answer(), after generating response:
+# request_data = {
+#     'timestamp': datetime.utcnow().isoformat(),
+#     'user_id': 'default',
+#     'tier': self.tier,
+#     'model': self.current_model or 'default',
+#     'modules_active': active,
+#     'input_chars': len(user_input),
+#     'output_chars': len(final),
+#     'latency_ms': latency_ms,
+#     'status': 200,
+#     'endpoint': '/chat',
+#     'cost': 0.0  # compute via BillingEngine if needed
+# }
+# self.analytics.log_request(request_data)

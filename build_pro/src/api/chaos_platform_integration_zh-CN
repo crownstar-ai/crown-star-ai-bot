@@ -1,0 +1,4 @@
+[翻译占位] # In crownstar_enterprise_api.py, add:
+# from chaos.platform.api import router as chaos_platform_router
+# app.include_router(chaos_platform_router)
+

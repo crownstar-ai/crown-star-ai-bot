@@ -1,0 +1,8 @@
+[翻译占位] <!DOCTYPE html>
+<html><body>
+<h2>⚠️ CrownStar Alert</h2>
+<p><strong>{{ severity }}</strong>: {{ message }}</p>
+<p>Time: {{ timestamp }}</p>
+<p><a href="{{ details_url }}">View Details</a></p>
+</body></html>
+

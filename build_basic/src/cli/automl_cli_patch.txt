@@ -1,0 +1,35 @@
+# Add to crownstar_ultra_cli.py:
+# import requests, json
+# def cmd_automl(self, args):
+#     parts = args.split()
+#     if not parts or parts[0] == "help":
+#         print("Usage: /automl start <task> <search_space_json> [algorithm] [trials]")
+#         print("       /automl status <opt_id>")
+#         print("       /automl trials <opt_id>")
+#         print("       /automl best <opt_id>")
+#         return
+#     if parts[0] == "start" and len(parts) >= 3:
+#         task = parts[1]
+#         space_json = parts[2]
+#         algorithm = parts[3] if len(parts) > 3 else "bayesian"
+#         trials = int(parts[4]) if len(parts) > 4 else 50
+#         search_space = json.loads(space_json)
+#         resp = requests.post("http://localhost:8080/v1/automl/optimise", json={"task_name": task, "search_space": search_space, "algorithm": algorithm, "total_trials": trials})
+#         print(resp.json())
+#     elif parts[0] == "status" and len(parts) >= 2:
+#         opt_id = parts[1]
+#         resp = requests.get(f"http://localhost:8080/v1/automl/status/{opt_id}")
+#         data = resp.json()
+#         print(f"Task: {data['task']}, Status: {data['status']}, Completed: {data['completed_trials']}/{data['total_trials']}, Best: {data['best_objective']}")
+#     elif parts[0] == "trials" and len(parts) >= 2:
+#         opt_id = parts[1]
+#         resp = requests.get(f"http://localhost:8080/v1/automl/trials/{opt_id}")
+#         data = resp.json()
+#         for t in data.get("trials", []):
+#             print(f"{t['trial_id']}: {t['status']} -> obj={t.get('objective', 'N/A')}")
+#     elif parts[0] == "best" and len(parts) >= 2:
+#         opt_id = parts[1]
+#         resp = requests.get(f"http://localhost:8080/v1/automl/best/{opt_id}")
+#         print(json.dumps(resp.json(), indent=2))
+#     else:
+#         print("Unknown automl command")
