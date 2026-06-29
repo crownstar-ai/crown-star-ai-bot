@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrownStar – 企业级主权AI平台</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: #05060a; color: #f5f7ff; line-height: 1.7; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; border-bottom: 1px solid #1f2635; }
+        .logo { font-size: 1.8rem; font-weight: 700; background: linear-gradient(135deg, #f5f7ff, #7a9eff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav a { color: #9aa5c9; text-decoration: none; margin-left: 2rem; transition: color 0.3s; }
+        .nav a:hover { color: #f5f7ff; }
+        .hero { text-align: center; padding: 4rem 0 3rem; }
+        .hero h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, #f5f7ff 0%, #7a9eff 50%, #f5f7ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero .subtitle { font-size: 1.3rem; color: #9aa5c9; max-width: 700px; margin: 0 auto 2rem; }
+        .hero-badges { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .badge { background: #0c0f17; border: 1px solid #2a334a; padding: 0.4rem 1.2rem; border-radius: 2rem; font-size: 0.85rem; color: #b7c9ff; }
+        .btn-primary { display: inline-block; padding: 0.9rem 2.5rem; background: #4a6cf7; color: #fff; border-radius: 2rem; text-decoration: none; font-weight: 600; transition: background 0.3s; }
+        .btn-primary:hover { background: #3a5cd7; }
+        .btn-secondary { display: inline-block; padding: 0.9rem 2.5rem; background: transparent; color: #f5f7ff; border: 1px solid #2a334a; border-radius: 2rem; text-decoration: none; font-weight: 600; transition: background 0.3s; }
+        .btn-secondary:hover { background: #0c0f17; }
+        .features { padding: 3rem 0; }
+        .features h2 { text-align: center; font-size: 2.2rem; margin-bottom: 2rem; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+        .feature-card { background: #0c0f17; border: 1px solid #1f2635; border-radius: 1rem; padding: 1.8rem; transition: border-color 0.3s; }
+        .feature-card:hover { border-color: #4a6cf7; }
+        .feature-card .icon { font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .feature-card h3 { color: #f5f7ff; font-size: 1.1rem; margin-bottom: 0.3rem; }
+        .feature-card p { color: #9aa5c9; font-size: 0.95rem; }
+        .cta-banner { background: linear-gradient(135deg, #0c0f17, #1a2333); border: 1px solid #2a334a; border-radius: 1rem; padding: 2.5rem; text-align: center; margin: 2rem 0; }
+        .cta-banner h2 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .cta-banner p { color: #9aa5c9; margin-bottom: 1.5rem; }
+        .footer { text-align: center; padding: 2rem 0; color: #5a6a8a; border-top: 1px solid #1f2635; margin-top: 2rem; font-size: 0.9rem; }
+        .footer a { color: #7a9eff; text-decoration: none; }
+        @media (max-width: 600px) { .hero h1 { font-size: 2.2rem; } .nav { display: none; } .features-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">👑 CrownStar</div>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="product.html">产品</a>
+                <a href="pricing.html">定价</a>
+                <a href="case-studies.html">案例</a>
+                <a href="security.html">安全</a>
+                <a href="contact.html">联系我们</a>
+            </nav>
+        </header>
+        <section class="hero">
+            <h1>你的企业AI，<br />数据永不离场</h1>
+            <p class="subtitle">CrownStar 是深度集成 DeepSeek 的企业级主权AI私有化平台。<br />5 分钟完成部署，数据 100% 留在你的网络内。</p>
+            <div class="hero-badges">
+                <span class="badge">🔒 数据主权</span>
+                <span class="badge">🇨🇳 信创合规</span>
+                <span class="badge">⚡ 开箱即用</span>
+                <span class="badge">🔄 一次购买 · 终身升级</span>
+            </div>
+            <div class="hero-actions">
+                <a href="download.html" class="btn-primary">🚀 免费下载</a>
+                <a href="contact.html" class="btn-secondary">💬 联系销售</a>
+            </div>
+        </section>
+        <section class="features">
+            <h2>为什么选择 CrownStar</h2>
+            <div class="features-grid">
+                <div class="feature-card"><div class="icon">🔒</div><h3>100% 私有化部署</h3><p>数据永不离开你的网络，满足《数据安全法》和《个人信息保护法》要求。</p></div>
+                <div class="feature-card"><div class="icon">🧠</div><h3>无限记忆 · 永不遗忘</h3><p>生物拟态记忆 + 向量检索，所有对话永久保存，跨会话智能召回。</p></div>
+                <div class="feature-card"><div class="icon">⚡</div><h3>5 分钟部署</h3><p>无需复杂配置，支持 Docker / 源码 / Windows EXE 一键安装。</p></div>
+                <div class="feature-card"><div class="icon">🛡️</div><h3>信创 + 国密合规</h3><p>适配华为昇腾 NPU、麒麟 OS、统信 UOS，已通过等保 2.0 三级评估。</p></div>
+                <div class="feature-card"><div class="icon">📊</div><h3>企业级审计与监控</h3><p>全链路审计日志、实时性能仪表板、Prometheus 指标导出。</p></div>
+                <div class="feature-card"><div class="icon">🤖</div><h3>自研超级神经元模型</h3><p>基于 Jacobian + Hessian 的二阶优化引擎，数学可证明的推理能力。</p></div>
+            </div>
+        </section>
+        <section class="cta-banner">
+            <h2>👑 成为 CrownStar 首批企业客户</h2>
+            <p>基础版 ¥29,800 · 专业版 ¥149,800 · 企业版 ¥598,000<br />一次购买，终身免费升级。</p>
+            <a href="pricing.html" class="btn-primary">📋 查看定价方案</a>
+        </section>
+        <footer class="footer">
+            <p>© 2026 CrownStar. All rights reserved.</p>
+            <p><a href="mailto:st3vens.ben@yandex.com">st3vens.ben@yandex.com</a></p>
+        </footer>
+    </div>
+</body>
+</html>
