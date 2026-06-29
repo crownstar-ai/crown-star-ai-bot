@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CrownStar – 企业级主权AI平台</title>
     <style>
         /* ===== RESET ===== */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             font-family: 'PingFang SC', 'Microsoft YaHei', 'Inter', system-ui, sans-serif;
             background: #f0f3f8;
@@ -14,18 +18,25 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
-        a { text-decoration: none; color: inherit; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
-        /* ===== HEADER ===== */
+        /* ===== GLASS HEADER ===== */
         .header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(20px) saturate(1.8);
-            -webkit-backdrop-filter: blur(20px) saturate(1.8);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(24px) saturate(1.8);
+            -webkit-backdrop-filter: blur(24px) saturate(1.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
             padding: 0.8rem 0;
             transition: background 0.4s, box-shadow 0.4s;
         }
@@ -33,9 +44,20 @@
             background: rgba(255, 255, 255, 0.85);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
         }
-        .header .container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.6rem; font-weight: 700; color: #0a2e5c; }
-        .logo span { color: #c9a84c; }
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: #0a2e5c;
+        }
+        .logo span {
+            color: #c9a84c;
+        }
         .nav a {
             color: #4a4a6a;
             margin-left: 2.2rem;
@@ -54,24 +76,34 @@
             background: linear-gradient(90deg, #c9a84c, #0a2e5c);
             transition: width 0.4s ease;
         }
-        .nav a:hover { color: #0a2e5c; }
-        .nav a:hover::after { width: 100%; }
+        .nav a:hover {
+            color: #0a2e5c;
+        }
+        .nav a:hover::after {
+            width: 100%;
+        }
         .nav .cta {
             background: #0a2e5c;
             color: #fff !important;
             padding: 0.5rem 1.8rem;
             border-radius: 3rem;
             font-weight: 600;
-            box-shadow: 0 4px 12px rgba(10,46,92,0.15);
             transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 4px 12px rgba(10, 46, 92, 0.15);
         }
-        .nav .cta:hover { background: #1a4a7a; transform: scale(1.03); box-shadow: 0 8px 24px rgba(10,46,92,0.25); }
-        .nav .cta::after { display: none; }
+        .nav .cta:hover {
+            background: #1a4a7a;
+            transform: scale(1.03);
+            box-shadow: 0 8px 24px rgba(10, 46, 92, 0.25);
+        }
+        .nav .cta::after {
+            display: none;
+        }
 
         /* ===== HERO ===== */
         .hero {
             position: relative;
-            padding: 4rem 0 3rem;
+            padding: 4rem 0 2rem;
             text-align: center;
             background: linear-gradient(160deg, #ffffff 0%, #f0f3f8 100%);
             overflow: hidden;
@@ -81,16 +113,46 @@
             position: absolute;
             border-radius: 50%;
             filter: blur(80px);
-            opacity: 0.3;
+            opacity: 0.25;
             pointer-events: none;
             z-index: 0;
         }
-        .hero .orb-1 { width: 400px; height: 400px; top: -100px; right: -100px; background: radial-gradient(circle, #c9a84c, transparent 70%); }
-        .hero .orb-2 { width: 500px; height: 500px; bottom: -150px; left: -150px; background: radial-gradient(circle, #0a2e5c, transparent 70%); }
-        .hero .content { position: relative; z-index: 1; }
-        .hero h1 { font-size: 4rem; font-weight: 800; letter-spacing: -0.02em; color: #0a2e5c; margin-bottom: 1rem; line-height: 1.15; }
-        .hero h1 .gold { color: #c9a84c; }
-        .hero .subtitle { font-size: 1.3rem; color: #5a5a7a; max-width: 680px; margin: 0 auto 2rem; }
+        .hero .orb-1 {
+            width: 400px;
+            height: 400px;
+            top: -100px;
+            right: -100px;
+            background: radial-gradient(circle, #c9a84c, transparent 70%);
+        }
+        .hero .orb-2 {
+            width: 500px;
+            height: 500px;
+            bottom: -150px;
+            left: -150px;
+            background: radial-gradient(circle, #0a2e5c, transparent 70%);
+        }
+        .hero .content {
+            position: relative;
+            z-index: 1;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #0a2e5c;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+        }
+        .hero h1 .gold {
+            color: #c9a84c;
+        }
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: #5a5a7a;
+            max-width: 680px;
+            margin: 0 auto 2rem;
+            font-weight: 400;
+        }
         .hero .badges {
             display: flex;
             justify-content: center;
@@ -108,10 +170,12 @@
             font-size: 0.85rem;
             font-weight: 500;
             color: #2a2a4a;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
             transition: transform 0.2s;
         }
-        .hero .badge:hover { transform: translateY(-2px); }
+        .hero .badge:hover {
+            transform: translateY(-2px);
+        }
         .hero-actions {
             display: flex;
             justify-content: center;
@@ -126,10 +190,23 @@
             border-radius: 3rem;
             font-weight: 600;
             font-size: 1rem;
-            box-shadow: 0 6px 20px rgba(10,46,92,0.25);
             transition: background 0.3s, transform 0.25s, box-shadow 0.3s;
+            box-shadow: 0 6px 20px rgba(10, 46, 92, 0.25);
+            position: relative;
+            overflow: hidden;
         }
-        .btn-primary:hover { background: #1a4a7a; transform: translateY(-3px) scale(1.02); box-shadow: 0 12px 32px rgba(10,46,92,0.35); }
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), transparent 60%);
+            pointer-events: none;
+        }
+        .btn-primary:hover {
+            background: #1a4a7a;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 32px rgba(10, 46, 92, 0.35);
+        }
         .btn-secondary {
             display: inline-block;
             padding: 0.9rem 3rem;
@@ -137,56 +214,77 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             color: #0a2e5c;
-            border: 1px solid rgba(10,46,92,0.12);
+            border: 1px solid rgba(10, 46, 92, 0.12);
             border-radius: 3rem;
             font-weight: 600;
             font-size: 1rem;
             transition: background 0.3s, transform 0.25s;
         }
-        .btn-secondary:hover { background: rgba(255, 255, 255, 0.9); transform: translateY(-3px) scale(1.02); }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-3px) scale(1.02);
+        }
 
         /* ===== DIAGRAM SECTION ===== */
         .diagram-section {
-            padding: 3rem 0 2rem;
+            padding: 2rem 0 1rem;
         }
-        .diagram-section h2 {
+        .diagram-section .section-title {
             text-align: center;
             font-size: 2.2rem;
             font-weight: 700;
             color: #0a2e5c;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
-        .diagram-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+        .diagram-section .section-title span {
+            color: #c9a84c;
         }
-        .diagram-card {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(20px) saturate(1.5);
-            -webkit-backdrop-filter: blur(20px) saturate(1.5);
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            border-radius: 1.5rem;
-            padding: 1.8rem;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.05);
-            transition: transform 0.4s, box-shadow 0.4s;
+        .diagram-wrapper {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 2rem;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
+            transition: box-shadow 0.4s;
         }
-        .diagram-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+        .diagram-wrapper:hover {
+            box-shadow: 0 12px 60px rgba(10, 46, 92, 0.08);
         }
-        .diagram-card h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #0a2e5c;
-            margin-bottom: 0.8rem;
-            text-align: center;
-        }
-        .diagram-card svg {
+        .diagram-wrapper svg {
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 0.8rem;
+        }
+        .diagram-wrapper .legend {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.2rem;
+            flex-wrap: wrap;
+        }
+        .diagram-wrapper .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: #4a4a6a;
+        }
+        .diagram-wrapper .legend-item .dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 4px;
+        }
+        .diagram-wrapper .legend-item .dot.gold {
+            background: #c9a84c;
+        }
+        .diagram-wrapper .legend-item .dot.blue {
+            background: #0a2e5c;
+        }
+        .diagram-wrapper .legend-item .dot.glass {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid #d0d8e0;
         }
 
         /* ===== FEATURES ===== */
@@ -212,13 +310,29 @@
             border: 1px solid rgba(255, 255, 255, 0.7);
             border-radius: 1.2rem;
             padding: 2rem;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
             transition: transform 0.3s, box-shadow 0.3s;
         }
-        .feature-card:hover { transform: translateY(-6px); box-shadow: 0 12px 48px rgba(10,46,92,0.08); }
-        .feature-card .icon { font-size: 2rem; margin-bottom: 0.5rem; display: block; color: #0a2e5c; }
-        .feature-card h3 { font-size: 1.15rem; font-weight: 700; color: #0a2e5c; margin-bottom: 0.3rem; }
-        .feature-card p { color: #5a5a7a; font-size: 0.95rem; }
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 48px rgba(10, 46, 92, 0.08);
+        }
+        .feature-card .icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+            color: #0a2e5c;
+        }
+        .feature-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #0a2e5c;
+            margin-bottom: 0.3rem;
+        }
+        .feature-card p {
+            color: #5a5a7a;
+            font-size: 0.95rem;
+        }
 
         /* ===== CTA BANNER ===== */
         .cta-banner {
@@ -227,7 +341,7 @@
             padding: 3rem;
             text-align: center;
             margin: 2rem 0 3rem;
-            box-shadow: 0 8px 32px rgba(10,46,92,0.25);
+            box-shadow: 0 8px 32px rgba(10, 46, 92, 0.25);
             position: relative;
             overflow: hidden;
         }
@@ -238,47 +352,130 @@
             right: -20%;
             width: 60%;
             height: 150%;
-            background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(201, 168, 76, 0.08) 0%, transparent 70%);
             pointer-events: none;
         }
-        .cta-banner h2 { font-size: 2.2rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; position: relative; }
-        .cta-banner h2 .gold { color: #c9a84c; }
-        .cta-banner p { color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 1.5rem; position: relative; }
-        .cta-banner .btn-primary { background: #c9a84c; color: #0a2e5c; box-shadow: 0 4px 16px rgba(201,168,76,0.35); }
-        .cta-banner .btn-primary:hover { background: #dbb95e; }
+        .cta-banner h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        .cta-banner h2 .gold {
+            color: #c9a84c;
+        }
+        .cta-banner p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        .cta-banner .btn-primary {
+            background: #c9a84c;
+            color: #0a2e5c;
+            box-shadow: 0 4px 16px rgba(201, 168, 76, 0.35);
+        }
+        .cta-banner .btn-primary:hover {
+            background: #dbb95e;
+        }
 
         /* ===== FOOTER ===== */
         .footer {
             text-align: center;
             padding: 2.5rem 0 2rem;
             color: #7a7a9a;
-            border-top: 1px solid rgba(0,0,0,0.04);
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
             font-size: 0.9rem;
         }
-        .footer a { color: #0a2e5c; font-weight: 500; }
-        .footer a:hover { color: #c9a84c; }
+        .footer a {
+            color: #0a2e5c;
+            font-weight: 500;
+        }
+        .footer a:hover {
+            color: #c9a84c;
+        }
 
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+        }
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.4rem; }
-            .diagram-grid { grid-template-columns: 1fr; }
-            .nav a { margin-left: 1rem; font-size: 0.85rem; }
-            .nav .cta { padding: 0.4rem 1rem; font-size: 0.8rem; }
-            .cta-banner { padding: 2rem; }
-            .cta-banner h2 { font-size: 1.6rem; }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+            .nav a {
+                margin-left: 1rem;
+                font-size: 0.85rem;
+            }
+            .nav .cta {
+                padding: 0.4rem 1rem;
+                font-size: 0.8rem;
+            }
+            .cta-banner {
+                padding: 2rem;
+            }
+            .cta-banner h2 {
+                font-size: 1.6rem;
+            }
+            .diagram-wrapper {
+                padding: 0.8rem;
+                border-radius: 1rem;
+            }
+            .diagram-wrapper .legend {
+                gap: 1rem;
+                font-size: 0.75rem;
+            }
         }
         @media (max-width: 480px) {
-            .header .container { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
-            .nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
-            .nav a { margin-left: 0; }
-            .hero { padding: 2rem 0; }
-            .hero h1 { font-size: 1.8rem; }
+            .header .container {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            .nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            .nav a {
+                margin-left: 0;
+                font-size: 0.8rem;
+            }
+            .hero {
+                padding: 2rem 0;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero .badges {
+                gap: 0.4rem;
+            }
+            .hero .badge {
+                font-size: 0.7rem;
+                padding: 0.3rem 1rem;
+            }
+            .btn-primary,
+            .btn-secondary {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
     <!-- ===== HEADER ===== -->
-    <header class="header">
+    <header class="header" id="header">
         <div class="container">
             <div class="logo">Crown<span>Star</span></div>
             <nav class="nav">
@@ -315,185 +512,159 @@
         </div>
     </section>
 
-    <!-- ===== DIAGRAMS ===== -->
+    <!-- ===== DIAGRAM SECTION ===== -->
     <section class="diagram-section">
         <div class="container">
-            <h2>系统架构</h2>
-            <div class="diagram-grid">
+            <div class="section-title">◆ <span>CrownStar</span> 平台架构全景</div>
+            <div class="diagram-wrapper">
 
-                <!-- Diagram 1: Architecture -->
-                <div class="diagram-card">
-                    <h3>◆ 平台架构</h3>
-                    <svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
-                                <stop offset="100%" stop-color="#e8ecf5" stop-opacity="0.6"/>
-                            </linearGradient>
-                            <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-                                <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.06"/>
-                            </filter>
-                            <filter id="glass" x="-20%" y="-20%" width="140%" height="140%">
-                                <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
-                                <feOffset dx="0" dy="2"/>
-                                <feComponentTransfer><feFuncA type="linear" slope="0.1"/></feComponentTransfer>
-                                <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-                            </filter>
-                        </defs>
+                <svg viewBox="0 0 1200 750" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <!-- Gradients -->
+                        <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"/>
+                            <stop offset="100%" stop-color="#e8ecf5" stop-opacity="0.5"/>
+                        </linearGradient>
+                        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#f5d98a" stop-opacity="0.9"/>
+                        </linearGradient>
+                        <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#0a2e5c" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#2a5a8a" stop-opacity="0.9"/>
+                        </linearGradient>
+                        <linearGradient id="flowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#c9a84c" stop-opacity="0"/>
+                            <stop offset="50%" stop-color="#c9a84c" stop-opacity="0.8"/>
+                            <stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/>
+                        </linearGradient>
 
-                        <!-- Background -->
-                        <rect width="600" height="320" rx="16" fill="url(#g1)" filter="url(#shadow)"/>
+                        <!-- Filters -->
+                        <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+                            <feDropShadow dx="2" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.08"/>
+                        </filter>
+                        <filter id="shadowDeep" x="-15%" y="-15%" width="140%" height="140%">
+                            <feDropShadow dx="4" dy="12" stdDeviation="16" flood-color="#000" flood-opacity="0.12"/>
+                        </filter>
+                        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="6" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                        <filter id="blurLight" x="-10%" y="-10%" width="120%" height="120%">
+                            <feGaussianBlur stdDeviation="3"/>
+                        </filter>
 
-                        <!-- Layers -->
-                        <rect x="30" y="30" width="540" height="50" rx="8" fill="#0a2e5c" opacity="0.08" filter="url(#glass)"/>
-                        <text x="300" y="60" text-anchor="middle" font-size="14" font-weight="600" fill="#0a2e5c">Web UI / REST API</text>
+                        <!-- Arrow markers -->
+                        <marker id="arrowGold" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#c9a84c"/>
+                        </marker>
+                        <marker id="arrowBlue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#0a2e5c" opacity="0.3"/>
+                        </marker>
 
-                        <rect x="30" y="100" width="540" height="50" rx="8" fill="#0a2e5c" opacity="0.08" filter="url(#glass)"/>
-                        <text x="300" y="130" text-anchor="middle" font-size="14" font-weight="600" fill="#0a2e5c">CrownStar Core (路由 + 记忆 + 模型)</text>
+                        <!-- 3D Block templates -->
+                        <g id="block3D">
+                            <rect x="0" y="0" width="180" height="60" rx="10" fill="url(#glassGrad)" stroke="rgba(255,255,255,0.6)" stroke-width="1" filter="url(#shadow)"/>
+                            <rect x="0" y="-8" width="180" height="10" rx="4" fill="rgba(255,255,255,0.2)" opacity="0.5"/>
+                            <rect x="0" y="60" width="180" height="8" rx="4" fill="rgba(0,0,0,0.03)"/>
+                        </g>
+                        <g id="blockGold">
+                            <rect x="0" y="0" width="180" height="60" rx="10" fill="url(#goldGrad)" stroke="rgba(201,168,76,0.4)" stroke-width="1" filter="url(#shadowDeep)"/>
+                            <rect x="0" y="-8" width="180" height="10" rx="4" fill="rgba(255,255,255,0.4)" opacity="0.6"/>
+                            <rect x="0" y="60" width="180" height="8" rx="4" fill="rgba(0,0,0,0.05)"/>
+                        </g>
+                        <g id="person">
+                            <circle cx="0" cy="-12" r="8" fill="#0a2e5c" opacity="0.7"/>
+                            <rect x="-6" y="-4" width="12" height="16" rx="4" fill="#0a2e5c" opacity="0.5"/>
+                            <circle cx="0" cy="-12" r="8" fill="url(#glassGrad)" opacity="0.3"/>
+                        </g>
+                    </defs>
 
-                        <rect x="30" y="170" width="540" height="50" rx="8" fill="#c9a84c" opacity="0.12" filter="url(#glass)"/>
-                        <text x="300" y="200" text-anchor="middle" font-size="14" font-weight="600" fill="#0a2e5c">内存系统 (向量 + 生物拟态)</text>
+                    <!-- Background -->
+                    <rect width="1200" height="750" rx="20" fill="rgba(255,255,255,0.3)" style="backdrop-filter:blur(10px);"/>
 
-                        <rect x="30" y="240" width="540" height="50" rx="8" fill="#0a2e5c" opacity="0.08" filter="url(#glass)"/>
-                        <text x="300" y="270" text-anchor="middle" font-size="14" font-weight="600" fill="#0a2e5c">推理引擎 (DeepSeek / vLLM / 自研模型)</text>
+                    <!-- Flow lines (background) -->
+                    <path d="M 200 200 Q 400 150 500 280" stroke="url(#flowGrad)" stroke-width="3" fill="none" opacity="0.3"/>
+                    <path d="M 700 280 Q 850 250 900 380" stroke="url(#flowGrad)" stroke-width="3" fill="none" opacity="0.3"/>
+                    <path d="M 200 420 Q 400 480 700 450 Q 900 430 950 500" stroke="url(#flowGrad)" stroke-width="3" fill="none" opacity="0.2"/>
 
-                        <!-- Arrows -->
-                        <line x1="300" y1="80" x2="300" y2="98" stroke="#0a2e5c" stroke-width="2" marker-end="url(#arrow)"/>
-                        <line x1="300" y1="150" x2="300" y2="168" stroke="#0a2e5c" stroke-width="2" marker-end="url(#arrow)"/>
-                        <line x1="300" y1="220" x2="300" y2="238" stroke="#0a2e5c" stroke-width="2" marker-end="url(#arrow)"/>
+                    <!-- ROW 1: User / Frontend -->
+                    <text x="100" y="70" font-size="14" font-weight="600" fill="#0a2e5c" opacity="0.6">用户层</text>
+                    <use href="#person" x="80" y="140"/>
+                    <text x="80" y="165" text-anchor="middle" font-size="11" fill="#4a4a6a">管理员</text>
+                    <use href="#person" x="180" y="140"/>
+                    <text x="180" y="165" text-anchor="middle" font-size="11" fill="#4a4a6a">开发者</text>
+                    <use href="#person" x="280" y="140"/>
+                    <text x="280" y="165" text-anchor="middle" font-size="11" fill="#4a4a6a">业务用户</text>
 
-                        <defs>
-                            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#0a2e5c" opacity="0.4"/>
-                            </marker>
-                        </defs>
-                    </svg>
-                </div>
+                    <g transform="translate(460, 100)"><use href="#block3D"/><text x="90" y="38" text-anchor="middle" font-size="15" font-weight="600" fill="#0a2e5c">Web UI</text></g>
+                    <g transform="translate(680, 100)"><use href="#block3D"/><text x="90" y="38" text-anchor="middle" font-size="15" font-weight="600" fill="#0a2e5c">REST API</text></g>
 
-                <!-- Diagram 2: Deployment Flow -->
-                <div class="diagram-card">
-                    <h3>◆ 5 分钟部署</h3>
-                    <svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
-                                <stop offset="100%" stop-color="#e8ecf5" stop-opacity="0.6"/>
-                            </linearGradient>
-                            <filter id="shadow2" x="-10%" y="-10%" width="120%" height="120%">
-                                <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.06"/>
-                            </filter>
-                        </defs>
-                        <rect width="600" height="320" rx="16" fill="url(#g2)" filter="url(#shadow2)"/>
+                    <line x1="120" y1="150" x2="460" y2="130" stroke="#0a2e5c" stroke-width="2" stroke-dasharray="4,4" opacity="0.3" marker-end="url(#arrowBlue)"/>
+                    <line x1="220" y1="150" x2="480" y2="130" stroke="#0a2e5c" stroke-width="2" stroke-dasharray="4,4" opacity="0.3" marker-end="url(#arrowBlue)"/>
+                    <line x1="320" y1="150" x2="500" y2="130" stroke="#0a2e5c" stroke-width="2" stroke-dasharray="4,4" opacity="0.3" marker-end="url(#arrowBlue)"/>
+                    <line x1="640" y1="130" x2="680" y2="130" stroke="#c9a84c" stroke-width="3" marker-end="url(#arrowGold)"/>
 
-                        <!-- Steps -->
-                        <circle cx="100" cy="160" r="40" fill="#0a2e5c" opacity="0.08" stroke="#0a2e5c" stroke-width="2"/>
-                        <text x="100" y="156" text-anchor="middle" font-size="28" font-weight="700" fill="#0a2e5c">1</text>
-                        <text x="100" y="218" text-anchor="middle" font-size="12" font-weight="500" fill="#0a2e5c">下载</text>
+                    <!-- ROW 2: Core Engine -->
+                    <text x="100" y="220" font-size="14" font-weight="600" fill="#0a2e5c" opacity="0.6">核心引擎</text>
+                    <g transform="translate(460, 200)"><use href="#blockGold"/><text x="90" y="38" text-anchor="middle" font-size="15" font-weight="700" fill="#0a2e5c">智能路由</text></g>
+                    <g transform="translate(320, 210)"><rect x="0" y="0" width="100" height="40" rx="6" fill="rgba(255,255,255,0.5)" stroke="#d0d8e0" stroke-width="1" filter="url(#shadow)"/><text x="50" y="26" text-anchor="middle" font-size="11" fill="#4a4a6a">9 个模块</text></g>
+                    <g transform="translate(700, 210)"><rect x="0" y="0" width="100" height="40" rx="6" fill="rgba(255,255,255,0.5)" stroke="#d0d8e0" stroke-width="1" filter="url(#shadow)"/><text x="50" y="26" text-anchor="middle" font-size="11" fill="#4a4a6a">插件系统</text></g>
+                    <line x1="770" y1="130" x2="600" y2="200" stroke="#c9a84c" stroke-width="3" marker-end="url(#arrowGold)"/>
 
-                        <circle cx="300" cy="160" r="40" fill="#c9a84c" opacity="0.12" stroke="#c9a84c" stroke-width="2"/>
-                        <text x="300" y="156" text-anchor="middle" font-size="28" font-weight="700" fill="#0a2e5c">2</text>
-                        <text x="300" y="218" text-anchor="middle" font-size="12" font-weight="500" fill="#0a2e5c">配置</text>
+                    <!-- ROW 3: Memory System -->
+                    <text x="100" y="320" font-size="14" font-weight="600" fill="#0a2e5c" opacity="0.6">记忆系统</text>
+                    <g transform="translate(200, 300)"><use href="#block3D"/><text x="90" y="38" text-anchor="middle" font-size="15" font-weight="600" fill="#0a2e5c">向量记忆</text></g>
+                    <g transform="translate(460, 300)"><use href="#blockGold"/><text x="90" y="38" text-anchor="middle" font-size="15" font-weight="700" fill="#0a2e5c">生物拟态</text></g>
+                    <g transform="translate(720, 300)"><use href="#block3D"/><text x="90" y="38" text-anchor="middle" font-size="15" font-weight="600" fill="#0a2e5c">时序索引</text></g>
+                    <line x1="550" y1="260" x2="300" y2="300" stroke="#0a2e5c" stroke-width="2" stroke-dasharray="4,4" opacity="0.4" marker-end="url(#arrowBlue)"/>
+                    <line x1="550" y1="260" x2="550" y2="300" stroke="#c9a84c" stroke-width="3" marker-end="url(#arrowGold)"/>
+                    <line x1="550" y1="260" x2="800" y2="300" stroke="#0a2e5c" stroke-width="2" stroke-dasharray="4,4" opacity="0.4" marker-end="url(#arrowBlue)"/>
 
-                        <circle cx="500" cy="160" r="40" fill="#0a2e5c" opacity="0.08" stroke="#0a2e5c" stroke-width="2"/>
-                        <text x="500" y="156" text-anchor="middle" font-size="28" font-weight="700" fill="#0a2e5c">3</text>
-                        <text x="500" y="218" text-anchor="middle" font-size="12" font-weight="500" fill="#0a2e5c">运行</text>
+                    <!-- ROW 4: Inference Engine -->
+                    <text x="100" y="420" font-size="14" font-weight="600" fill="#0a2e5c" opacity="0.6">推理引擎</text>
+                    <g transform="translate(160, 400)"><use href="#block3D"/><text x="90" y="38" text-anchor="middle" font-size="15" font-weight="600" fill="#0a2e5c">DeepSeek</text></g>
+                    <g transform="translate(420, 400)"><use href="#blockGold"/><text x="90" y="38" text-anchor="middle" font-size="15" font-weight="700" fill="#0a2e5c">vLLM</text></g>
+                    <g transform="translate(680, 400)"><use href="#block3D"/><text x="90" y="38" text-anchor="middle" font-size="15" font-weight="600" fill="#0a2e5c">超级模型</text></g>
+                    <line x1="300" y1="360" x2="250" y2="400" stroke="#0a2e5c" stroke-width="2" stroke-dasharray="4,4" opacity="0.4" marker-end="url(#arrowBlue)"/>
+                    <line x1="550" y1="360" x2="500" y2="400" stroke="#c9a84c" stroke-width="3" marker-end="url(#arrowGold)"/>
+                    <line x1="800" y1="360" x2="750" y2="400" stroke="#0a2e5c" stroke-width="2" stroke-dasharray="4,4" opacity="0.4" marker-end="url(#arrowBlue)"/>
 
-                        <!-- Arrows -->
-                        <line x1="145" y1="160" x2="250" y2="160" stroke="#0a2e5c" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrow2)"/>
-                        <line x1="345" y1="160" x2="450" y2="160" stroke="#0a2e5c" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrow2)"/>
+                    <!-- Bottom: Data Sovereignty -->
+                    <text x="100" y="520" font-size="14" font-weight="600" fill="#0a2e5c" opacity="0.6">数据主权</text>
+                    <g transform="translate(200, 500)">
+                        <path d="M 80 20 L 160 50 L 160 130 Q 160 180 80 220 Q 0 180 0 130 L 0 50 Z" fill="rgba(10,46,92,0.06)" stroke="#0a2e5c" stroke-width="2" filter="url(#shadow)"/>
+                        <text x="80" y="80" text-anchor="middle" font-size="14" font-weight="700" fill="#0a2e5c">◆</text>
+                        <text x="80" y="110" text-anchor="middle" font-size="12" fill="#4a4a6a">私有化部署</text>
+                        <text x="80" y="132" text-anchor="middle" font-size="11" fill="#7a7a9a">数据不出域</text>
+                    </g>
+                    <g transform="translate(480, 500)">
+                        <rect x="0" y="0" width="160" height="100" rx="12" fill="rgba(255,255,255,0.5)" stroke="#d0d8e0" stroke-width="1" filter="url(#shadow)"/>
+                        <text x="80" y="35" text-anchor="middle" font-size="14" font-weight="700" fill="#0a2e5c">信创合规</text>
+                        <text x="80" y="60" text-anchor="middle" font-size="11" fill="#4a4a6a">华为昇腾 · 麒麟 · 统信</text>
+                        <text x="80" y="80" text-anchor="middle" font-size="11" fill="#4a4a6a">等保 2.0 三级</text>
+                    </g>
+                    <g transform="translate(760, 500)">
+                        <rect x="0" y="0" width="160" height="100" rx="12" fill="rgba(255,255,255,0.5)" stroke="#d0d8e0" stroke-width="1" filter="url(#shadow)"/>
+                        <text x="80" y="35" text-anchor="middle" font-size="14" font-weight="700" fill="#0a2e5c">国密加密</text>
+                        <text x="80" y="60" text-anchor="middle" font-size="11" fill="#4a4a6a">TLS 1.3 · AES-256</text>
+                        <text x="80" y="80" text-anchor="middle" font-size="11" fill="#4a4a6a">SM2/SM3/SM4</text>
+                    </g>
+                    <path d="M 300 480 Q 300 490 280 500" stroke="#c9a84c" stroke-width="2" marker-end="url(#arrowGold)"/>
+                    <path d="M 500 480 Q 500 490 480 500" stroke="#c9a84c" stroke-width="2" marker-end="url(#arrowGold)"/>
+                    <path d="M 700 480 Q 700 490 760 500" stroke="#c9a84c" stroke-width="2" marker-end="url(#arrowGold)"/>
 
-                        <defs>
-                            <marker id="arrow2" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#0a2e5c" opacity="0.4"/>
-                            </marker>
-                        </defs>
+                    <!-- Glass pontoons -->
+                    <ellipse cx="460" cy="180" rx="140" ry="12" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.3)" stroke-width="1" filter="url(#blurLight)"/>
+                    <ellipse cx="460" cy="280" rx="300" ry="14" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1" filter="url(#blurLight)"/>
+                    <ellipse cx="420" cy="380" rx="350" ry="14" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1" filter="url(#blurLight)"/>
+                </svg>
 
-                        <!-- Subtext -->
-                        <text x="100" y="280" text-anchor="middle" font-size="11" fill="#5a5a7a">EXE / Docker / 源码</text>
-                        <text x="300" y="280" text-anchor="middle" font-size="11" fill="#5a5a7a">编辑 .env</text>
-                        <text x="500" y="280" text-anchor="middle" font-size="11" fill="#5a5a7a">./crownstar</text>
-                    </svg>
-                </div>
-
-                <!-- Diagram 3: Security Stack -->
-                <div class="diagram-card">
-                    <h3>◆ 安全合规</h3>
-                    <svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
-                                <stop offset="100%" stop-color="#e8ecf5" stop-opacity="0.6"/>
-                            </linearGradient>
-                            <filter id="shadow3" x="-10%" y="-10%" width="120%" height="120%">
-                                <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.06"/>
-                            </filter>
-                        </defs>
-                        <rect width="600" height="320" rx="16" fill="url(#g3)" filter="url(#shadow3)"/>
-
-                        <!-- Shield -->
-                        <path d="M300 40 L400 80 L400 180 Q400 240 300 280 Q200 240 200 180 L200 80 Z" fill="rgba(10,46,92,0.05)" stroke="#0a2e5c" stroke-width="2"/>
-                        <text x="300" y="70" text-anchor="middle" font-size="14" font-weight="700" fill="#0a2e5c">安全架构</text>
-
-                        <!-- Items -->
-                        <rect x="220" y="100" width="160" height="28" rx="14" fill="#0a2e5c" opacity="0.08" stroke="#0a2e5c" stroke-width="1"/>
-                        <text x="300" y="120" text-anchor="middle" font-size="11" fill="#0a2e5c">TLS 1.3 传输加密</text>
-
-                        <rect x="220" y="140" width="160" height="28" rx="14" fill="#c9a84c" opacity="0.1" stroke="#c9a84c" stroke-width="1"/>
-                        <text x="300" y="160" text-anchor="middle" font-size="11" fill="#0a2e5c">AES-256 存储加密</text>
-
-                        <rect x="220" y="180" width="160" height="28" rx="14" fill="#0a2e5c" opacity="0.08" stroke="#0a2e5c" stroke-width="1"/>
-                        <text x="300" y="200" text-anchor="middle" font-size="11" fill="#0a2e5c">国密 SM2/SM3/SM4</text>
-
-                        <rect x="220" y="220" width="160" height="28" rx="14" fill="#c9a84c" opacity="0.1" stroke="#c9a84c" stroke-width="1"/>
-                        <text x="300" y="240" text-anchor="middle" font-size="11" fill="#0a2e5c">行级安全 (RLS)</text>
-
-                        <rect x="220" y="260" width="160" height="28" rx="14" fill="#0a2e5c" opacity="0.08" stroke="#0a2e5c" stroke-width="1"/>
-                        <text x="300" y="280" text-anchor="middle" font-size="11" fill="#0a2e5c">全链路审计日志</text>
-                    </svg>
-                </div>
-
-                <!-- Diagram 4: Memory & AI -->
-                <div class="diagram-card">
-                    <h3>◆ 无限记忆</h3>
-                    <svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
-                                <stop offset="100%" stop-color="#e8ecf5" stop-opacity="0.6"/>
-                            </linearGradient>
-                            <filter id="shadow4" x="-10%" y="-10%" width="120%" height="120%">
-                                <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.06"/>
-                            </filter>
-                        </defs>
-                        <rect width="600" height="320" rx="16" fill="url(#g4)" filter="url(#shadow4)"/>
-
-                        <!-- Central brain -->
-                        <circle cx="300" cy="160" r="60" fill="rgba(10,46,92,0.05)" stroke="#0a2e5c" stroke-width="2"/>
-                        <text x="300" y="155" text-anchor="middle" font-size="16" font-weight="700" fill="#0a2e5c">记忆</text>
-                        <text x="300" y="180" text-anchor="middle" font-size="11" fill="#5a5a7a">向量 + 生物拟态</text>
-
-                        <!-- Surrounding nodes -->
-                        <circle cx="130" cy="100" r="30" fill="rgba(201,168,76,0.08)" stroke="#c9a84c" stroke-width="1.5"/>
-                        <text x="130" y="104" text-anchor="middle" font-size="10" fill="#0a2e5c">短期</text>
-
-                        <circle cx="470" cy="100" r="30" fill="rgba(201,168,76,0.08)" stroke="#c9a84c" stroke-width="1.5"/>
-                        <text x="470" y="104" text-anchor="middle" font-size="10" fill="#0a2e5c">长期</text>
-
-                        <circle cx="130" cy="220" r="30" fill="rgba(201,168,76,0.08)" stroke="#c9a84c" stroke-width="1.5"/>
-                        <text x="130" y="224" text-anchor="middle" font-size="10" fill="#0a2e5c">跨会话</text>
-
-                        <circle cx="470" cy="220" r="30" fill="rgba(201,168,76,0.08)" stroke="#c9a84c" stroke-width="1.5"/>
-                        <text x="470" y="224" text-anchor="middle" font-size="10" fill="#0a2e5c">语义</text>
-
-                        <!-- Lines -->
-                        <line x1="160" y1="110" x2="245" y2="145" stroke="#0a2e5c" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
-                        <line x1="440" y1="110" x2="355" y2="145" stroke="#0a2e5c" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
-                        <line x1="160" y1="210" x2="245" y2="175" stroke="#0a2e5c" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
-                        <line x1="440" y1="210" x2="355" y2="175" stroke="#0a2e5c" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
-
-                        <!-- Bottom text -->
-                        <text x="300" y="300" text-anchor="middle" font-size="11" fill="#5a5a7a">永不遗忘 · 智能召回</text>
-                    </svg>
+                <div class="legend">
+                    <span class="legend-item"><span class="dot blue"></span> 核心层</span>
+                    <span class="legend-item"><span class="dot gold"></span> 亮点功能</span>
+                    <span class="legend-item"><span class="dot glass"></span> 基础服务</span>
+                    <span class="legend-item">👤 用户角色</span>
                 </div>
             </div>
         </div>
@@ -515,13 +686,13 @@
     </section>
 
     <!-- ===== CTA ===== -->
-    <section class="container">
+    <div class="container">
         <div class="cta-banner">
             <h2>成为 CrownStar <span class="gold">首批企业客户</span></h2>
             <p>基础版 ¥29,800 · 专业版 ¥149,800 · 企业版 ¥598,000<br>一次购买，终身免费升级。</p>
             <a href="pricing.html" class="btn-primary">查看定价方案</a>
         </div>
-    </section>
+    </div>
 
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
