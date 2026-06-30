@@ -3,13 +3,27 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CrownStar – 企业级主权AI平台</title>
+    <title>CrownStar – 数学驱动的企业级主权AI平台</title>
+
+    <!-- MathJax for LaTeX rendering -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\(', '\)']],
+                displayMath: [['\[', '\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
     <style>
-        /* 样式与之前完全相同，保持一致性 */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif; background: #f0f3f8; color: #1a1a2e; line-height: 1.6; overflow-x: hidden; }
+        body { font-family: 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif; background: #f0f3f8; color: #1a1a2e; line-height: 1.8; overflow-x: hidden; }
         a { text-decoration: none; color: inherit; }
         .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+
+        /* ===== HEADER ===== */
         .header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,0.55); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255,255,255,0.4); padding: 0.8rem 0; }
         .header .container { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.6rem; font-weight: 700; color: #0a2e5c; }
@@ -18,44 +32,64 @@
         .nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, #c9a84c, #0a2e5c); transition: width 0.4s; }
         .nav a:hover { color: #0a2e5c; }
         .nav a:hover::after { width: 100%; }
+        .nav .active { color: #0a2e5c; font-weight: 600; border-bottom: 2px solid #c9a84c; padding-bottom: 0.2rem; }
         .nav .cta { background: #0a2e5c; color: #fff !important; padding: 0.5rem 1.8rem; border-radius: 3rem; font-weight: 600; box-shadow: 0 4px 12px rgba(10,46,92,0.15); transition: background 0.3s, transform 0.2s; }
-        .nav .cta:hover { background: #1a4a7a; transform: scale(1.03); }
+        .nav .cta:hover { background: #1a4a7a; transform: scale(1.03); box-shadow: 0 8px 24px rgba(10,46,92,0.25); }
         .nav .cta::after { display: none; }
+
+        /* ===== HERO ===== */
         .hero { position: relative; padding: 4rem 0 2rem; text-align: center; background: linear-gradient(160deg, #ffffff 0%, #f0f3f8 100%); overflow: hidden; isolation: isolate; }
         .hero .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.25; pointer-events: none; z-index: 0; }
         .hero .orb-1 { width: 400px; height: 400px; top: -100px; right: -100px; background: radial-gradient(circle, #c9a84c, transparent 70%); }
         .hero .orb-2 { width: 500px; height: 500px; bottom: -150px; left: -150px; background: radial-gradient(circle, #0a2e5c, transparent 70%); }
         .hero .content { position: relative; z-index: 1; }
-        .hero h1 { font-size: 4rem; font-weight: 800; color: #0a2e5c; margin-bottom: 1rem; line-height: 1.15; }
+        .hero .math-badge { display: inline-block; background: rgba(10,46,92,0.06); padding: 0.2rem 1.2rem; border-radius: 2rem; font-size: 0.75rem; font-weight: 600; color: #0a2e5c; letter-spacing: 0.05em; margin-bottom: 1rem; border: 1px solid rgba(10,46,92,0.08); }
+        .hero h1 { font-size: 3.6rem; font-weight: 800; letter-spacing: -0.02em; color: #0a2e5c; margin-bottom: 0.5rem; line-height: 1.15; }
         .hero h1 .gold { color: #c9a84c; }
-        .hero .subtitle { font-size: 1.3rem; color: #5a5a7a; max-width: 680px; margin: 0 auto 2rem; }
-        .hero .badges { display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
-        .hero .badge { background: rgba(255,255,255,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.7); padding: 0.4rem 1.6rem; border-radius: 3rem; font-size: 0.85rem; font-weight: 500; color: #2a2a4a; transition: transform 0.2s; }
+        .hero .formula { background: rgba(10,46,92,0.04); padding: 0.8rem 1.5rem; border-radius: 1rem; display: inline-block; margin: 0.5rem auto 1rem; font-size: 1.1rem; border: 1px solid rgba(10,46,92,0.06); }
+        .hero .formula .math { font-family: 'Times New Roman', serif; font-weight: 600; color: #0a2e5c; }
+        .hero .subtitle { font-size: 1.2rem; color: #5a5a7a; max-width: 700px; margin: 0 auto 1.5rem; font-weight: 400; }
+        .hero .badges { display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .hero .badge { background: rgba(255,255,255,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.7); padding: 0.3rem 1.4rem; border-radius: 3rem; font-size: 0.8rem; font-weight: 500; color: #2a2a4a; transition: transform 0.2s; }
         .hero .badge:hover { transform: translateY(-2px); }
         .hero-actions { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; }
         .btn-primary { display: inline-block; padding: 0.9rem 3rem; background: #0a2e5c; color: #fff; border-radius: 3rem; font-weight: 600; font-size: 1rem; box-shadow: 0 6px 20px rgba(10,46,92,0.25); transition: background 0.3s, transform 0.25s; }
         .btn-primary:hover { background: #1a4a7a; transform: translateY(-3px) scale(1.02); }
         .btn-secondary { display: inline-block; padding: 0.9rem 3rem; background: rgba(255,255,255,0.6); backdrop-filter: blur(12px); color: #0a2e5c; border: 1px solid rgba(10,46,92,0.12); border-radius: 3rem; font-weight: 600; font-size: 1rem; transition: background 0.3s, transform 0.25s; }
         .btn-secondary:hover { background: rgba(255,255,255,0.9); transform: translateY(-3px) scale(1.02); }
-        .diagram-section { padding: 2rem 0 1rem; }
-        .diagram-section .section-title { text-align: center; font-size: 2.2rem; font-weight: 700; color: #0a2e5c; margin-bottom: 1.5rem; }
-        .diagram-section .section-title span { color: #c9a84c; }
-        .diagram-wrapper { background: rgba(255,255,255,0.5); backdrop-filter: blur(20px); border-radius: 2rem; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.6); box-shadow: 0 8px 40px rgba(0,0,0,0.04); }
-        .diagram-wrapper svg { width: 100%; height: auto; display: block; }
-        .diagram-wrapper .legend { display: flex; justify-content: center; gap: 2rem; margin-top: 1.2rem; flex-wrap: wrap; }
-        .diagram-wrapper .legend-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: #4a4a6a; }
-        .diagram-wrapper .legend-item .dot { width: 14px; height: 14px; border-radius: 4px; }
-        .diagram-wrapper .legend-item .dot.gold { background: #c9a84c; }
-        .diagram-wrapper .legend-item .dot.blue { background: #0a2e5c; }
-        .diagram-wrapper .legend-item .dot.glass { background: rgba(255,255,255,0.7); border: 1px solid #d0d8e0; }
+
+        /* ===== MATH CARDS ===== */
+        .math-section { padding: 3rem 0 2rem; }
+        .math-section h2 { text-align: center; font-size: 2.2rem; font-weight: 700; color: #0a2e5c; margin-bottom: 0.5rem; }
+        .math-section .section-sub { text-align: center; color: #5a5a7a; font-size: 1.05rem; margin-bottom: 2rem; }
+        .math-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .math-card { background: rgba(255,255,255,0.5); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.6); border-radius: 1.5rem; padding: 2rem; transition: transform 0.3s, box-shadow 0.3s; }
+        .math-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.05); }
+        .math-card h3 { font-size: 1.3rem; font-weight: 700; color: #0a2e5c; margin-bottom: 0.5rem; }
+        .math-card .equation { background: rgba(10,46,92,0.04); padding: 1.2rem; border-radius: 0.8rem; margin: 0.8rem 0; text-align: center; font-size: 1.1rem; border: 1px solid rgba(10,46,92,0.06); }
+        .math-card .equation .math { font-family: 'Times New Roman', serif; font-weight: 600; color: #0a2e5c; }
+        .math-card p { color: #5a5a7a; font-size: 0.95rem; }
+
+        /* ===== QUICK BUY STRIP ===== */
+        .quick-buy { background: rgba(255,255,255,0.4); backdrop-filter: blur(12px); border-radius: 1.5rem; padding: 1.5rem 2rem; margin: 2rem 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.5rem; border: 1px solid rgba(255,255,255,0.6); }
+        .quick-buy .label { font-weight: 600; color: #0a2e5c; font-size: 0.95rem; }
+        .quick-buy .btn-small { padding: 0.5rem 1.5rem; border-radius: 3rem; font-weight: 600; font-size: 0.9rem; transition: transform 0.2s; }
+        .quick-buy .btn-small:hover { transform: scale(1.05); }
+        .quick-buy .btn-basic { background: #0a2e5c; color: #fff; }
+        .quick-buy .btn-pro { background: #c9a84c; color: #0a2e5c; }
+        .quick-buy .btn-enterprise { background: #0a2e5c; color: #fff; }
+
+        /* ===== FEATURES ===== */
         .features { padding: 3rem 0 2rem; }
         .features h2 { text-align: center; font-size: 2.2rem; font-weight: 700; color: #0a2e5c; margin-bottom: 2rem; }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; }
-        .feature-card { background: rgba(255,255,255,0.6); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.7); border-radius: 1.2rem; padding: 2rem; box-shadow: 0 4px 24px rgba(0,0,0,0.04); transition: transform 0.3s; }
-        .feature-card:hover { transform: translateY(-6px); }
-        .feature-card .icon { font-size: 2rem; margin-bottom: 0.5rem; display: block; color: #0a2e5c; }
-        .feature-card h3 { font-size: 1.15rem; font-weight: 700; color: #0a2e5c; }
+        .feature-card { background: rgba(255,255,255,0.5); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.6); border-radius: 1.2rem; padding: 2rem; transition: transform 0.3s, box-shadow 0.3s; }
+        .feature-card:hover { transform: translateY(-6px); box-shadow: 0 12px 48px rgba(0,0,0,0.06); }
+        .feature-card .icon { font-size: 2rem; margin-bottom: 0.3rem; display: block; color: #0a2e5c; }
+        .feature-card h3 { font-size: 1.1rem; font-weight: 700; color: #0a2e5c; margin-bottom: 0.2rem; }
         .feature-card p { color: #5a5a7a; font-size: 0.95rem; }
+
+        /* ===== CTA ===== */
         .cta-banner { background: linear-gradient(145deg, #0a2e5c, #1a4a7a); border-radius: 1.5rem; padding: 3rem; text-align: center; margin: 2rem 0 3rem; box-shadow: 0 8px 32px rgba(10,46,92,0.25); position: relative; overflow: hidden; }
         .cta-banner::before { content: ''; position: absolute; top: -50%; right: -20%; width: 60%; height: 150%; background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%); pointer-events: none; }
         .cta-banner h2 { font-size: 2.2rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; position: relative; }
@@ -63,28 +97,165 @@
         .cta-banner p { color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 1.5rem; position: relative; }
         .cta-banner .btn-primary { background: #c9a84c; color: #0a2e5c; box-shadow: 0 4px 16px rgba(201,168,76,0.35); }
         .cta-banner .btn-primary:hover { background: #dbb95e; }
+
+        /* ===== FOOTER ===== */
         .footer { text-align: center; padding: 2.5rem 0 2rem; color: #7a7a9a; border-top: 1px solid rgba(0,0,0,0.04); font-size: 0.9rem; }
         .footer a { color: #0a2e5c; font-weight: 500; }
         .footer a:hover { color: #c9a84c; }
-        @media (max-width: 768px) { .hero h1 { font-size: 2.4rem; } .nav a { margin-left: 1rem; font-size: 0.85rem; } .nav .cta { padding: 0.4rem 1rem; font-size: 0.8rem; } .diagram-wrapper { padding: 0.8rem; } }
-        @media (max-width: 480px) { .header .container { flex-wrap: wrap; justify-content: center; gap: 0.5rem; } .nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; } .nav a { margin-left: 0; font-size: 0.8rem; } .hero h1 { font-size: 1.8rem; } }
+
+        @media (max-width: 768px) {
+            .nav a { margin-left: 1rem; font-size: 0.85rem; }
+            .nav .cta { padding: 0.4rem 1rem; font-size: 0.8rem; }
+            .hero h1 { font-size: 2.4rem; }
+            .math-grid { grid-template-columns: 1fr; }
+            .quick-buy { flex-direction: column; align-items: stretch; }
+            .quick-buy .btn-small { width: 100%; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .header .container { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+            .nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+            .nav a { margin-left: 0; font-size: 0.8rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .cta-banner { padding: 2rem; }
+            .cta-banner h2 { font-size: 1.6rem; }
+            .math-card .equation { font-size: 0.95rem; }
+        }
     </style>
 </head>
 <body>
-    <header class="header"><div class="container"><div class="logo">Crown<span>Star</span></div><nav class="nav"><a href="index.html" style="color:#0a2e5c;font-weight:600;">首页</a><a href="product.html">产品</a><a href="pricing.html">定价</a><a href="case-studies.html">案例</a><a href="security.html">安全</a><a href="contact.html" class="cta">联系我们</a></nav></div></header>
-    <section class="hero"><div class="orb orb-1"></div><div class="orb orb-2"></div><div class="container content"><h1>你的企业AI，<br><span class="gold">数据永不离场</span></h1><p class="subtitle">CrownStar 是深度集成 DeepSeek 的企业级主权AI私有化平台。<br>5 分钟完成部署，数据 100% 留在你的网络内。</p><div class="badges"><span class="badge">◆ 数据主权</span><span class="badge">◆ 信创合规</span><span class="badge">◆ 开箱即用</span><span class="badge">◆ 终身升级</span></div><div class="hero-actions"><a href="download.html" class="btn-primary">免费下载</a><a href="contact.html" class="btn-secondary">联系销售</a></div></div></section>
-    <section class="diagram-section"><div class="container"><div class="section-title">◆ <span>CrownStar</span> 平台架构全景</div><div class="diagram-wrapper">
-    <!-- SVG diagram here (same as before) -->
-    </div></div></section>
-    <section class="features"><div class="container"><h2>为什么选择 CrownStar</h2><div class="features-grid">
-    <div class="feature-card"><span class="icon">◆</span><h3>100% 私有化部署</h3><p>数据永不离开你的网络，满足《数据安全法》和《个人信息保护法》要求。</p></div>
-    <div class="feature-card"><span class="icon">◆</span><h3>无限记忆 · 永不遗忘</h3><p>生物拟态记忆 + 向量检索，所有对话永久保存，跨会话智能召回。</p></div>
-    <div class="feature-card"><span class="icon">◆</span><h3>5 分钟部署</h3><p>无需复杂配置，支持 Docker / 源码 / Windows EXE 一键安装。</p></div>
-    <div class="feature-card"><span class="icon">◆</span><h3>信创 + 国密合规</h3><p>适配华为昇腾 NPU、麒麟 OS、统信 UOS，已通过等保 2.0 三级评估。</p></div>
-    <div class="feature-card"><span class="icon">◆</span><h3>企业级审计与监控</h3><p>全链路审计日志、实时性能仪表板、Prometheus 指标导出。</p></div>
-    <div class="feature-card"><span class="icon">◆</span><h3>自研超级神经元模型</h3><p>基于 Jacobian + Hessian 的二阶优化引擎，数学可证明的推理能力。</p></div>
-    </div></div></section>
-    <div class="container"><div class="cta-banner"><h2>成为 CrownStar <span class="gold">首批企业客户</span></h2><p>基础版 ¥29,800 · 专业版 ¥149,800 · 企业版 ¥598,000<br>一次购买，终身免费升级。</p><a href="pricing.html" class="btn-primary">查看定价方案</a></div></div>
-    <footer class="footer"><div class="container"><p>© 2026 CrownStar. All rights reserved.</p><p><a href="mailto:st3vens.ben@yandex.com">st3vens.ben@yandex.com</a></p></div></footer>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">Crown<span>Star</span></div>
+            <nav class="nav">
+                <a href="index.html" class="active">首页</a>
+                <a href="product.html">产品</a>
+                <a href="pricing.html">定价</a>
+                <a href="case-studies.html">案例</a>
+                <a href="security.html">安全</a>
+                <a href="contact.html" class="cta">联系我们</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="container content">
+            <div class="math-badge">◆ 数学可证明 · 确定性推理</div>
+            <h1>你的企业AI，<br><span class="gold">数据永不离场</span></h1>
+            <div class="formula">
+                <span class="math">\[
+                y_{\text{final}} = G\bigl( f(x; \theta),\, m,\, \tau,\, \lambda \bigr)
+                \]</span>
+                <div style="font-size:0.75rem; color:#5a5a7a; margin-top:0.2rem;">CrownStar 控制壳 · 温度 \(\tau\) · 记忆 \(m\) · 最小长度 \(\lambda\)</div>
+            </div>
+            <p class="subtitle">CrownStar 是深度集成 DeepSeek 的企业级主权AI私有化平台。<br>5 分钟完成部署，数据 100% 留在你的网络内。</p>
+            <div class="badges">
+                <span class="badge">◆ 数据主权</span>
+                <span class="badge">◆ 信创合规</span>
+                <span class="badge">◆ 开箱即用</span>
+                <span class="badge">◆ 终身升级</span>
+            </div>
+            <div class="hero-actions">
+                <a href="download.html" class="btn-primary">免费下载</a>
+                <a href="pricing.html" class="btn-secondary">查看定价</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== QUICK BUY STRIP ===== -->
+    <div class="container">
+        <div class="quick-buy">
+            <span class="label">⚡ 立即购买：</span>
+            <a href="https://buy.stripe.com/28E6oI7zr0R17NccOSefC03" class="btn-small btn-basic">基础版 ¥29,800</a>
+            <a href="https://buy.stripe.com/5kQbJ2bPHbvF5F44imefC05" class="btn-small btn-pro">专业版 ¥149,800</a>
+            <a href="https://buy.stripe.com/dRm5kE5rjgPZ2sScOSefC06" class="btn-small btn-enterprise">企业版 ¥598,000</a>
+        </div>
+    </div>
+
+    <!-- ===== MATH SECTION ===== -->
+    <section class="math-section">
+        <div class="container">
+            <h2>数学与科学核心</h2>
+            <p class="section-sub">CrownStar 的推理引擎建立在严格的数学与信息论之上</p>
+            <div class="math-grid">
+
+                <!-- Card 1: Super-Model -->
+                <div class="math-card">
+                    <h3>◆ 超级神经元模型</h3>
+                    <p>基于 L 层张量网络的确定性推理，数学可证明</p>
+                    <div class="equation">
+                        <span class="math">\[
+                        J(x) = D^{(L)} W^{(L)} \cdots D^{(1)} W^{(1)}
+                        \]</span>
+                        <div style="font-size:0.7rem; color:#5a5a7a; margin-top:0.2rem;">L 层 Jacobian 乘积</div>
+                    </div>
+                    <div class="equation">
+                        <span class="math">\[
+                        f(x) = \phi^{(L)}( W^{(L)} \cdots \phi^{(1)}( W^{(1)}x + b^{(1)}) + b^{(L)} )
+                        \]</span>
+                        <div style="font-size:0.7rem; color:#5a5a7a; margin-top:0.2rem;">前向传播 · 链式组合</div>
+                    </div>
+                    <p style="font-size:0.85rem; color:#0a2e5c; font-weight:500;">Gurney · Yegnanarayana · Haykin · Bishop · Zurada</p>
+                </div>
+
+                <!-- Card 2: Egg Apex -->
+                <div class="math-card">
+                    <h3>◆ Egg Apex 离散数学定理</h3>
+                    <p>训练时零成本 · 推理时实时组装</p>
+                    <div class="equation">
+                        <span class="math">\[
+                        \text{Apex}(\mathbf{E}) = \max_{1 \le i \le p} \left( \sum_{j=1}^q \mathbf{E}_{i,j} \cdot \kappa_j \right)
+                        \]</span>
+                        <div style="font-size:0.7rem; color:#5a5a7a; margin-top:0.2rem;">Egg 矩阵 Apex 函数 · 替代 softmax</div>
+                    </div>
+                    <div class="equation">
+                        <span class="math">\[
+                        \mathbf{E}_{\text{super}} = \bigoplus_{l \in \text{active}} \alpha_l \cdot \text{Norm}(\mathbf{E}_l)
+                        \]</span>
+                        <div style="font-size:0.7rem; color:#5a5a7a; margin-top:0.2rem;">Super‑Combiner: 7000+ 语言 · 200+ 协议</div>
+                    </div>
+                    <p style="font-size:0.85rem; color:#0a2e5c; font-weight:500;">1000 字符/秒 · 确定性 · 零幻觉</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURES ===== -->
+    <section class="features">
+        <div class="container">
+            <h2>为什么选择 CrownStar</h2>
+            <div class="features-grid">
+                <div class="feature-card"><span class="icon">◆</span><h3>100% 私有化部署</h3><p>数据永不离开你的网络，满足《数据安全法》和《个人信息保护法》要求。</p></div>
+                <div class="feature-card"><span class="icon">◆</span><h3>无限记忆 · 永不遗忘</h3><p>生物拟态记忆 + 向量检索，所有对话永久保存，跨会话智能召回。</p></div>
+                <div class="feature-card"><span class="icon">◆</span><h3>5 分钟部署</h3><p>无需复杂配置，支持 Docker / 源码 / Windows EXE 一键安装。</p></div>
+                <div class="feature-card"><span class="icon">◆</span><h3>信创 + 国密合规</h3><p>适配华为昇腾 NPU、麒麟 OS、统信 UOS，已通过等保 2.0 三级评估。</p></div>
+                <div class="feature-card"><span class="icon">◆</span><h3>企业级审计与监控</h3><p>全链路审计日志、实时性能仪表板、Prometheus 指标导出。</p></div>
+                <div class="feature-card"><span class="icon">◆</span><h3>自研超级神经元模型</h3><p>基于 Jacobian + Hessian 的二阶优化引擎，数学可证明的推理能力。</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <div class="container">
+        <div class="cta-banner">
+            <h2>成为 CrownStar <span class="gold">首批企业客户</span></h2>
+            <p>基础版 ¥29,800 · 专业版 ¥149,800 · 企业版 ¥598,000<br>一次购买，终身免费升级。</p>
+            <a href="pricing.html" class="btn-primary">查看定价方案</a>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 CrownStar. All rights reserved.</p>
+            <p style="margin-top:0.3rem;"><a href="mailto:st3vens.ben@yandex.com">st3vens.ben@yandex.com</a></p>
+        </div>
+    </footer>
+
 </body>
 </html>

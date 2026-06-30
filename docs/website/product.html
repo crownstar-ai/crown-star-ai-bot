@@ -1,21 +1,236 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CrownStar – 产品</title>
-<style>* { margin: 0; padding: 0; box-sizing: border-box; } body { font-family: 'PingFang SC','Microsoft YaHei',system-ui,sans-serif; background: #f0f3f8; color: #1a1a2e; line-height: 1.6; } a { text-decoration: none; color: inherit; } .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; } .header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,0.55); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255,255,255,0.4); padding: 0.8rem 0; } .header .container { display: flex; justify-content: space-between; align-items: center; } .logo { font-size: 1.6rem; font-weight: 700; color: #0a2e5c; } .logo span { color: #c9a84c; } .nav a { color: #4a4a6a; margin-left: 2.2rem; font-size: 0.95rem; font-weight: 500; transition: color 0.3s; position: relative; } .nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, #c9a84c, #0a2e5c); transition: width 0.4s; } .nav a:hover { color: #0a2e5c; } .nav a:hover::after { width: 100%; } .nav .cta { background: #0a2e5c; color: #fff !important; padding: 0.5rem 1.8rem; border-radius: 3rem; font-weight: 600; } .nav .cta:hover { background: #1a4a7a; } .nav .cta::after { display: none; } h1 { font-size: 2.8rem; font-weight: 800; color: #0a2e5c; margin: 2rem 0 0.5rem; } .subtitle { color: #5a5a7a; font-size: 1.2rem; margin-bottom: 2rem; } .section { background: rgba(255,255,255,0.6); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.7); border-radius: 1.2rem; padding: 1.8rem; margin: 1.5rem 0; } .section h2 { color: #0a2e5c; font-size: 1.4rem; margin-bottom: 0.5rem; } .section p { color: #5a5a7a; } .section ul { padding-left: 1.5rem; color: #4a4a6a; } .section ul li { padding: 0.3rem 0; } .footer { text-align: center; padding: 2.5rem 0 2rem; color: #7a7a9a; border-top: 1px solid rgba(0,0,0,0.04); font-size: 0.9rem; } .footer a { color: #0a2e5c; font-weight: 500; } .footer a:hover { color: #c9a84c; } .btn-primary { display: inline-block; padding: 0.8rem 2.5rem; background: #0a2e5c; color: #fff; border-radius: 3rem; font-weight: 600; } .btn-primary:hover { background: #1a4a7a; } @media (max-width: 768px) { .nav a { margin-left: 1rem; font-size: 0.85rem; } .nav .cta { padding: 0.4rem 1rem; font-size: 0.8rem; } h1 { font-size: 2rem; } }</style>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>产品 · CrownStar – 数学驱动的企业级主权AI平台</title>
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\(', '\)']],
+                displayMath: [['\[', '\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif; background: #f0f3f8; color: #1a1a2e; line-height: 1.8; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+
+        .header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,0.55); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255,255,255,0.4); padding: 0.8rem 0; }
+        .header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.6rem; font-weight: 700; color: #0a2e5c; }
+        .logo span { color: #c9a84c; }
+        .nav a { color: #4a4a6a; margin-left: 2.2rem; font-size: 0.95rem; font-weight: 500; transition: color 0.3s; position: relative; }
+        .nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, #c9a84c, #0a2e5c); transition: width 0.4s; }
+        .nav a:hover { color: #0a2e5c; }
+        .nav a:hover::after { width: 100%; }
+        .nav .active { color: #0a2e5c; font-weight: 600; border-bottom: 2px solid #c9a84c; padding-bottom: 0.2rem; }
+        .nav .cta { background: #0a2e5c; color: #fff !important; padding: 0.5rem 1.8rem; border-radius: 3rem; font-weight: 600; box-shadow: 0 4px 12px rgba(10,46,92,0.15); transition: background 0.3s, transform 0.2s; }
+        .nav .cta:hover { background: #1a4a7a; transform: scale(1.03); box-shadow: 0 8px 24px rgba(10,46,92,0.25); }
+        .nav .cta::after { display: none; }
+
+        .page-hero { text-align: center; padding: 3rem 0 2rem; }
+        .page-hero h1 { font-size: 2.8rem; font-weight: 800; color: #0a2e5c; margin-bottom: 0.5rem; }
+        .page-hero h1 .gold { color: #c9a84c; }
+        .page-hero .subtitle { font-size: 1.2rem; color: #5a5a7a; max-width: 700px; margin: 0 auto; }
+
+        .math-section { padding: 2rem 0; }
+        .math-section h2 { font-size: 1.8rem; font-weight: 700; color: #0a2e5c; margin-bottom: 0.5rem; }
+        .math-section .section-sub { color: #5a5a7a; font-size: 1.05rem; margin-bottom: 1.5rem; }
+        .math-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .math-card { background: rgba(255,255,255,0.5); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.6); border-radius: 1.5rem; padding: 2rem; transition: transform 0.3s, box-shadow 0.3s; }
+        .math-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.05); }
+        .math-card h3 { font-size: 1.3rem; font-weight: 700; color: #0a2e5c; margin-bottom: 0.3rem; }
+        .math-card .equation { background: rgba(10,46,92,0.04); padding: 1rem; border-radius: 0.8rem; margin: 0.8rem 0; text-align: center; font-size: 1.05rem; border: 1px solid rgba(10,46,92,0.06); }
+        .math-card .equation .math { font-family: 'Times New Roman', serif; font-weight: 600; color: #0a2e5c; }
+        .math-card p { color: #5a5a7a; font-size: 0.95rem; }
+
+        .feature-section { display: flex; flex-wrap: wrap; gap: 2rem; margin: 2.5rem 0; padding: 2rem; background: rgba(255,255,255,0.4); backdrop-filter: blur(12px); border-radius: 1.5rem; border: 1px solid rgba(255,255,255,0.6); align-items: center; }
+        .feature-section.reverse { flex-direction: row-reverse; }
+        .feature-section .text { flex: 1; min-width: 280px; }
+        .feature-section .text h2 { font-size: 1.6rem; font-weight: 700; color: #0a2e5c; margin-bottom: 0.5rem; }
+        .feature-section .text p { color: #5a5a7a; font-size: 1rem; }
+        .feature-section .icon-box { font-size: 3.5rem; padding: 1rem; background: rgba(255,255,255,0.5); border-radius: 1rem; min-width: 100px; text-align: center; border: 1px solid rgba(255,255,255,0.5); }
+
+        .buy-strip { background: rgba(255,255,255,0.4); backdrop-filter: blur(12px); border-radius: 1.5rem; padding: 1.5rem 2rem; margin: 2rem 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.5rem; border: 1px solid rgba(255,255,255,0.6); }
+        .buy-strip .label { font-weight: 600; color: #0a2e5c; font-size: 0.95rem; }
+        .buy-strip .btn-small { padding: 0.5rem 1.5rem; border-radius: 3rem; font-weight: 600; font-size: 0.9rem; transition: transform 0.2s; }
+        .buy-strip .btn-small:hover { transform: scale(1.05); }
+        .buy-strip .btn-basic { background: #0a2e5c; color: #fff; }
+        .buy-strip .btn-pro { background: #c9a84c; color: #0a2e5c; }
+        .buy-strip .btn-enterprise { background: #0a2e5c; color: #fff; }
+
+        .footer { text-align: center; padding: 2.5rem 0 2rem; color: #7a7a9a; border-top: 1px solid rgba(0,0,0,0.04); font-size: 0.9rem; }
+        .footer a { color: #0a2e5c; font-weight: 500; }
+        .footer a:hover { color: #c9a84c; }
+
+        @media (max-width: 768px) {
+            .nav a { margin-left: 1rem; font-size: 0.85rem; }
+            .nav .cta { padding: 0.4rem 1rem; font-size: 0.8rem; }
+            .page-hero h1 { font-size: 2.2rem; }
+            .math-grid { grid-template-columns: 1fr; }
+            .feature-section { flex-direction: column !important; text-align: center; }
+            .feature-section .icon-box { font-size: 2.5rem; }
+            .buy-strip { flex-direction: column; align-items: stretch; }
+            .buy-strip .btn-small { width: 100%; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .header .container { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+            .nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+            .nav a { margin-left: 0; font-size: 0.8rem; }
+            .math-card .equation { font-size: 0.9rem; }
+        }
+    </style>
 </head>
 <body>
-    <header class="header"><div class="container"><div class="logo">Crown<span>Star</span></div><nav class="nav"><a href="index.html">首页</a><a href="product.html" style="color:#0a2e5c;font-weight:600;">产品</a><a href="pricing.html">定价</a><a href="case-studies.html">案例</a><a href="security.html">安全</a><a href="contact.html" class="cta">联系我们</a></nav></div></header>
+
+    <header class="header">
+        <div class="container">
+            <div class="logo">Crown<span>Star</span></div>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="product.html" class="active">产品</a>
+                <a href="pricing.html">定价</a>
+                <a href="case-studies.html">案例</a>
+                <a href="security.html">安全</a>
+                <a href="contact.html" class="cta">联系我们</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>产品功能</h1>
+            <p class="subtitle">CrownStar 为企业提供完整的、主权级的 AI 基础设施。<br>所有核心能力建立在严格的数学与信息论之上。</p>
+        </div>
+    </section>
+
+    <!-- ===== MATH SECTION ===== -->
+    <section class="math-section">
+        <div class="container">
+            <h2>数学与科学核心</h2>
+            <p class="section-sub">CrownStar 的推理引擎建立在严格的数学与信息论之上</p>
+            <div class="math-grid">
+
+                <div class="math-card">
+                    <h3>◆ 超级神经元模型</h3>
+                    <p>基于 L 层张量网络的确定性推理，数学可证明</p>
+                    <div class="equation"><span class="math">\[J(x) = D^{(L)} W^{(L)} \cdots D^{(1)} W^{(1)}\]</span></div>
+                    <div class="equation"><span class="math">\[f(x) = \phi^{(L)}( W^{(L)} \cdots \phi^{(1)}( W^{(1)}x + b^{(1)}) + b^{(L)} )\]</span></div>
+                    <p style="font-size:0.85rem; color:#0a2e5c; font-weight:500;">Gurney · Yegnanarayana · Haykin · Bishop · Zurada</p>
+                </div>
+
+                <div class="math-card">
+                    <h3>◆ Egg Apex 离散数学定理</h3>
+                    <p>训练时零成本 · 推理时实时组装</p>
+                    <div class="equation"><span class="math">\[\text{Apex}(\mathbf{E}) = \max_{1 \le i \le p} \left( \sum_{j=1}^q \mathbf{E}_{i,j} \cdot \kappa_j \right)\]</span></div>
+                    <div class="equation"><span class="math">\[\mathbf{E}_{\text{super}} = \bigoplus_{l \in \text{active}} \alpha_l \cdot \text{Norm}(\mathbf{E}_l)\]</span></div>
+                    <p style="font-size:0.85rem; color:#0a2e5c; font-weight:500;">1000 字符/秒 · 确定性 · 零幻觉</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURE 1 ===== -->
     <div class="container">
-        <h1>产品功能</h1>
-        <p class="subtitle">CrownStar 为企业提供完整的、主权级的 AI 基础设施。</p>
-        <div class="section"><h2>◆ 无限记忆 · 永不遗忘</h2><p>所有对话永久保存在本地，跨会话智能召回。支持向量检索、时间衰减记忆、多模态记忆。</p></div>
-        <div class="section"><h2>◆ 100% 私有化部署</h2><p>数据永不离开您的网络，满足《数据安全法》《个人信息保护法》及等保 2.0 三级要求。</p></div>
-        <div class="section"><h2>◆ 自研超级神经元模型</h2><p>基于 Jacobian + Hessian 的二阶优化引擎，数学可证明的推理能力，超越传统 MLP。</p></div>
-        <div class="section"><h2>◆ 信创 + 国密合规</h2><p>适配华为昇腾 NPU、鲲鹏 CPU、麒麟 OS、统信 UOS，已通过等保 2.0 三级评估。</p></div>
-        <div class="section"><h2>◆ 企业级审计与监控</h2><p>全链路审计日志、实时性能仪表板、Prometheus 指标导出、自定义告警规则。</p></div>
-        <div class="section"><h2>◆ 多租户 + 行级安全</h2><p>租户间数据隔离，支持 RBAC、SSO 集成（OIDC/SAML）。</p></div>
-        <div style="text-align:center;margin:2rem 0;"><a href="pricing.html" class="btn-primary">查看定价方案</a></div>
+        <div class="feature-section">
+            <div class="icon-box">🧠</div>
+            <div class="text">
+                <h2>无限记忆 · 永不遗忘</h2>
+                <p>生物拟态记忆 + 向量检索，所有对话永久保存，跨会话智能召回。支持多模态记忆和时序索引。</p>
+            </div>
+        </div>
     </div>
-    <footer class="footer"><div class="container"><p>© 2026 CrownStar. All rights reserved.</p><p><a href="mailto:st3vens.ben@yandex.com">st3vens.ben@yandex.com</a></p></div></footer>
+
+    <!-- ===== FEATURE 2 ===== -->
+    <div class="container">
+        <div class="feature-section reverse">
+            <div class="icon-box">🔒</div>
+            <div class="text">
+                <h2>100% 私有化部署</h2>
+                <p>数据永不离开你的网络，满足《数据安全法》《个人信息保护法》及等保 2.0 三级要求。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FEATURE 3 ===== -->
+    <div class="container">
+        <div class="feature-section">
+            <div class="icon-box">⚡</div>
+            <div class="text">
+                <h2>自研超级神经元模型</h2>
+                <p>基于 Jacobian + Hessian 的二阶优化引擎，数学可证明的推理能力，超越传统 MLP。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FEATURE 4 ===== -->
+    <div class="container">
+        <div class="feature-section reverse">
+            <div class="icon-box">🛡️</div>
+            <div class="text">
+                <h2>信创 + 国密合规</h2>
+                <p>适配华为昇腾 NPU、鲲鹏 CPU、麒麟 OS、统信 UOS，已通过等保 2.0 三级评估。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FEATURE 5 ===== -->
+    <div class="container">
+        <div class="feature-section">
+            <div class="icon-box">📊</div>
+            <div class="text">
+                <h2>企业级审计与监控</h2>
+                <p>全链路审计日志、实时性能仪表板、Prometheus 指标导出、自定义告警规则。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FEATURE 6 ===== -->
+    <div class="container">
+        <div class="feature-section reverse">
+            <div class="icon-box">🤝</div>
+            <div class="text">
+                <h2>多租户 + 行级安全</h2>
+                <p>租户间数据隔离，支持 RBAC、SSO 集成（OIDC/SAML）。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FEATURE 7 ===== -->
+    <div class="container">
+        <div class="feature-section">
+            <div class="icon-box">📦</div>
+            <div class="text">
+                <h2>开箱即用</h2>
+                <p>支持 Docker、源码、Windows EXE 一键安装，5 分钟完成部署。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== BUY STRIP ===== -->
+    <div class="container">
+        <div class="buy-strip">
+            <span class="label">⚡ 立即购买：</span>
+            <a href="https://buy.stripe.com/28E6oI7zr0R17NccOSefC03" class="btn-small btn-basic">基础版 ¥29,800</a>
+            <a href="https://buy.stripe.com/5kQbJ2bPHbvF5F44imefC05" class="btn-small btn-pro">专业版 ¥149,800</a>
+            <a href="https://buy.stripe.com/dRm5kE5rjgPZ2sScOSefC06" class="btn-small btn-enterprise">企业版 ¥598,000</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 CrownStar. All rights reserved.</p>
+            <p style="margin-top:0.3rem;"><a href="mailto:st3vens.ben@yandex.com">st3vens.ben@yandex.com</a></p>
+        </div>
+    </footer>
+
 </body>
 </html>
