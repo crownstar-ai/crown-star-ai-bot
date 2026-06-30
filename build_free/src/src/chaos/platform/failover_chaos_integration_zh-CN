@@ -1,9 +1,0 @@
-[翻译占位] # Extend chaos platform to test failover
-# Add to chaos/orchestrator/orchestrator.py:
-# from deploy.orchestrator.orchestrator import get_orchestrator
-# def test_failover(self, primary_env, secondary_env):
-#     orch = get_orchestrator()
-#     success = orch.failover(primary_env, secondary_env)
-#     return {"failover_success": success}
-# Then in chaos experiment scenarios, include "failover_test" type
-

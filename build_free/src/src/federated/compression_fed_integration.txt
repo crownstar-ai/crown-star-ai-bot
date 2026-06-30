@@ -1,5 +1,0 @@
-# In federated/server.py, before sending model to clients, apply compression
-# from compression.core import get_comp_manager
-# mgr = get_comp_manager()
-# compressed_model = mgr.quantize_model(global_model, dynamic=True)
-# Then send compressed model to bandwidth‑limited clients

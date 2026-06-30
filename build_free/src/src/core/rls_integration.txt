@@ -1,4 +1,0 @@
-﻿# In crownstar_core.py memory methods, modify SQL queries to include tenant filter:
-# from multitenant.security.rls import RLSConnection
-# self.conn = RLSConnection(self.conn)  # wrap connection
-# Or use the helper: self.conn.execute(f"SELECT ... WHERE tenant_id = ?", (tenant_id,))

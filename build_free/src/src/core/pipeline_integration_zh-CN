@@ -1,9 +1,0 @@
-[翻译占位] # In crownstar_core.py answer() method, after processing a message:
-# from pipeline.kafka.kafka_service import get_kafka_pipeline
-# from pipeline.schemas.event_schemas import CrownStarEvent
-# kafka = get_kafka_pipeline()
-# event = CrownStarEvent.model_inference(user_id, model, len(input), len(output), latency_ms, cost)
-# kafka.produce("model_inference", event)
-#
-# Also in set_module, change_tier, switch_model, emit user_action events.
-

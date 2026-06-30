@@ -1,4 +1,0 @@
-[翻译占位] # In crownstar_enterprise_api.py, add:
-# from mesh.api import router as mesh_router
-# app.include_router(mesh_router)
-

@@ -1,4 +1,0 @@
-﻿# In crownstar_core.py answer() method:
-# from eventsourcing.commands.handlers import get_command_handler
-# handler = get_command_handler()
-# handler.handle_add_message(conversation_id, user_input, final, active, model, latency_ms)

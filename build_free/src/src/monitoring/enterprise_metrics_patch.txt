@@ -1,6 +1,0 @@
-# Patch for crownstar_enterprise_api.py – Add metrics recording
-# Add at top: from monitoring.metrics_exporter import record_request, record_tokens, record_module_toggle, set_active_requests, register_core, start_metrics_updater
-# In startup: register_core(core); start_metrics_updater()
-# In chat endpoint: before processing: set_active_requests(REQUESTS_ACTIVE._value.get() + 1)
-# After response: record_request("POST", "/chat", tier, status, duration); record_tokens(model, tier, token_count)
-# In toggle_module endpoint: record_module_toggle(module, enabled)

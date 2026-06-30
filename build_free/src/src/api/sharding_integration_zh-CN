@@ -1,4 +1,0 @@
-[翻译占位] # In crownstar_enterprise_api.py, add:
-# from sharding.api import router as sharding_router
-# app.include_router(sharding_router)
-

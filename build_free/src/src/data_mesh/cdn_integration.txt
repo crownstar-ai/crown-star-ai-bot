@@ -1,7 +1,0 @@
-# Extend query engine to push hot query results to CDN
-# In data_mesh/core.py FederatedQueryEngine.execute:
-# from cdn.manager import get_cdn_manager
-# if result.row_count < 1000 and result.execution_time_ms > 100:
-#     # Cache result in CDN for edge delivery
-#     cdn = get_cdn_manager()
-#     cdn.prefetch_assets([f"/api/data/results/{query_id}"])

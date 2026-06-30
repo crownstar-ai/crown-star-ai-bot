@@ -1,6 +1,0 @@
-# Extend agent to produce ZK proofs of reasoning steps
-# In agent/core.py ReActAgent.run:
-# from zk.core import get_zk_prover
-# prover = get_zk_prover()
-# proof = prover.prove_inference({"agent_history": self.history}, {"final_answer": result}, "agent_model")
-# Store proof for auditability

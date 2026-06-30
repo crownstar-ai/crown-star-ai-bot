@@ -1,8 +1,0 @@
-[翻译占位] # In crownstar_core.py, add import:
-# from observability.tracing import trace_function, add_span_event, get_tracer
-#
-# Decorate answer_sync with @trace_function()
-# Inside answer(), add_span_event("processing_start", {"input_length": len(user_input)})
-# After LLM call, add_span_event("llm_complete", {"tokens": len(output)})
-# Also add trace context propagation to model_router (if possible)
-

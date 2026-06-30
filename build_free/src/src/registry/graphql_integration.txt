@@ -1,1 +1,0 @@
-# Model registry GraphQL integration: expose inference as GraphQL fields

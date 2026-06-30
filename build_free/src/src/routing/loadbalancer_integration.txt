@@ -1,1 +1,0 @@
-# Load balancer integration: control plane for Envoy/NGINX

@@ -1,1 +1,0 @@
-# Alerting integration (Paste 64) – uses /v1/notifications/alert

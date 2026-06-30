@@ -1,6 +1,0 @@
-# Add to chaos/orchestrator/orchestrator.py:
-# from security_model.core import AdversarialDefence
-# def run_adversarial_chaos(self, model, test_loader):
-#     defence = AdversarialDefence(model)
-#     result = defence.evaluate_robustness(test_loader, attack="pgd")
-#     return {"adversarial_accuracy": result.adversarial_accuracy}

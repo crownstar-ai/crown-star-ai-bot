@@ -1,4 +1,0 @@
-# Example: replace hardcoded strings with i18n.t() calls
-# In CLI: from i18n.service import i18n
-# print(i18n.t("cli.welcome"))
-# print(i18n.t("stats_core", version=self.config['version']))

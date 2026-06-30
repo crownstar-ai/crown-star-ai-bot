@@ -1,7 +1,0 @@
-# Add to chaos/orchestrator/orchestrator.py:
-# from cdn.manager import get_cdn_manager
-# def simulate_cdn_edge_failure(self, provider, failure_rate=0.3):
-#     cdn = get_cdn_manager()
-#     # Inject mock failure by returning 503 for a percentage of purge/prefetch calls
-#     # For real chaos, use a proxy or traffic shaper
-#     return {"simulated": f"Edge failure rate {failure_rate} for provider {provider}"}

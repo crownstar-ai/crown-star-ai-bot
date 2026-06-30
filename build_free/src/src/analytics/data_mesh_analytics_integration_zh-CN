@@ -1,7 +1,0 @@
-[翻译占位] # In analytics/core.py MetricsCollector._collect_crownstar_metrics:
-# from data_mesh.core import get_data_mesh_engine
-# engine = get_data_mesh_engine()
-# # Record query latency metrics
-# if hasattr(engine, '_last_query_time'):
-#     self.record(MetricPoint("data_mesh.query_latency_ms", engine._last_query_time, now, {}))
-

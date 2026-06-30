@@ -1,3 +1,0 @@
-# In crownstar_enterprise_api.py, add:
-# from experiments.api import router as exp_router
-# app.include_router(exp_router)

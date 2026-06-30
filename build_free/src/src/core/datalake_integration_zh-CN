@@ -1,8 +1,0 @@
-[翻译占位] # In crownstar_core.py, after each conversation or metric, write to data lake:
-# from datalake.lake_service import get_lake_service
-# lake = get_lake_service()
-# if lake.config.get("auto_write_enabled"):
-#     # Write conversation
-#     lake.write_conversations([{"id": conv_id, "user": user_input, "assistant": final, "timestamp": datetime.utcnow().isoformat()}])
-# Also in analytics service, batch write events.
-

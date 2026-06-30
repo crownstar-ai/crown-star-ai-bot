@@ -1,9 +1,0 @@
-# In crownstar_core.py answer() method, add experiment tracking:
-# from experiments.service import get_exp_service
-# exp_svc = get_exp_service()
-# if self.current_experiment:
-#     variant = exp_svc.assign_variant(self.current_experiment, user_id)
-#     exp_svc.track_event(self.current_experiment, user_id, "conversion", 1.0)
-# Also use feature flags to modify behavior:
-# if exp_svc.is_feature_enabled("ultra_super_model_v2", user_id):
-#     # use new version

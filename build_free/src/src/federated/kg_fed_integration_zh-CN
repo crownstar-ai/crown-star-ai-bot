@@ -1,3 +1,0 @@
-[翻译占位] # Extend federated server to support GNN training on subgraphs
-# In federated/server.py, add a round type "gnn", where clients train on local subgraphs and share gradients
-

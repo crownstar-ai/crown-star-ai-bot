@@ -1,6 +1,0 @@
-[翻译占位] # Add to crownstar_cli_advanced.py: new command /models info
-# def cmd_models_info(self, args):
-#     registry = ModelRegistry()
-#     for info in registry.list_models_with_info(tier=self.core.tier):
-#         print(f"{info.name:20} {info.display_name:20} {info.provider:12} (tier: {info.tier_min})")
-

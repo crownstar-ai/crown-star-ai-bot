@@ -1,2 +1,0 @@
-# Already integrated via MultiModalSearch using vector_manager.
-# No additional code needed.

@@ -1,4 +1,0 @@
-[翻译占位] # Add to crownstar_enterprise_api.py (near other routers):
-# from nlp.api import router as nlp_router
-# app.include_router(nlp_router)
-

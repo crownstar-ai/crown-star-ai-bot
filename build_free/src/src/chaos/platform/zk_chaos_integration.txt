@@ -1,9 +1,0 @@
-# Add to chaos/orchestrator/orchestrator.py:
-# from zk.core import Proof
-# def corrupt_proof(self, proof_id):
-#     # Simulate proof tampering
-#     proof_path = f"data/zk/proofs/{proof_id}.proof"
-#     if os.path.exists(proof_path):
-#         with open(proof_path, 'r+b') as f:
-#             f.write(b'corrupted')
-#     return {"corrupted": proof_id}

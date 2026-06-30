@@ -1,8 +1,0 @@
-[翻译占位] {
-    "timestamp": "datetime",
-    "cpu_usage": {"type": "float", "params": {"min": 0.1, "max": 0.9}},
-    "memory_usage_gb": {"type": "float", "params": {"min": 0.5, "max": 8.0}},
-    "request_rate": {"type": "int", "params": {"min": 10, "max": 1000}},
-    "error_rate": {"type": "float", "params": {"min": 0.0, "max": 0.1}}
-}
-

@@ -1,4 +1,0 @@
-[翻译占位] # In crownstar_enterprise_api.py, add:
-# from monitoring.api import router as monitoring_router
-# app.include_router(monitoring_router)
-

@@ -31,3 +31,19 @@
 st3vens.ben@yandex.com
 
 © 2026 CrownStar
+
+
+## 🧩 Open Source Subprojects
+
+CrownStar AI Bot ecosystem includes the following independent open‑source projects, both released under the **MIT License**:
+
+### 1. [CrownStar Super‑Model](./projects/crownstar-super-model/)
+A unified mathematical super‑model that fuses classical neuron models (Gurney, Yegnanarayana, Haykin, Bishop, Zurada) with CrownStar’s control‑theoretic layer. Provides full derivations of Jacobian, Hessian, backpropagation, and the L‑layer tensor form – all in a self‑contained HTML document.
+
+### 2. [Egg Apex vLLM](./projects/egg-apex-vllm/)
+A training‑free, real‑time language engine based on the **Egg Apex discrete mathematics theorem**. Supports 7,000+ human languages and 200+ programming languages via XML grammars, runs at 1000 characters/second, and is completely sovereign – no external model dependencies.
+
+---
+
+Both projects are **in‑pipeline** enhancements for CrownStar AI Bot, and all improvements will be contributed back to the community.
+

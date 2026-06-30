@@ -1,4 +1,0 @@
-# In crownstar_core.py __init__, after database connection:
-# from migrations.migration_service import get_migration_service
-# migration = get_migration_service()
-# migration.migrate()  # ensures schema is up to date

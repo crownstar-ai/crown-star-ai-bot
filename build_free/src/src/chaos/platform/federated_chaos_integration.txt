@@ -1,8 +1,0 @@
-# Add to chaos/orchestrator/orchestrator.py:
-# from federated.server import get_fed_server
-# def simulate_client_dropout(self, client_id, drop_probability=0.5):
-#     server = get_fed_server()
-#     if client_id in server.clients:
-#         # Simulate by marking client as inactive
-#         server.clients[client_id].status = "paused"
-#     return {"client": client_id, "status": "dropped"}

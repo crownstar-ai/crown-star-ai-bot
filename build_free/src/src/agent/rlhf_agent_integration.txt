@@ -1,6 +1,0 @@
-# Extend agent to collect user feedback on responses
-# In agent/core.py ReActAgent.run, after final answer, allow user to rate
-# Then call RLHF manager to add preference
-# from rlhf.core import get_rlhf_manager
-# mgr = get_rlhf_manager()
-# mgr.add_preference(prompt=task, response_a=result, response_b="", preferred="a", annotator_id="user")

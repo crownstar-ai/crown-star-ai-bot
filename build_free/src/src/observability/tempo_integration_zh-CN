@@ -1,6 +1,0 @@
-[翻译占位] # Add to src/observability/tracing.py – export to Tempo (OTLP)
-# In setup_tracing() function, use OTLP exporter instead of Jaeger:
-# from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
-# otlp_exporter = OTLPSpanExporter(endpoint="http://localhost:4317", insecure=True)
-# provider.add_span_processor(BatchSpanProcessor(otlp_exporter))
-

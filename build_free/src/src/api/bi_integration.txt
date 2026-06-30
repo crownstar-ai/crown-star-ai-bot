@@ -1,3 +1,0 @@
-# In crownstar_enterprise_api.py, add:
-# from bi.api import router as bi_router
-# app.include_router(bi_router)

@@ -1,1 +1,0 @@
-# Cost integration for GraphQL requests (already in gateway)

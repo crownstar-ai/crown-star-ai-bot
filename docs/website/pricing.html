@@ -1,20 +1,199 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CrownStar – 定价</title>
-<style>* { margin: 0; padding: 0; box-sizing: border-box; } body { font-family: 'PingFang SC','Microsoft YaHei',system-ui,sans-serif; background: #f0f3f8; color: #1a1a2e; line-height: 1.6; } a { text-decoration: none; color: inherit; } .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; } .header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,0.55); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255,255,255,0.4); padding: 0.8rem 0; } .header .container { display: flex; justify-content: space-between; align-items: center; } .logo { font-size: 1.6rem; font-weight: 700; color: #0a2e5c; } .logo span { color: #c9a84c; } .nav a { color: #4a4a6a; margin-left: 2.2rem; font-size: 0.95rem; font-weight: 500; transition: color 0.3s; position: relative; } .nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, #c9a84c, #0a2e5c); transition: width 0.4s; } .nav a:hover { color: #0a2e5c; } .nav a:hover::after { width: 100%; } .nav .cta { background: #0a2e5c; color: #fff !important; padding: 0.5rem 1.8rem; border-radius: 3rem; font-weight: 600; } .nav .cta:hover { background: #1a4a7a; } .nav .cta::after { display: none; } h1 { font-size: 2.8rem; font-weight: 800; color: #0a2e5c; margin: 2rem 0 0.5rem; } .subtitle { color: #5a5a7a; font-size: 1.2rem; margin-bottom: 2rem; } .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin: 2rem 0; } .pricing-card { background: rgba(255,255,255,0.6); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.7); border-radius: 1.2rem; padding: 2rem; text-align: center; transition: transform 0.3s; } .pricing-card:hover { transform: translateY(-6px); } .pricing-card .tier { font-size: 1.3rem; font-weight: 700; color: #0a2e5c; } .pricing-card .price { font-size: 2.5rem; font-weight: 800; color: #0a2e5c; margin: 0.5rem 0; } .pricing-card .features { text-align: left; padding-left: 1.2rem; color: #4a4a6a; } .pricing-card .features li { list-style: none; padding: 0.2rem 0; } .pricing-card .features li::before { content: "◆ "; color: #c9a84c; } .btn-primary { display: inline-block; padding: 0.8rem 2.5rem; background: #0a2e5c; color: #fff; border-radius: 3rem; font-weight: 600; transition: background 0.3s; } .btn-primary:hover { background: #1a4a7a; } .btn-secondary { display: inline-block; padding: 0.8rem 2.5rem; background: rgba(255,255,255,0.6); backdrop-filter: blur(10px); color: #0a2e5c; border: 1px solid rgba(10,46,92,0.12); border-radius: 3rem; font-weight: 600; } .btn-secondary:hover { background: rgba(255,255,255,0.9); } .btn-gold { background: #c9a84c; color: #0a2e5c; } .btn-gold:hover { background: #dbb95e; } .footer { text-align: center; padding: 2.5rem 0 2rem; color: #7a7a9a; border-top: 1px solid rgba(0,0,0,0.04); font-size: 0.9rem; } .footer a { color: #0a2e5c; font-weight: 500; } .footer a:hover { color: #c9a84c; } @media (max-width: 768px) { .nav a { margin-left: 1rem; font-size: 0.85rem; } .nav .cta { padding: 0.4rem 1rem; font-size: 0.8rem; } h1 { font-size: 2rem; } }</style>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>定价 · CrownStar 企业级主权AI平台</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif; background: #f0f3f8; color: #1a1a2e; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+
+        /* ===== HEADER ===== */
+        .header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,0.55); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255,255,255,0.4); padding: 0.8rem 0; }
+        .header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.6rem; font-weight: 700; color: #0a2e5c; }
+        .logo span { color: #c9a84c; }
+        .nav a { color: #4a4a6a; margin-left: 2.2rem; font-size: 0.95rem; font-weight: 500; transition: color 0.3s; position: relative; }
+        .nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, #c9a84c, #0a2e5c); transition: width 0.4s; }
+        .nav a:hover { color: #0a2e5c; }
+        .nav a:hover::after { width: 100%; }
+        .nav .active { color: #0a2e5c; font-weight: 600; border-bottom: 2px solid #c9a84c; padding-bottom: 0.2rem; }
+        .nav .cta { background: #0a2e5c; color: #fff !important; padding: 0.5rem 1.8rem; border-radius: 3rem; font-weight: 600; box-shadow: 0 4px 12px rgba(10,46,92,0.15); transition: background 0.3s, transform 0.2s; }
+        .nav .cta:hover { background: #1a4a7a; transform: scale(1.03); box-shadow: 0 8px 24px rgba(10,46,92,0.25); }
+        .nav .cta::after { display: none; }
+
+        /* ===== HERO ===== */
+        .pricing-hero { text-align: center; padding: 3rem 0 2rem; }
+        .pricing-hero h1 { font-size: 2.8rem; font-weight: 800; color: #0a2e5c; margin-bottom: 0.5rem; }
+        .pricing-hero h1 .gold { color: #c9a84c; }
+        .pricing-hero .subtitle { font-size: 1.2rem; color: #5a5a7a; max-width: 700px; margin: 0 auto; }
+
+        /* ===== TRUST BADGES ===== */
+        .trust-badges { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; padding: 1.5rem 0; border-top: 1px solid rgba(0,0,0,0.04); border-bottom: 1px solid rgba(0,0,0,0.04); background: rgba(255,255,255,0.3); margin: 1rem 0; }
+        .trust-badges .badge { font-size: 0.85rem; color: #4a4a6a; display: flex; align-items: center; gap: 0.4rem; }
+        .trust-badges .badge .icon { color: #c9a84c; font-weight: 700; }
+
+        /* ===== PRICING CARDS ===== */
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin: 2rem 0 3rem; }
+        .pricing-card { background: rgba(255,255,255,0.6); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.7); border-radius: 1.5rem; padding: 2.5rem 2rem; text-align: center; transition: transform 0.3s, box-shadow 0.4s; position: relative; overflow: hidden; }
+        .pricing-card:hover { transform: translateY(-8px); box-shadow: 0 16px 48px rgba(0,0,0,0.08); }
+        .pricing-card .tier-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: #7a7a9a; margin-bottom: 0.3rem; }
+        .pricing-card .tier-name { font-size: 1.8rem; font-weight: 700; color: #0a2e5c; margin-bottom: 0.3rem; }
+        .pricing-card .price { font-size: 2.8rem; font-weight: 800; color: #0a2e5c; margin: 0.5rem 0; }
+        .pricing-card .price .currency { font-size: 1.4rem; font-weight: 600; }
+        .pricing-card .price .note { font-size: 0.9rem; font-weight: 400; color: #7a7a9a; display: block; margin-top: 0.2rem; }
+        .pricing-card .features { text-align: left; padding-left: 1.2rem; margin: 1.5rem 0; color: #4a4a6a; }
+        .pricing-card .features li { list-style: none; padding: 0.3rem 0; display: flex; align-items: flex-start; gap: 0.5rem; }
+        .pricing-card .features li::before { content: "◆"; color: #c9a84c; font-weight: 700; }
+        .pricing-card .badge-popular { position: absolute; top: 0; right: 0; background: #c9a84c; color: #0a2e5c; font-size: 0.7rem; font-weight: 700; padding: 0.3rem 1.2rem; border-radius: 0 1.5rem 0 1.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .pricing-card .btn-buy { display: inline-block; padding: 0.9rem 2.5rem; border-radius: 3rem; font-weight: 600; font-size: 1rem; transition: background 0.3s, transform 0.2s; width: 100%; border: none; cursor: pointer; }
+        .pricing-card .btn-buy:hover { transform: scale(1.02); }
+        .btn-basic { background: #0a2e5c; color: #fff; box-shadow: 0 4px 16px rgba(10,46,92,0.2); }
+        .btn-basic:hover { background: #1a4a7a; }
+        .btn-pro { background: #c9a84c; color: #0a2e5c; box-shadow: 0 4px 16px rgba(201,168,76,0.3); }
+        .btn-pro:hover { background: #dbb95e; }
+        .btn-enterprise { background: #0a2e5c; color: #fff; box-shadow: 0 4px 16px rgba(10,46,92,0.25); }
+        .btn-enterprise:hover { background: #1a4a7a; }
+        .pricing-card .btn-buy .small { font-size: 0.7rem; font-weight: 400; opacity: 0.8; display: block; }
+
+        /* ===== ENTERPRISE HIGHLIGHT ===== */
+        .pricing-card.enterprise { border: 2px solid #c9a84c; background: rgba(255,255,255,0.7); }
+
+        /* ===== FOOTER ===== */
+        .footer { text-align: center; padding: 2.5rem 0 2rem; color: #7a7a9a; border-top: 1px solid rgba(0,0,0,0.04); font-size: 0.9rem; }
+        .footer a { color: #0a2e5c; font-weight: 500; }
+        .footer a:hover { color: #c9a84c; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav a { margin-left: 1rem; font-size: 0.85rem; }
+            .nav .cta { padding: 0.4rem 1rem; font-size: 0.8rem; }
+            .pricing-hero h1 { font-size: 2.2rem; }
+            .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
+        }
+        @media (max-width: 480px) {
+            .header .container { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+            .nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+            .nav a { margin-left: 0; font-size: 0.8rem; }
+            .pricing-card { padding: 1.5rem; }
+        }
+    </style>
 </head>
 <body>
-    <header class="header"><div class="container"><div class="logo">Crown<span>Star</span></div><nav class="nav"><a href="index.html">首页</a><a href="product.html">产品</a><a href="pricing.html" style="color:#0a2e5c;font-weight:600;">定价</a><a href="case-studies.html">案例</a><a href="security.html">安全</a><a href="contact.html" class="cta">联系我们</a></nav></div></header>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">Crown<span>Star</span></div>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="product.html">产品</a>
+                <a href="pricing.html" class="active">定价</a>
+                <a href="case-studies.html">案例</a>
+                <a href="security.html">安全</a>
+                <a href="contact.html" class="cta">联系我们</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="pricing-hero">
+        <div class="container">
+            <h1>选择适合你的 <span class="gold">CrownStar</span></h1>
+            <p class="subtitle">一次购买，终身免费升级。所有付费版本包含永久免费更新。<br>立即开始你的主权 AI 之旅。</p>
+        </div>
+    </section>
+
+    <!-- ===== TRUST BADGES ===== -->
+    <div class="trust-badges">
+        <span class="badge"><span class="icon">◆</span> 数据主权</span>
+        <span class="badge"><span class="icon">◆</span> 信创合规</span>
+        <span class="badge"><span class="icon">◆</span> 等保 2.0 三级</span>
+        <span class="badge"><span class="icon">◆</span> 国密加密</span>
+        <span class="badge"><span class="icon">◆</span> 私有化部署</span>
+    </div>
+
+    <!-- ===== PRICING CARDS ===== -->
     <div class="container">
-        <h1>定价方案</h1>
-        <p class="subtitle">一次购买，终身免费升级。所有付费版本包含永久免费更新。</p>
         <div class="pricing-grid">
-            <div class="pricing-card"><div class="tier">免费版</div><div class="price">免费</div><ul class="features"><li>无限对话</li><li>9 个数学模块</li><li>单用户 · 本地 SQLite</li><li>Web UI + REST API</li><li>永久免费使用</li></ul><a href="download.html" class="btn-secondary">下载</a></div>
-            <div class="pricing-card"><div class="tier">基础版</div><div class="price">¥29,800</div><ul class="features"><li>免费版全部功能</li><li>5 用户 · 对话历史导出</li><li>邮件提醒 · 成本追踪</li><li>邮件 24h 技术支持</li></ul><a href="contact.html" class="btn-primary">立即购买</a></div>
-            <div class="pricing-card"><div class="tier">专业版</div><div class="price">¥149,800</div><ul class="features"><li>基础版全部功能</li><li>50 用户 · 多租户 RLS</li><li>vLLM 推理 · 分析仪表板</li><li>邮件 + 电话 8h 支持</li></ul><a href="contact.html" class="btn-primary">立即购买</a></div>
-            <div class="pricing-card" style="border:2px solid #c9a84c;"><div class="tier">企业版</div><div class="price">¥598,000</div><ul class="features"><li>专业版全部功能</li><li>无限用户 · 源码授权</li><li>白标品牌 · 定制模型适配</li><li>专属技术经理 · 7×24 支持</li></ul><a href="contact.html" class="btn-gold btn-primary">立即咨询</a></div>
+
+            <!-- 免费版 -->
+            <div class="pricing-card">
+                <div class="tier-label">🆓 社区版</div>
+                <div class="tier-name">免费</div>
+                <div class="price">¥0</div>
+                <ul class="features">
+                    <li>无限对话 · 9 个数学模块</li>
+                    <li>单用户 · 本地 SQLite</li>
+                    <li>Web UI + REST API</li>
+                    <li>永久免费使用</li>
+                </ul>
+                <a href="download.html" class="btn-buy btn-basic" style="background:#4a4a6a;box-shadow:none;">免费下载</a>
+            </div>
+
+            <!-- 基础版 -->
+            <div class="pricing-card">
+                <div class="tier-label">💼 入门</div>
+                <div class="tier-name">基础版</div>
+                <div class="price"><span class="currency">¥</span>29,800</div>
+                <ul class="features">
+                    <li>免费版全部功能</li>
+                    <li>5 用户 · 对话历史导出</li>
+                    <li>邮件提醒 · 成本追踪</li>
+                    <li>邮件 24h 技术支持</li>
+                </ul>
+                <a href="https://buy.stripe.com/28E6oI7zr0R17NccOSefC03" class="btn-buy btn-basic">立即购买</a>
+            </div>
+
+            <!-- 专业版 -->
+            <div class="pricing-card" style="border:2px solid #c9a84c;">
+                <div class="badge-popular">最受欢迎</div>
+                <div class="tier-label">🏢 企业级</div>
+                <div class="tier-name">专业版</div>
+                <div class="price"><span class="currency">¥</span>149,800</div>
+                <ul class="features">
+                    <li>基础版全部功能</li>
+                    <li>50 用户 · 多租户 RLS</li>
+                    <li>vLLM 推理 · 分析仪表板</li>
+                    <li>邮件 + 电话 8h 支持</li>
+                </ul>
+                <a href="https://buy.stripe.com/5kQbJ2bPHbvF5F44imefC05" class="btn-buy btn-pro">立即购买</a>
+            </div>
+
+            <!-- 企业版 -->
+            <div class="pricing-card enterprise">
+                <div class="tier-label">🏛️ 集团</div>
+                <div class="tier-name">企业版</div>
+                <div class="price"><span class="currency">¥</span>598,000</div>
+                <ul class="features">
+                    <li>专业版全部功能</li>
+                    <li>无限用户 · 源码授权</li>
+                    <li>白标品牌 · 定制模型适配</li>
+                    <li>专属技术经理 · 7×24 支持</li>
+                </ul>
+                <a href="https://buy.stripe.com/dRm5kE5rjgPZ2sScOSefC06" class="btn-buy btn-enterprise">立即咨询</a>
+            </div>
+
         </div>
     </div>
-    <footer class="footer"><div class="container"><p>© 2026 CrownStar. All rights reserved.</p><p><a href="mailto:st3vens.ben@yandex.com">st3vens.ben@yandex.com</a></p></div></footer>
+
+    <!-- ===== VALUE PROPOSITION ===== -->
+    <div style="background:rgba(255,255,255,0.3); padding:2rem 0; margin:0 2rem 2rem; border-radius:1.5rem; text-align:center;">
+        <p style="color:#5a5a7a; font-size:1.1rem; max-width:700px; margin:0 auto;">
+            <strong style="color:#0a2e5c;">🔒 一次购买，终身免费升级。</strong><br>
+            所有付费版本包含所有未来功能更新，无隐藏费用。
+        </p>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 CrownStar. All rights reserved.</p>
+            <p style="margin-top:0.3rem;"><a href="mailto:st3vens.ben@yandex.com">st3vens.ben@yandex.com</a></p>
+        </div>
+    </footer>
+
 </body>
 </html>

@@ -1,1 +1,0 @@
-# Workflow streaming integration: trigger workflows on stream events

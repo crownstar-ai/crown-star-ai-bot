@@ -1,6 +1,0 @@
-[翻译占位] # In backup/backup_service.py, optionally delegate to BaaS:
-# from baas.service import get_baas_service
-# def create_backup(self, ...):
-#     baas = get_baas_service()
-#     return baas.create_backup(...)
-

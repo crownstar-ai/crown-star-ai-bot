@@ -1,7 +1,0 @@
-[翻译占位] # Extend KnowledgeManager to also store embeddings in vector DB for hybrid search
-# In knowledge/core.py KnowledgeManager.train_gnn, after generating embeddings:
-# from vectors.core import get_vector_manager, VectorDocument
-# vec_mgr = get_vector_manager()
-# docs = [VectorDocument(id=node, vector=emb, metadata={"entity_id": node, "label": mgr.graph.entities[node].label}, text=mgr.graph.entities[node].label) for node, emb in zip(node_list, embeddings)]
-# vec_mgr.ingest("knowledge_embeddings", docs)
-

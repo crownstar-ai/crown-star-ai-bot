@@ -1,9 +1,0 @@
-# In crownstar_core.py answer() method, before returning result:
-# from caching.cache_service import get_cache
-# cache = get_cache()
-# cache_key = f"answer:{user_input[:100]}:{self.tier}:{self.current_model}:{','.join(self.modules.get_active())}"
-# cached = cache.get("llm", cache_key)
-# if cached:
-#     return json.loads(cached)
-# ... generate response
-# cache.set("llm", json.dumps(result), cache_key, ttl=3600)

@@ -1,6 +1,0 @@
-[翻译占位] # In cost/optimizer/optimizer.py:
-# def record_vector_cost(self, operation, vector_count, index_name):
-#     storage_cost = vector_count * 0.000001  # $ per 1M vectors per month
-#     search_cost = 0.00001 per query
-#     self.metrics_queue.put(ResourceMetrics(...))
-

@@ -1,7 +1,0 @@
-# In cost/optimizer/optimizer.py:
-# from data_mesh.core import get_data_mesh_engine
-# def estimate_query_cost(self, sql):
-#     engine = get_data_mesh_engine()
-#     plan = engine.planner.plan(sql)
-#     # Map estimated_cost to actual cloud spend
-#     return {"cost_usd": plan["estimated_cost"] / 1000.0}

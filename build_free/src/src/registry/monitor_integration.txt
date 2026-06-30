@@ -1,1 +1,0 @@
-# Registry integration: automatically monitor deployed models

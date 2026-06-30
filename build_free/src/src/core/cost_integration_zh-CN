@@ -1,6 +1,0 @@
-[翻译占位] # In crownstar_core.py answer() method, after generating cost:
-# from cost.service import get_cost_monitor
-# # Already have analytics tracking cost, optionally push to cost monitor
-# monitor = get_cost_monitor()
-# monitor._check_budget(cost)  # or just rely on daily cloud billing
-

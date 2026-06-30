@@ -1,9 +1,0 @@
-[翻译占位] # Add to chaos/orchestrator/orchestrator.py:
-# from data_mesh.core import get_data_mesh_engine
-# def fail_data_source(self, source_name):
-#     engine = get_data_mesh_engine()
-#     # Temporarily remove connector or raise errors
-#     if source_name in engine.connectors:
-#         del engine.connectors[source_name]
-#     return {"failed": source_name}
-

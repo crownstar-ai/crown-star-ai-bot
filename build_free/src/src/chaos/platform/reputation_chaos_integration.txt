@@ -1,1 +1,0 @@
-# Chaos: simulate Sybil attacks, reputation flips

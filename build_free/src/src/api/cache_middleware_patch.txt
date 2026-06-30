@@ -1,5 +1,0 @@
-# In crownstar_enterprise_api.py, after creating app:
-# from caching.middleware import CacheMiddleware
-# from caching.api import router as cache_router
-# app.add_middleware(CacheMiddleware, cache_ttl=300)
-# app.include_router(cache_router)

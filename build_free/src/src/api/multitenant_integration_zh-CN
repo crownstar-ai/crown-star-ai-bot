@@ -1,9 +1,0 @@
-[翻译占位] # In crownstar_enterprise_api.py, add:
-# from multitenant.middleware.tenant_middleware import TenantMiddleware
-# from multitenant.api import router as tenant_router
-# import json
-# with open("config/multitenant/config.json") as f:
-#     mt_config = json.load(f)["multitenant"]
-# app.add_middleware(TenantMiddleware, mode=mt_config["mode"], header_name=mt_config["header_name"])
-# app.include_router(tenant_router)
-

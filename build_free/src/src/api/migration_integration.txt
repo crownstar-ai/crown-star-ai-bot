@@ -1,3 +1,0 @@
-# In crownstar_enterprise_api.py, add:
-# from migrations.api import router as migration_router
-# app.include_router(migration_router)

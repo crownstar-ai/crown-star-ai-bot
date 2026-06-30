@@ -1,4 +1,0 @@
-[翻译占位] # Extend data mesh to support vector similarity on multi‑modal index
-# Add a virtual table "multimodal_index" with columns: id, embedding, metadata
-# Allow SQL: SELECT * FROM multimodal_index WHERE vector_similarity(embedding, <query_embedding>) > 0.7
-

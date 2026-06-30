@@ -1,5 +1,0 @@
-﻿# In crownstar_enterprise_api.py, add:
-# from scheduler.api import router as scheduler_router
-# app.include_router(scheduler_router)
-# from scheduler.apscheduler_service import get_scheduler
-# get_scheduler()  # start scheduler on boot

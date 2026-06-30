@@ -1,4 +1,0 @@
-# In crownstar_core.py, replace ModelRouter import with EnhancedModelRouter
-# from language_models.model_router_enhanced import EnhancedModelRouter
-# self.model_router = EnhancedModelRouter(default_model="deepseek_v2_lite")
-# Also add method: def get_available_models(self) -> list: return self.model_router.list_models()

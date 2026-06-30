@@ -1,0 +1,4 @@
+# delivery/requirements.txt
+flask
+requests
+python-dotenv

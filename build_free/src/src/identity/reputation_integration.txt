@@ -1,1 +1,0 @@
-# Identity integration: use DID for attestation issuer

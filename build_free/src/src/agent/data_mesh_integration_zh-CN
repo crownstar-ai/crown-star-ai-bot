@@ -1,3 +1,0 @@
-[翻译占位] # In agent/core.py ToolRegistry._query_data already uses data mesh API.
-# Ensure data mesh engine is available and agent can issue SQL queries.
-

@@ -1,6 +1,0 @@
-[翻译占位] # Add to crownstar_ultra_cli.py:
-# def cmd_feature(self, args):
-#     parts = args.split()
-#     if not parts or parts[0]=="help": print("Usage: /feature register <name> <type> [desc] ...")
-#     # ... (full version from original)
-

@@ -1,93 +1,131 @@
-# model_router.py – Final version with full 28 models (replaces old)
+# src/language_models/model_router.py
+"""
+Routes chat requests to the appropriate language model (DeepSeek, OpenAI, etc.).
+"""
+
+import os
+import time
 import asyncio
-from typing import Optional, Dict
-from .base_adapter import LanguageModelAdapter
-from .adapters.deepseek_adapter import DeepSeekAdapter
-from .adapters.openai_adapter import OpenAIAdapter
-from .adapters.claude_adapter import ClaudeAdapter
-from .adapters.gemini_adapter import GeminiAdapter
-from .adapters.llama_adapter import LlamaAdapter
-from .adapters.chinese_adapters import (
-    WenxinAdapter, TongyiAdapter, HunyuanAdapter, GLM4Adapter,
-    MiniMaxAdapter, SparkAdapter, BaichuanAdapter, StepfunAdapter
-)
-from .adapters.chinese_adapters_extended import SenseChatAdapter, TiangongAdapter, ZhinaoAdapter
-from .model_registry import ModelRegistry
+from typing import Dict, Any, Optional, Tuple
+from dataclasses import dataclass
+
+from src.core.logging_config import get_logger
+from src.core.exceptions import DependencyError, TimeoutError
+from src.language_models.adapters.deepseek_adapter import DeepSeekAdapter
+from src.language_models.adapters.openai_adapter import OpenAIAdapter
+
+logger = get_logger(__name__)
+
+
+@dataclass
+class ModelResponse:
+    text: str
+    tokens_used: int
+    latency_ms: float
+
 
 class ModelRouter:
-    def __init__(self, default_model: str = "deepseek_v2_lite"):
-        self.registry = ModelRegistry()
-        self.adapters: Dict[str, LanguageModelAdapter] = {}
-        self.default = default_model
-        self._register_all()
+    """
+    Routes requests to the best model based on configuration and availability.
+    Supports multiple backends with fallback.
+    """
     
-    def _register_all(self):
-        # DeepSeek
-        self.adapters["deepseek_v2_lite"] = DeepSeekAdapter("v2_lite")
-        self.adapters["deepseek_v3"] = DeepSeekAdapter("v3")
-        # OpenAI
-        self.adapters["gpt4"] = OpenAIAdapter(model="gpt-4")
-        self.adapters["gpt4_turbo"] = OpenAIAdapter(model="gpt-4-turbo-preview")
-        self.adapters["gpt35"] = OpenAIAdapter(model="gpt-3.5-turbo")
-        # Anthropic
-        self.adapters["claude3_opus"] = ClaudeAdapter(model="claude-3-opus-20240229")
-        self.adapters["claude3_sonnet"] = ClaudeAdapter(model="claude-3-sonnet-20240229")
-        self.adapters["claude3_haiku"] = ClaudeAdapter(model="claude-3-haiku-20240307")
-        # Google
-        self.adapters["gemini_pro"] = GeminiAdapter(model="gemini-pro")
-        self.adapters["gemini_ultra"] = GeminiAdapter(model="gemini-ultra")
-        # Meta Llama
-        self.adapters["llama3_8b"] = LlamaAdapter("8B")
-        self.adapters["llama3_70b"] = LlamaAdapter("70B")
-        self.adapters["llama2_7b"] = LlamaAdapter("7B")
-        # Chinese models
-        self.adapters["wenxin"] = WenxinAdapter()
-        self.adapters["tongyi"] = TongyiAdapter()
-        self.adapters["hunyuan"] = HunyuanAdapter()
-        self.adapters["glm4"] = GLM4Adapter()
-        self.adapters["minimax"] = MiniMaxAdapter()
-        self.adapters["spark"] = SparkAdapter()
-        self.adapters["baichuan"] = BaichuanAdapter()
-        self.adapters["stepfun"] = StepfunAdapter()
-        self.adapters["sensechat"] = SenseChatAdapter()
-        self.adapters["tiangong"] = TiangongAdapter()
-        self.adapters["zhinao"] = ZhinaoAdapter()
-        # Stub adapters for models without full implementation
-        self.adapters["mistral_large"] = self._stub_adapter("Mistral Large")
-        self.adapters["mistral_medium"] = self._stub_adapter("Mistral Medium")
-        self.adapters["mistral_small"] = self._stub_adapter("Mistral Small")
-        self.adapters["cohere_command_r"] = self._stub_adapter("Cohere Command R+")
-        self.adapters["cohere_command"] = self._stub_adapter("Cohere Command")
-        self.adapters["ai21_j2_ultra"] = self._stub_adapter("AI21 Jurassic-2 Ultra")
-        self.adapters["ai21_j2_mid"] = self._stub_adapter("AI21 Jurassic-2 Mid")
+    def __init__(self):
+        self.models = {}
+        self._init_adapters()
     
-    def _stub_adapter(self, name: str):
-        class StubAdapter(LanguageModelAdapter):
-            async def generate(self, prompt: str, max_tokens: int = 512, temperature: float = 0.7) -> str:
-                return f"[{name}] {prompt[:100]}... (API key required for full implementation)"
-            def get_model_info(self) -> dict:
-                return {"name": name, "provider": name.split()[0]}
-        return StubAdapter()
+    def _init_adapters(self):
+        """Initialize available model adapters."""
+        # DeepSeek (primary)
+        api_key = os.environ.get("DEEPSEEK_API_KEY")
+        if api_key:
+            try:
+                self.models["deepseek_v2_lite"] = DeepSeekAdapter(
+                    model_version="v2_lite",
+                    api_key=api_key
+                )
+                self.models["deepseek_v3"] = DeepSeekAdapter(
+                    model_version="v3",
+                    api_key=api_key
+                )
+                logger.info("DeepSeek adapters initialized")
+            except Exception as e:
+                logger.error(f"Failed to initialize DeepSeek: {e}")
+        
+        # OpenAI (fallback)
+        openai_key = os.environ.get("OPENAI_API_KEY")
+        if openai_key:
+            try:
+                self.models["gpt4"] = OpenAIAdapter(model="gpt-4", api_key=openai_key)
+                self.models["gpt35"] = OpenAIAdapter(model="gpt-3.5-turbo", api_key=openai_key)
+                logger.info("OpenAI adapters initialized")
+            except Exception as e:
+                logger.error(f"Failed to initialize OpenAI: {e}")
+        
+        # If no models available, we'll use a mock for testing
+        if not self.models:
+            logger.warning("No model adapters available. Using mock adapter.")
+            self.models["mock"] = self._mock_adapter
     
-    async def generate(self, prompt: str, model_name: Optional[str] = None, **kwargs) -> str:
-        model = model_name or self.default
-        adapter = self.adapters.get(model)
-        if not adapter:
-            raise ValueError(f"Unknown model: {model}")
-        return await adapter.generate(prompt, **kwargs)
+    def _mock_adapter(self, prompt: str, **kwargs) -> ModelResponse:
+        """Mock adapter for testing."""
+        return ModelResponse(
+            text=f"[MOCK] Response to: {prompt[:50]}...",
+            tokens_used=len(prompt.split()),
+            latency_ms=10.0
+        )
+    
+    async def generate(
+        self,
+        prompt: str,
+        model: str = "deepseek_v2_lite",
+        temperature: float = 0.7,
+        max_tokens: int = 2048,
+        timeout_seconds: int = 30,
+    ) -> Tuple[str, int]:
+        """
+        Generate a response from the specified model.
+        Returns (response_text, tokens_used).
+        """
+        if model not in self.models:
+            logger.warning(f"Model '{model}' not found, falling back to first available")
+            model = next(iter(self.models.keys()))
+        
+        adapter = self.models[model]
+        start_time = time.perf_counter()
+        
+        try:
+            # Call adapter with timeout
+            if asyncio.iscoroutinefunction(adapter):
+                response = await asyncio.wait_for(
+                    adapter(prompt, max_tokens=max_tokens, temperature=temperature),
+                    timeout=timeout_seconds
+                )
+            else:
+                # Synchronous adapter (run in executor)
+                import concurrent.futures
+                with concurrent.futures.ThreadPoolExecutor() as executor:
+                    future = executor.submit(adapter, prompt, max_tokens=max_tokens, temperature=temperature)
+                    response = await asyncio.wait_for(
+                        asyncio.get_event_loop().run_in_executor(None, lambda: future.result()),
+                        timeout=timeout_seconds
+                    )
+            
+            latency_ms = (time.perf_counter() - start_time) * 1000
+            logger.debug(f"Generated response from {model} in {latency_ms:.0f}ms")
+            
+            # Extract text and token count (if available)
+            text = response.get("text", str(response))
+            tokens_used = response.get("tokens_used", len(text.split()))
+            return text, tokens_used
+            
+        except asyncio.TimeoutError:
+            logger.error(f"Model {model} timed out after {timeout_seconds}s")
+            raise TimeoutError(f"Model {model} generation")
+        except Exception as e:
+            logger.error(f"Model {model} error: {e}", exc_info=True)
+            raise DependencyError("language_model", {"model": model, "error": str(e)})
     
     def list_models(self) -> list:
-        return list(self.adapters.keys())
-    
-    def get_model_info(self, model_name: str) -> dict:
-        info = self.registry.get_model(model_name)
-        if info:
-            return {
-                "name": info.name,
-                "display_name": info.display_name,
-                "provider": info.provider,
-                "tier_min": info.tier_min,
-                "context_length": info.context_length,
-                "capabilities": info.capabilities
-            }
-        return None
+        """List available models."""
+        return list(self.models.keys())

@@ -1,6 +1,0 @@
-# In crownstar_core.py, replace direct database access with shard router:
-# from sharding.routing.router import get_shard_router
-# self.shard_router = get_shard_router()
-# In answer(), before storing conversation:
-# self.shard_router.set_shard_context(user_id)
-# Then use self.shard_router.execute_on_shard(user_id, sql, params)

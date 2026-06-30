@@ -1,4 +1,0 @@
-# In analytics/core.py MetricsCollector add:
-# from compression.core import get_comp_manager
-# mgr = get_comp_manager()
-# # Would track accuracy loss after compression

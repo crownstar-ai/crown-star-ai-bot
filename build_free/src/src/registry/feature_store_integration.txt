@@ -1,1 +1,0 @@
-# Registry integration: feature list for models

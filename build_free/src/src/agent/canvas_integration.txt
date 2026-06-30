@@ -1,1 +1,0 @@
-# Extend agent tools with canvas operations

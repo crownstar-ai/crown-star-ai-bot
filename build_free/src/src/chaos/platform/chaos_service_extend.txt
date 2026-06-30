@@ -1,4 +1,0 @@
-# Extend src/chaos/service.py to use chaos platform as backend:
-# from chaos.platform.orchestrator.orchestrator import get_chaos_orchestrator
-# orche = get_chaos_orchestrator()
-# Then replace _inject_* methods with calls to run_scenario() on the orchestrator.

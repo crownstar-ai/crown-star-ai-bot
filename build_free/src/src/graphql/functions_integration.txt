@@ -1,1 +1,0 @@
-# Gateway integration: route HTTP to functions
